@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('font/MyriadPro.ttf');
+}
+
+@font-face {
+    font-family: 'syxi';
+    src: url('//at.alicdn.com/t/webfont_dzj9vpkj9n.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_dzj9vpkj9n.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.svg#思源黑体-细') format('svg'); /* iOS 4.1- */
+}
+
+header {
+    width: 100%;
+    height: 400px;
+    background: #0088ff;
+    color: white;
+    font-family: 'Myriad', 'syxi';
+    font-size: 225%;
+}
+
+header span {
+    font-family: 微软雅黑, serif;
+    color: white;
+    font-size: 375%;
+}
+
+header div {
+    top: 90px;
+    left: 50%;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(-50%)
+}
+
+main {
+    font-size: 110%;
+    margin: 5% 20% 20%;
+}
+
+main ul {
+    font-size: 150%;
+    margin-top: 10%;
+    clear: left;
+    list-style-type: none;
+}
+
+main li {
+    margin-top: 5%;
+    font-size: 20px;
+    display: block;
+}
+
+main a {
+    display: block;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 5%;
+    text-align: center;
+    float: left;
+    background: #ff5a88;
+    margin-left: 20%;
+    color: white;
+    border-radius: 5px;
+}
+
+main a:hover {
+    text-decoration: none;
+    animation: two 0.35s ease-in-out forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes two {
+    0% {
+
+    }
+    100% {
+        box-shadow: 2px 3px 8px #6b6b6b;
+    }
+}
