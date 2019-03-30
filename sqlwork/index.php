@@ -164,7 +164,10 @@ function upload($fileInfo)
         </div>
     </section>
     <div id="readme">
-        <a href="checkList.php">查看名单</a>
+        <p>上课当天上交的请在上课前找我确认</p>
+        <br>
+        <p><a href="checkList.php">查看上交名单</a></p>
+        <br>
         <p>文件搜索支持模糊<?php foreach ($suffixs as $item): echo $item; endforeach; ?>后缀的文件</p>
         <p>要替换旧文件在新文件名后面加个“2”就行</p>
         <p>别忘了检查一下文件大小是否一致</p>
