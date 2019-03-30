@@ -96,7 +96,7 @@ function upload($fileInfo)
 <?php include("../part/nav.php") ?>
 <header>
     <div><p>Software1809</p>
-        <p><span>SQL work 0327</span></p>
+        <p><span>SQL work 0401</span></p>
         <p>Upload or check</p>
         <p><?php echo $hostname ?>版</p>
     </div>
@@ -165,6 +165,7 @@ function upload($fileInfo)
     </section>
     <div id="readme">
         <p>上课当天上交的请在上课前找我确认</p>
+        <p>PS：4月1日补课<p>
         <br>
         <p><a href="checkList.php">查看上交名单</a></p>
         <br>
