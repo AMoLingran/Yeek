@@ -96,7 +96,7 @@ function upload($fileInfo)
 <?php include("../part/nav.php") ?>
 <header>
     <div><p>Software1809</p>
-        <p><span>SQL work 0401</span></p>
+        <p><span>SQL work 0404</span></p>
         <p>Upload or check</p>
         <p><?php echo $hostname ?>版</p>
     </div>
