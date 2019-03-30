@@ -1,8 +1,9 @@
-.idea
-.metadata
-WebStudy
-qujixue
-Download
-zend
-PhpStudy
+/zend
+/.idea
+/Download
+/qujixue
+/.metadata
+Download/
 .htaccess
+/WebStudy
+/PhpStudy
