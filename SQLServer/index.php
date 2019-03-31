@@ -69,7 +69,7 @@ if (PATH_SEPARATOR == ':') {
         <hr>
         <br><br>
         <dl>
-            <dt>仓库：</dt>
+            <dt>仓库：test</dt>
             <br>
             <dd><a target="_blank" href="Download/SQL_Server_Management_Studio_2005_x64.msi">SQL_Server_Management_Studio_2005
                     (size: 40.3MB)</a></dd>
