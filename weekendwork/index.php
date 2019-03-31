@@ -16,11 +16,11 @@ if (PATH_SEPARATOR == ':') {
     $domain = '10.50.43.44';
 }
 $counter = 1;
-$list = [['Subject' => '数学', 'info' => '课本 P49 2(2)(4)、3(2)(4) 写本子上，上课交。', 'annex' => ''],
-    ['Subject' => '英语', 'info' => 'B级准备课堂表演节目，713下下周五（4月12）上台。', 'annex' => ''],
+$list = [
     ['Subject' => 'Java', 'info' => '课本P97填空题 带题目抄写本子上，上课交。', 'annex' => ''],
-    ['Subject' => 'SQL server', 'info' => '课本P100页 3.实训过程 写在word文档在本站上交.', 'annex' => ''],
-    ['Subject' => 'php', 'info' => '①复写28日的课堂笔记 ②在线练习可以做到第四个。', 'annex' => '1809.3.28.txt']
+    ['Subject' => 'SQL server', 'info' => '课本P100页 3.实训过程 写在word文档在本站上交。（4月4日前）', 'annex' => ''],
+    ['Subject' => 'php', 'info' => '①复写28日的课堂笔记 ②在线练习可以做到第四个。', 'annex' => '1809.3.28.txt'],
+    ['Subject' => '英语', 'info' => 'B级准备课堂表演节目，713下下周五（4月12）上台。', 'annex' => '']
 ];
 ?>
 
@@ -52,9 +52,9 @@ $list = [['Subject' => '数学', 'info' => '课本 P49 2(2)(4)、3(2)(4) 写本�
         ?>
     </div>
     <p id="OS">
-        此页的：
-        <a href="http://www.php.cn/blog/detail/11666.html">在线部分源码</a>
-        <a href="https://github.com/AMoLingran/Yeek">在GitHub中</a>
+        此页的源码：
+        <a href="http://www.php.cn/blog/detail/11666.html">在PhpStudy中</a>
+        <a href="https://github.com/AMoLingran/Yeek" target="_blank" >在GitHub中</a>
     </p>
 </main>
 <?php echo include("../part/sqlfooter.php") ?>
