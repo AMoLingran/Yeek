@@ -25,9 +25,9 @@
 </head>
 <body>
 <?php include("../part/nav.php") ?>
-    <?php include("delete.php") ?>
-    <?php include("down.php") ?>
-    <?php include("restore.php") ?>
+    <?php include("function/delete.php") ?>
+    <?php include("file/index.php") ?>
+    <?php include("function/restore.php") ?>
 <?php include("../part/sqlfooter.php") ?>
 </body>
 </html>

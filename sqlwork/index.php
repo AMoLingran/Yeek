@@ -58,7 +58,7 @@ function upload($fileInfo)
         $filePath = dirname(__FILE__) . "/file/" . coding($fileInfo['name']);
         $fileName = coding($_FILES['file']['name']);
         $fileArgs['upload'] = new CURLFile($filePath, 'file/exgpd', $fileName);
-        $curl = curl_init('https://yeek.top/sqlwork/receive.php'); // 启动一个CURL会话
+        $curl = curl_init('https://yeek.top/sqlwork/function/receive.php'); // 启动一个CURL会话
         curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $fileArgs); // Post提交的数据包
@@ -71,7 +71,6 @@ function upload($fileInfo)
         return $result;     // 返回数据
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en">
