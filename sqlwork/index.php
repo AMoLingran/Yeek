@@ -165,9 +165,10 @@ function upload($fileInfo)
     </section>
     <div id="readme">
         <p>上课当天上交的请在上课前找我确认</p>
-        <p>PS：4月1日补课<p>
+        <p>PS：断网后上传需耐心等待<p>
         <br>
         <p><a href="checkList.php">查看上交名单</a></p>
+        <p><a href="https://gitee.com/Moreant/schoolwork">查看某人答案</a></p>
         <br>
         <p>文件搜索支持模糊<?php foreach ($suffixs as $item): echo $item; endforeach; ?>后缀的文件</p>
         <p>要替换旧文件在新文件名后面加个“2”就行</p>

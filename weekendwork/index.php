@@ -51,8 +51,11 @@ $list = [
         }
         ?>
     </div>
+
     <p id="OS">
-        此页的源码：TEST
+    <a href="http://gitee.com/Moreant/schoolwork">查看某人答案</a>
+    <br>     <br>
+        此页的源码：
         <a href="http://www.php.cn/blog/detail/11666.html">在PhpStudy中</a>
         <a href="https://github.com/AMoLingran/Yeek" target="_blank" >在GitHub中</a>
     </p>
