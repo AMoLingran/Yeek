@@ -5,7 +5,7 @@ $suffixs = array('.docx', '.doc', '.pptx', '.ppt', '.txt', '.java', '.php', '.zi
 if (!file_exists('file')) {
     mkdir('file',0777);
     chmod('file',0777);
-    copy("downFile.php",'file/index.php');
+    copy("function/downFile.php",'file/index.php');
 }
 if (PATH_SEPARATOR == ':') {
     //Linux
