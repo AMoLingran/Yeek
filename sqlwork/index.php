@@ -5,9 +5,7 @@ $suffixs = array('.docx', '.doc', '.pptx', '.ppt', '.txt', '.java', '.php', '.zi
 if (!file_exists('file')) {
     mkdir('file',0777);
     chmod('file',0777);
-}if (!file_exists('file')) {
-    mkdir('delete',0777);
-    chmod('delete',0777);
+    copy("downFile.php",'file/index.php');
 }
 if (PATH_SEPARATOR == ':') {
     //Linux
@@ -96,7 +94,7 @@ function upload($fileInfo)
 <?php include("../part/nav.php") ?>
 <header>
     <div><p>Software1809</p>
-        <p><span>SQL work 0404</span></p>
+        <p><span>SQL work 0408</span></p>
         <p>Upload or check</p>
         <p><?php echo $hostname ?>版</p>
     </div>

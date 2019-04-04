@@ -11,7 +11,7 @@ $path = __DIR__;
 $result = glob($path . '/*.*');
 foreach ($result as $item) {
     if (PATH_SEPARATOR == ':') {
-        $list[] = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
+        $list[] = str_replace($path . "/", "", $item);
     } else {
         $list[] = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
     }
@@ -53,7 +53,7 @@ array_pop($list);
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
-                <td><?php echo "<a href='file/$item'>$item"; ?></a></td>
+                <td><?php echo "<a href='$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
     </table>
