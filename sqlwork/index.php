@@ -28,7 +28,7 @@ function checkFile2($name)
 {
     $list = array();
     global $suffixs;
-    if (pathinfo($name, PATHINFO_EXTENSION)=="") {
+    if (pathinfo($name, PATHINFO_EXTENSION) == "") {
         $counter = 0;
         foreach ($suffixs as $suffix) {
             $url = "file/" . coding($name) . '.' . $suffix;
@@ -122,7 +122,7 @@ function showUpload($fileArray)
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>SQL作业上交和查询</title>
+    <title>SSW</title>
     <style>
         fieldset {
             width: 325px;
@@ -139,12 +139,13 @@ function showUpload($fileArray)
 <?php include("../part/nav.php") ?>
 <header>
     <div><p>Software1809</p>
-        <p><span>SQL work 0408</span></p>
-        <p>Upload or check</p>
+        <p><span>SQL Server Work </span></p>
+        <p>Upload</p>
         <p><?php echo $hostname ?>版</p>
     </div>
 </header>
 <main>
+
     <section>
         <div>
             <fieldset>
@@ -202,9 +203,9 @@ function showUpload($fileArray)
     </section>
     <div id="readme">
         <p>上课当天上交的请在上课前找我确认</p>
-        <p>PS：断网后上传需耐心等待
-        <p>
-            <br>
+        <p>PS：断网后上传需耐心等待</p>
+        <br>
+        <a href="/worklist" target="_blank">查看本次作业内容</a>
         <p><a href="checkList.php">查看上交名单</a></p>
         <p><a href="https://gitee.com/Moreant/schoolwork">查看某人答案</a></p>
         <br>
