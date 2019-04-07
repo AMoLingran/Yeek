@@ -23,38 +23,32 @@ function coding($in_charset)
     }
 }
 
-function gitsuf(){
-
-}
 
 function checkFile2($name)
 {
-    global $file,$suffixs;
-
-    if(empty(pathinfo($name, PATHINFO_EXTENSION))){
-
+    $list = array();
+    global $suffixs;
+    if (pathinfo($name, PATHINFO_EXTENSION)=="") {
         $counter = 0;
-        foreach ($suffixs as $suffix){
-            $url = "file/" . coding($name).'.'.$suffix;
+        foreach ($suffixs as $suffix) {
+            $url = "file/" . coding($name) . '.' . $suffix;
             if (file_exists($url)) {
-                $file['error']=0;
-                $file[$counter]['name'] = $name;
-                $file[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
+                $list[$counter]['name'] = $name;
+                $list[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
                 $counter++;
             }
         }
-    }else{
+    } else {
         $url = "file/" . coding($name);
         if (file_exists($url)) {
-            $file['error']=0;
-            $file[0]['name'] = $name;
-            $file[0]['size'] = round(filesize($url) / 1024 / 1024, 2);
+            $list[0]['name'] = $name;
+            $list[0]['size'] = round(filesize($url) / 1024 / 1024, 2);
         }
-    }
 
+    }
+    return $list;
 }
 
-$counter = 0;
 function checkFile($name)
 {
     global $file, $counter;
@@ -101,6 +95,7 @@ function upload($fileInfo)
         curl_close($curl);   // 关键CURL会话
         return $result;     // 返回数据
     }
+    return "error";
 }
 
 function showCheck($file)
@@ -163,13 +158,14 @@ function showUpload($fileArray)
                 </form>
             </fieldset>
             <br>
-            <?php if (isset($_POST['check'])) {
+            <?php
+            if (isset($_POST['check'])) {
                 /*foreach ($suffixs as $suffix) {
                     checkFile($_POST['name'] . "." . $suffix);
                 }*/
-                checkFile2($_POST['name']);
-                if (count($file) > 0) {
-                    showCheck($file);
+                $result = checkFile2($_POST['name']);
+                if (count($result) > 0) {
+                    showCheck($result);
                 } else {
                     echo "<span class='blue'>没有找到“</span>" . $_POST['name'] . "”的相关文件";
                 }
@@ -186,7 +182,8 @@ function showUpload($fileArray)
                 </fieldset>
             </form>
             <br>
-            <?php if (isset($_POST['file'])) {
+            <?php
+            if (isset($_POST['file'])) {
                 $fileInfo = $_FILES['file'];
                 foreach ($suffixs as $suffix) {
                     $fileName = $fileInfo['name'];
@@ -197,9 +194,6 @@ function showUpload($fileArray)
                         } else {
                             showUpload(moveFile($fileInfo));
                         }
-                        break;
-                    } else {
-                        break;
                     }
                 }
             }
@@ -224,4 +218,5 @@ function showUpload($fileArray)
 <?php include("../part/sqlfooter.php") ?>
 </body>
 </html>
+
 
