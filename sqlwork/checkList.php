@@ -41,6 +41,20 @@ function getList()
             text-align: center;
             display: block;
         }
+        table, th, td {
+            border: 1px solid #4c4c4c;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            margin: auto;
+        }
+
+        tbody td:hover {
+            background-color: #efefef;
+        }
 
     </style>
     <link rel="icon" href="/logo.png" sizes="32x32">

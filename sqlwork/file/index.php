@@ -43,6 +43,7 @@ array_pop($list);
         tbody td:hover {
             background-color: #efefef;
         }
+
     </style>
 </head>
 <body>
