@@ -17,14 +17,22 @@ if (PATH_SEPARATOR == ':') {
 }
 $counter = 1;
 $list = [
-    ['end' => '408', 'start' => '404', 'Subject' => 'php', 'info' => '①复写4.4课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.4.txt'],
+    ['end' => '0408', 'start' => '0404', 'Subject' => 'php', 'info' => '①复写4.4课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.4.txt'],
     ['end' => '长期', 'start' => '-', 'Subject' => '英语', 'info' => 'B级准备课堂表演节目，713下下周五（4月12）上台。', 'annex' => ''],
-    ['end' => '408', 'start' => '-', 'Subject' => 'SQL server', 'info' => '按“第六章”的要求编写实验报告', 'annex' => '第六章.doc']
+    ['end' => '0408', 'start' => '-', 'Subject' => 'SQL server', 'info' => '按“第六章”的要求编写实验报告', 'annex' => '第六章.doc']
 ];
 asort($list);
-foreach ($list as $item) {
-
+function add($array,$flag){
+    foreach ($array as $kye => $item) {
+        if (is_numeric($item[$flag])) {
+            $data = str_split($item[$flag], 2);
+            $array[$kye][$flag] =($data[0]+0)."月".($data[1]+0)."日";
+        }
+    }
+    return $array;
 }
+$list = add($list,"end");
+$list = add($list,"start");
 ?>
 
 <!DOCTYPE html>
@@ -54,16 +62,16 @@ foreach ($list as $item) {
             <td>内容</td>
             <td>相关课件</td>
         </tr>
-            <?php foreach ($list as $item) {
-                echo "<tr>";
-                echo "<td>".$item['start']."</td>";
-                echo "<td>".$item['end']."</td>";
-                echo "<td>".$item['Subject']."</td>";
-                echo "<td>".$item['info']."</td>";
-                echo "<td><a download='' href=annex/".$item['annex'].">".$item['annex']."</td>";
-                echo "</tr>";
-            }
-            ?>
+        <?php foreach ($list as $item) {
+            echo "<tr>";
+            echo "<td>" . $item['start'] . "</td>";
+            echo "<td>" . $item['end'] . "</td>";
+            echo "<td>" . $item['Subject'] . "</td>";
+            echo "<td>" . $item['info'] . "</td>";
+            echo "<td><a download='' href=annex/" . $item['annex'] . ">" . $item['annex'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
     </table>
 
     <p id="OS">
