@@ -63,7 +63,6 @@ function checkFile($name)
 function moveFile($fileInfo)
 {
     if (move_uploaded_file($fileInfo['tmp_name'], "file/" . coding($fileInfo['name']))) {
-
         return $fileArray = [
             'name' => $fileInfo['name'],
             'size' => round($fileInfo['size'] / 1024 / 1024, 2),
@@ -95,7 +94,6 @@ function upload($fileInfo)
         curl_close($curl);   // 关键CURL会话
         return $result;     // 返回数据
     }
-    return "error";
 }
 
 function showCheck($file)
@@ -186,17 +184,24 @@ function showUpload($fileArray)
             <?php
             if (isset($_POST['file'])) {
                 $fileInfo = $_FILES['file'];
+                $match = false;
                 foreach ($suffixs as $suffix) {
                     $fileName = $fileInfo['name'];
                     if ((pathinfo($fileName, PATHINFO_EXTENSION)) == $suffix) {
-                        checkFile($fileInfo['name']);
-                        if (count($file) > 0) {
-                            showCheck($file);
+                        $result = checkFile2($_POST['name']);
+                        if (count($result) > 0) {
+                            showCheck($result);
+                            $match = true;
                         } else {
                             showUpload(moveFile($fileInfo));
+                            $match = true;
                         }
                     }
                 }
+                if (!$match) {
+                    echo "<span>上传失败</span><br>你上传的文件格式不合法，请查看下面的说明";
+                }
+
             }
             ?>
         </div>
@@ -205,15 +210,16 @@ function showUpload($fileArray)
         <p>上课当天上交的请在上课前找我确认</p>
         <p>PS：断网后上传需耐心等待</p>
         <br>
-        <a href="/worklist" target="_blank">查看本次作业内容</a>
-        <p><a href="checkList.php">查看上交名单</a></p>
-        <p><a href="https://gitee.com/Moreant/schoolwork">查看某人答案</a></p>
+        <p>
+            <a href="/worklist" target="_blank">查看作业内容</a>
+            <a href="checkList.php">查看上交名单</a>
+            <a href="https://gitee.com/Moreant/schoolwork">查看某人答案</a>
+        </p>
         <br>
-        <p>文件搜索支持模糊<?php foreach ($suffixs as $item): echo $item;
-            endforeach; ?>后缀的文件</p>
-        <p>要替换旧文件在新文件名后面加个“2”就行</p>
-        <p>别忘了检查一下文件大小是否一致</p>
-        <p>检查不到文件可能是我还没有同步内外网</p>
+        <p>①仅支持上传和搜索<?php foreach ($suffixs as $item): echo " " . $item.","; endforeach; ?>后缀的文件</p><br>
+        <p>②要替换旧文件在新文件名后面加个“2”就行</p><br>
+        <p>③别忘了检查一下文件大小是否一致</p><br>
+        <p>④检查不到文件可能是我还没有同步内外网</p><br>
     </div>
 </main>
 <?php include("../part/sqlfooter.php") ?>
