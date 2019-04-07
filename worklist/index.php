@@ -19,7 +19,7 @@ $counter = 1;
 $list = [
     ['end' => '408', 'start' => '404', 'Subject' => 'php', 'info' => '①复写4.4课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.4.txt'],
     ['end' => '长期', 'start' => '-', 'Subject' => '英语', 'info' => 'B级准备课堂表演节目，713下下周五（4月12）上台。', 'annex' => ''],
-    ['end' => '408', 'start' => '-', 'Subject' => 'SQL server', 'info' => '课本P100页 3.实训过程 写在word文档在本站上交。（4月4日前）', 'annex' => '']
+    ['end' => '408', 'start' => '-', 'Subject' => 'SQL server', 'info' => '按“第六章”的要求编写实验报告', 'annex' => '第六章.doc']
 ];
 asort($list);
 foreach ($list as $item) {
