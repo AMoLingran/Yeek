@@ -1,5 +1,6 @@
-## [一客网][1]的部分源码
-Part of the source code 
+## 这是[一客][1]的部分源码
+This is part of [Yeek][1] source code.
+***  
 ## 作者:Moreant
 author
 ## 邮箱:molingran@yeek.top
