@@ -1,5 +1,6 @@
 <?php
 //$domain = $_SERVER['HTTP_HOST'];
+date_default_timezone_set('PRC');
 $counter = 0;
 if (PATH_SEPARATOR == ':') {
     //Linux
