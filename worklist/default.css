@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: 'mini_思源黑体L';
+    src: url('../font/mini_SourceHanSansCN-Light.ttf');
+}
+
+@font-face {
     font-family: '思源黑体L';
     src: url('../font/SourceHanSansCN-Light.ttf');
 }
@@ -18,7 +23,7 @@ header {
     height: 350px;
     background: #2e8b57;
     color: white;
-    font-family: 'Myriad', '思源黑体L';
+    font-family: 'Myriad','mini_思源黑体L','思源黑体L';
     font-size: 225%;
 }
 

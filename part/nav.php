@@ -29,7 +29,7 @@ if (PATH_SEPARATOR == ':') {
     <ul>
         <li><a href="http://<?php echo $navInfo['domain'] ?>">一客</a></li>
         <li><a href="http://<?php echo $navInfo['domain'] ?>/worklist">作业清单</a></li>
-        <li><a href="http://<?php echo $navInfo['domain'] ?>/sqlwork">SSW</a></li>
+        <li><a href="http://<?php echo $navInfo['domain'] ?>/sqlwork">SQL Work</a></li>
         <li><a href="http://<?php echo $navInfo['toDomain'] . $navLocal ?>">换至<?php echo $navInfo['toName'] ?></a></li>
     </ul>
 </nav>

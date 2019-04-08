@@ -40,7 +40,7 @@ if (PATH_SEPARATOR == ':') {
 <main>
     <ul>SQL Server：
         <li>
-            <a href="SQLServer">下载、安装教程</a></li>
+            <a href="SQLServer">安装教程和文件下载</a></li>
         <li><a href="sqlwork">作业上交</a></li>
         <br>
     </ul>

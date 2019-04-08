@@ -131,7 +131,7 @@ function showUpload($fileArray)
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>SSW</title>
+    <title>SQL Work</title>
     <style>
         fieldset {
             width: 325px;
@@ -148,7 +148,7 @@ function showUpload($fileArray)
 <?php include("../part/nav.php") ?>
 <header>
     <div>
-        <p><span>SQL Server Work </span></p>
+        <p><span>SQL Work</span></p>
         <p>Work for 4/8 </p>
         <p><?php echo $navInfo['name'] ?>版 v1.2</p>
     </div>
