@@ -8,12 +8,22 @@
 
 if (PATH_SEPARATOR == ':') {
     //Linux
-    $hostname = '一客';
-    $domain = 'yeek.top';
+    $navInfo = [
+        'host' => '外网',
+        'name' => '一客',
+        'domain' => 'yeek.top',
+        'toHost' => '内网',
+        'toDomain' => '10.50.43.44'
+    ];
 } else {
     //Windows
-    $hostname = '校园网';
-    $domain = '10.50.43.44';
+    $navInfo = [
+        'host' => '内网',
+        'name' => '校园',
+        'domain' => '10.50.43.44',
+        'toHost' => '外网',
+        'toDomain' => 'yeek.top'
+    ];
 }
 ?>
 
@@ -32,7 +42,7 @@ if (PATH_SEPARATOR == ':') {
     <div>
         <p><span>SQL Server</span></p>
         <p>Installation tutorial and file download</p>
-        <p><?php echo $hostname ?>版</p>
+        <p><?php echo $navInfo['name'] ?>版</p>
     </div>
 </header>
 <main>

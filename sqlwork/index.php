@@ -14,16 +14,17 @@ if (PATH_SEPARATOR == ':') {
         'name' => '一客',
         'domain' => 'yeek.top',
         'toHost' => '内网',
-        'toDomain' => '10.50.43.44'
+        'toDomain' => '10.50.43.44',
     ];
 } else {
     //Windows
     $navInfo = [
+            'fuck' => 'fuck?',
         'host' => '内网',
         'name' => '校园',
         'domain' => '10.50.43.44',
         'toHost' => '外网',
-        'toDomain' => 'yeek.top'
+        'toDomain' => 'yeek.top',
     ];
 }
 function coding($in_charset)
@@ -150,7 +151,7 @@ function showUpload($fileArray)
     <div>
         <p><span>SQL Work</span></p>
         <p>Work for 4/8 </p>
-        <p><?php echo $navInfo['name'] ?>版 v1.2</p>
+        <p><?php echo $navInfo['name']; ?>版 v1.2</p>
     </div>
 </header>
 <main>

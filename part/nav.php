@@ -10,18 +10,22 @@ $navLocal = $_SERVER['SCRIPT_NAME'];
 if (PATH_SEPARATOR == ':') {
     //Linux
     $navInfo = [
-        'name' => '外网',
-        'toName' => '内网',
+        'host' => '外网',
+        'name' => '一客',
         'domain' => 'yeek.top',
-        'toDomain' => '10.50.43.44'
+        'toName' => '校园',
+        'toHost' => '内网',
+        'toDomain' => '10.50.43.44',
     ];
 } else {
     //Windows
     $navInfo = [
-        'name' => '内网',
-        'toName' => '外网',
+        'host' => '内网',
+        'name' => '校园',
         'domain' => '10.50.43.44',
-        'toDomain' => 'yeek.top'
+        'toName' => '一客',
+        'toHost' => '外网',
+        'toDomain' => 'yeek.top',
     ];
 }
 ?>
