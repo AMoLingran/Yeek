@@ -1,7 +1,7 @@
 <?php
 $file = array();
 $local = $_SERVER['SCRIPT_NAME'];
-$suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'php', 'zip', 'rar');
+$suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar');
 if (!file_exists('file')) {
     mkdir('file', 0777);
     chmod('file', 0777);
@@ -138,8 +138,8 @@ function showUpload($fileArray)
 <header>
     <div><p>Software1809</p>
         <p><span>SQL Server Work </span></p>
-        <p>Upload</p>
-        <p><?php echo $hostname ?>版</p>
+        <p>4/8 Work</p>
+        <p><?php echo $hostname ?>版 v1.2</p>
     </div>
 </header>
 <main>
