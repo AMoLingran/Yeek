@@ -5,6 +5,8 @@
  * Date: 3/18 0018
  * Time: 21:16
  */
+var_dump($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+$set = "file/";
 ?>
 
 <!doctype html>

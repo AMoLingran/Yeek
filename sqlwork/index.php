@@ -188,7 +188,7 @@ function showUpload($fileArray)
                 foreach ($suffixs as $suffix) {
                     $fileName = $fileInfo['name'];
                     if ((pathinfo($fileName, PATHINFO_EXTENSION)) == $suffix) {
-                        $result = checkFile2($_POST['name']);
+                        $result = checkFile2($fileName);
                         if (count($result) > 0) {
                             showCheck($result);
                             $match = true;

@@ -17,6 +17,9 @@ foreach ($result as $item) {
     }
 }
 array_pop($list);
+if(!isset($set)){
+    $set = "";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -53,7 +56,7 @@ array_pop($list);
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
-                <td><?php echo "<a href='$item'>$item"; ?></a></td>
+                <td><?php echo "<a href='$set$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
     </table>

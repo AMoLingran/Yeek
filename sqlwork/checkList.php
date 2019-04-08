@@ -30,7 +30,7 @@ function getList()
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>查看文件列表</title>
+    <title>SSW - 查看文件列表</title>
     <style type="text/css">
         fieldset {
             padding: 5%;
