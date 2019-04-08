@@ -83,11 +83,11 @@ table {
 
 table tr:first-child {
     color: white;
-    background: #f63d2a;
+    background: #ff8c00;
 }
 
 table tr:first-child td:hover {
-    background: #f63d2a;
+    background: #ff8c00;
 }
 
 

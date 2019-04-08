@@ -49,7 +49,7 @@ $list = add($list,"start");
 <header>
     <div><p>Software1809</p>
         <p><span>Work List</span></p>
-        <p>作业清单</p>
+        <p>update for 4/8</p>
         <p><?php echo $hostname ?>版</p>
     </div>
 </header>
