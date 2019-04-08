@@ -57,11 +57,11 @@ $list = add($list,"start");
 <main>
     <table>
         <tr>
-            <td>发布时间</td>
-            <td>截至时间</td>
+            <td>时间</td>
+            <td>时间</td>
             <td>科目</td>
             <td>内容</td>
-            <td>相关课件</td>
+            <td>课件</td>
         </tr>
         <?php foreach ($list as $item) {
             echo "<tr>";
