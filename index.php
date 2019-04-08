@@ -45,7 +45,7 @@ if (PATH_SEPARATOR == ':') {
         <br>
     </ul>
     <ul>作业清单：
-        <li><a href="weekendwork">周末作业清单</a></li>
+        <li><a href="worklist">作业清单</a></li>
     </ul>
 </main>
 
