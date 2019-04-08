@@ -9,31 +9,24 @@
 }
 
 @font-face {
-    font-family: 'syLight';
-    src: url('../font/syLight.ttf');
-}
-
-@font-face {
-    font-family: 'syxi';
-    src: url('//at.alicdn.com/t/webfont_jmmz40jb2oa.eot'); /* IE9*/
-    src: url('//at.alicdn.com/t/webfont_jmmz40jb2oa.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/webfont_jmmz40jb2oa.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/webfont_jmmz40jb2oa.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/webfont_jmmz40jb2oa.svg#思源黑体-细') format('svg'); /* iOS 4.1- */
+    font-family: '思源黑体L';
+    src: url('../font/SourceHanSansCN-Light.ttf');
 }
 
 header {
     width: 100%;
-    height: 400px;
+    height: 350px;
     background: #2e8b57;
     color: white;
-    font-family: 'Myriad', 'syLight', 'syxi';
+    font-family: 'Myriad', '思源黑体L';
     font-size: 225%;
 }
 
 header div {
     top: 90px;
-    left: 50%;
+    left: 20%;
     position: absolute;
     white-space: nowrap;
-    transform: translateX(-50%)
 }
 
 header span {
@@ -83,11 +76,11 @@ table {
 
 table tr:first-child {
     color: white;
-    background: #ff8c00;
+    background: #ff4d40;
 }
 
 table tr:first-child td:hover {
-    background: #ff8c00;
+    background: #ff4d40;
 }
 
 

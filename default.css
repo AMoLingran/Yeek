@@ -9,9 +9,8 @@
 }
 
 @font-face {
-    font-family: 'syxi';
-    src: url('//at.alicdn.com/t/webfont_dzj9vpkj9n.eot'); /* IE9*/
-    src: url('//at.alicdn.com/t/webfont_dzj9vpkj9n.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/webfont_dzj9vpkj9n.svg#思源黑体-细') format('svg'); /* iOS 4.1- */
+    font-family: '思源黑体L';
+    src: url('font/SourceHanSansCN-Light.ttf');
 }
 
 header {
@@ -19,14 +18,8 @@ header {
     height: 400px;
     background: #0088ff;
     color: white;
-    font-family: 'Myriad', 'syxi';
+    font-family: 'Myriad', '思源黑体L';
     font-size: 225%;
-}
-
-header span {
-    font-family: 微软雅黑, serif;
-    color: white;
-    font-size: 375%;
 }
 
 header div {
@@ -35,6 +28,12 @@ header div {
     position: absolute;
     white-space: nowrap;
     transform: translateX(-50%)
+}
+
+header span {
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 375%;
 }
 
 main {

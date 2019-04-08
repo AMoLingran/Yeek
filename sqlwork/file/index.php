@@ -46,7 +46,6 @@ if(!isset($set)){
         tbody td:hover {
             background-color: #efefef;
         }
-
     </style>
 </head>
 <body>

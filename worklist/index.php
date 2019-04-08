@@ -48,9 +48,9 @@ $list = add($list,"start");
 <body>
 <?php include("../part/nav.php") ?>
 <header>
-    <div><p>Software1809</p>
+    <div>
         <p><span>Work List</span></p>
-        <p>update for 4/8</p>
+        <p>Update for 4/8</p>
         <p><?php echo $hostname ?>版</p>
     </div>
 </header>

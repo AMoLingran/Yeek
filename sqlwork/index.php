@@ -9,10 +9,22 @@ if (!file_exists('file')) {
 }
 if (PATH_SEPARATOR == ':') {
     //Linux
-    $hostname = '一客';
+    $navInfo = [
+        'host' => '外网',
+        'name' => '一客',
+        'domain' => 'yeek.top',
+        'toHost' => '内网',
+        'toDomain' => '10.50.43.44'
+    ];
 } else {
     //Windows
-    $hostname = '校园网';
+    $navInfo = [
+        'host' => '内网',
+        'name' => '校园',
+        'domain' => '10.50.43.44',
+        'toHost' => '外网',
+        'toDomain' => 'yeek.top'
+    ];
 }
 function coding($in_charset)
 {
@@ -22,7 +34,6 @@ function coding($in_charset)
         return iconv('UTF-8', 'GBK', $in_charset);
     }
 }
-
 
 function checkFile2($name)
 {
@@ -136,10 +147,10 @@ function showUpload($fileArray)
 <body>
 <?php include("../part/nav.php") ?>
 <header>
-    <div><p>Software1809</p>
+    <div>
         <p><span>SQL Server Work </span></p>
-        <p>4/8 Work</p>
-        <p><?php echo $hostname ?>版 v1.2</p>
+        <p>Work for 4/8 </p>
+        <p><?php echo $navInfo['name'] ?>版 v1.2</p>
     </div>
 </header>
 <main>
@@ -211,15 +222,17 @@ function showUpload($fileArray)
         <p>PS：断网后上传需耐心等待</p>
         <br>
         <p>
-            <a href="/worklist" target="_blank">查看作业内容</a>
-            <a href="checkList.php">查看上交名单</a>
-            <a href="https://gitee.com/Moreant/schoolwork">查看某人答案</a>
+            <a href="/worklist" target="_blank">作业内容</a>
+            <a href="checkList.php">上交名单</a>
+            <a href="https://gitee.com/Moreant/schoolwork">某人答案</a>
         </p>
         <br>
-        <p>①仅支持上传和搜索<?php foreach ($suffixs as $item): echo " " . $item.","; endforeach; ?>后缀的文件</p><br>
+        <p>①仅支持上传和搜索<?php foreach ($suffixs as $item): echo " " . $item . ","; endforeach; ?>后缀的文件</p><br>
         <p>②要替换旧文件在新文件名后面加个“2”就行</p><br>
         <p>③别忘了检查一下文件大小是否一致</p><br>
-        <p>④检查不到文件可能是我还没有同步内外网</p><br>
+        <p>④检查不到文件可能是我还没有同步内外网</p><br><br>
+
+        <p><a href="http://<?php echo $navInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
     </div>
 </main>
 <?php include("../part/sqlfooter.php") ?>

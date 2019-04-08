@@ -21,7 +21,7 @@ if (PATH_SEPARATOR == ':') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SQL Server安装教程与下载</title>
+    <title>SQL Server 安装教程与文件下载</title>
     <link rel="icon" href="/logo.png" sizes="32x32">
     <link href="/navAndFooter.css" type="text/css" rel="stylesheet"/>
     <link href="default.css" type="text/css" rel="stylesheet"/>
@@ -29,9 +29,9 @@ if (PATH_SEPARATOR == ':') {
 <body>
 <?php include("../part/nav.php") ?>
 <header>
-    <div><p>Microsoft</p>
-        <p><span>SQL Server 2008</span></p>
-        <p>安装教程与下载</p>
+    <div>
+        <p><span>SQL Server</span></p>
+        <p>Installation tutorial and file download</p>
         <p><?php echo $hostname ?>版</p>
     </div>
 </header>
@@ -110,7 +110,7 @@ if (PATH_SEPARATOR == ':') {
 </main>
 
 
-<?php echo include("../part/sqlfooter.php") ?>
+<?php include("../part/sqlfooter.php") ?>
 
 </body>
 </html>
