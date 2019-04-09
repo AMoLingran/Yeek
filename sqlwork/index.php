@@ -1,6 +1,6 @@
 <?php
+date_default_timezone_set('PRC');
 $file = array();
-$local = $_SERVER['SCRIPT_NAME'];
 $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar');
 if (!file_exists('file')) {
     mkdir('file', 0777);
@@ -10,7 +10,7 @@ if (!file_exists('file')) {
 
 include_once("../part/Domain.php");
 $domain = new Domain();
-$domainInfo=$domain->getDomain();
+$domainInfo = $domain->getDomain();
 
 function coding($in_charset)
 {
@@ -107,6 +107,11 @@ function showUpload($fileArray)
         echo '<p>文件名：<span>' . $fileArray['name'] . '</span></p>';
         echo '大小：<span>' . $fileArray['size'] . '</span> MB<br>上交成功<br>';
         echo $fileArray['uploadResult'];
+//setcookie
+        $time = date("Y/m/d H:i:s");
+        setcookie('sqlwork[name]', $fileArray['name'], time() + 3 * 24 * 3600);
+        setcookie('sqlwork[size]', $fileArray['size'], time() + 3 * 24 * 3600);
+        setcookie('sqlwork[time]', $time, time() + 3 * 24 * 3600);
     } else {
         echo '<span>上传失败，错误代码：</span>' . $fileArray['error'];
     }
@@ -203,6 +208,17 @@ function showUpload($fileArray)
             ?>
         </div>
     </section>
+    <div id="historical">
+        <?php
+        if (isset($_COOKIE['sqlwork'])) {
+            $historical = $_COOKIE['sqlwork'];
+            echo '<p>你在 <span class="blue">' . $historical['time'] . "</span> 上传了：";
+            echo '<span class="blue">' . $historical['name'] . '</span>';
+            echo '，<span class="blue">' . $historical['size'] . '</span> MB';
+            echo ' 的文件</p>';
+        }
+        ?>
+    </div>
     <div id="readme">
         <p>上课当天上交的请在上课前找我确认</p>
         <p>PS：断网后上传需耐心等待</p>
