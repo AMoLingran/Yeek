@@ -6,15 +6,10 @@
  * Time: 16:18
  */
 
-if (PATH_SEPARATOR == ':') {
-    //Linux
-    $hostname = '一客';
-    $domain = 'yeek.top';
-} else {
-    //Windows
-    $hostname = '校园网';
-    $domain = '10.50.43.44';
-}
+include_once("../part/Domain.php");
+$domain = new Domain();
+$domainInfo=$domain->getDomain();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +28,7 @@ if (PATH_SEPARATOR == ':') {
     <div>
         <p><span>Yeek Group</span></p>
         <p>Everyone is a geek</p>
-        <p style="font-size: 25px"><?php echo $hostname ?>版</p>
+        <p style="font-size: 25px"><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>
 
@@ -49,6 +44,6 @@ if (PATH_SEPARATOR == ':') {
     </ul>
 </main>
 
-<?php include("part/sqlfooter.php") ?>
+<?php include_once("part/sqlfooter.php") ?>
 </body>
 </html>

@@ -6,15 +6,10 @@
  * Time: 16:18
  */
 
-if (PATH_SEPARATOR == ':') {
-    //Linux
-    $hostname = '一客';
-    $domain = 'yeek.top';
-} else {
-    //Windows
-    $hostname = '校园网';
-    $domain = '10.50.43.44';
-}
+include_once("../part/Domain.php");
+$domain = new Domain();
+$domainInfo=$domain->getDomain();
+
 $counter = 1;
 $list = [
     ['end' => '0411', 'start' => '0408', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.8.JPG'],
@@ -51,7 +46,7 @@ $list = add($list,"start");
     <div>
         <p><span>Work List</span></p>
         <p>Update for 4/8</p>
-        <p><?php echo $hostname ?>版</p>
+        <p><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>
 <main>
@@ -84,6 +79,6 @@ $list = add($list,"start");
         <a href="https://github.com/AMoLingran/Yeek" target="_blank">在Gitee中</a>
     </p>
 </main>
-<?php echo include("../part/sqlfooter.php") ?>
+<?php echo include_once("../part/sqlfooter.php") ?>
 </body>
 </html>

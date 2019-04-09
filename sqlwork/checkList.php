@@ -2,17 +2,12 @@
 //$domain = $_SERVER['HTTP_HOST'];
 date_default_timezone_set('PRC');
 $counter = 0;
-if (PATH_SEPARATOR == ':') {
-    //Linux
-    $hostname = '一客';
-    $domain = 'yeek.top';
-} else {
-    //Windows
-    $hostname = '校园网';
-    $domain = '10.50.43.44';
-}
 
-$url = "http://$domain/sqlwork/gitList.php";
+include_once("../part/Domain.php");
+$domain = new Domain();
+$domainInfo=$domain->getDomain();
+$host = $domainInfo['domain'];
+$url = "http://$host/sqlwork/gitList.php";
 $html = file_get_contents($url);
 $pattern = '#<br>#';
 $array = preg_split($pattern, $html, -1, PREG_SPLIT_NO_EMPTY);
@@ -66,7 +61,7 @@ function getList()
 <?php include("../part/nav.php") ?>
 <fieldset>
     <legend>你访问时的间为 <span><?php echo date("H:i:s") ?></span>
-        , 正在查看 <span><?php echo $hostname ?></span> 的上交情况
+        , 正在查看 <span><?php echo $domainInfo['name'] ?></span> 的上交情况
     </legend>
     <table>
         <tr>
@@ -93,6 +88,6 @@ function getList()
 
 <a class="a" href="/sqlwork">返回上一页</a>
 <br><br><br>
-<?php include("../part/sqlfooter.php") ?>
+<?php include_once("../part/sqlfooter.php") ?>
 </body>
 </html>

@@ -7,26 +7,11 @@ if (!file_exists('file')) {
     chmod('file', 0777);
     copy("function/downFile.php", 'file/index.php');
 }
-if (PATH_SEPARATOR == ':') {
-    //Linux
-    $navInfo = [
-        'host' => '外网',
-        'name' => '一客',
-        'domain' => 'yeek.top',
-        'toHost' => '内网',
-        'toDomain' => '10.50.43.44',
-    ];
-} else {
-    //Windows
-    $navInfo = [
-            'fuck' => 'fuck?',
-        'host' => '内网',
-        'name' => '校园',
-        'domain' => '10.50.43.44',
-        'toHost' => '外网',
-        'toDomain' => 'yeek.top',
-    ];
-}
+
+include_once("../part/Domain.php");
+$domain = new Domain();
+$domainInfo=$domain->getDomain();
+
 function coding($in_charset)
 {
     if (PATH_SEPARATOR == ':') {
@@ -151,7 +136,7 @@ function showUpload($fileArray)
     <div>
         <p><span>SQL Work</span></p>
         <p>Work for 4/8 </p>
-        <p><?php echo $navInfo['name']; ?>版 v1.2</p>
+        <p><?php echo $domainInfo['name']; ?>版 v1.2</p>
     </div>
 </header>
 <main>
@@ -233,10 +218,10 @@ function showUpload($fileArray)
         <p>③别忘了检查一下文件大小是否一致</p><br>
         <p>④检查不到文件可能是我还没有同步内外网</p><br><br>
 
-        <p><a href="http://<?php echo $navInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
+        <p><a href="http://<?php echo $domainInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
     </div>
 </main>
-<?php include("../part/sqlfooter.php") ?>
+<?php include_once("../part/sqlfooter.php") ?>
 </body>
 </html>
 
