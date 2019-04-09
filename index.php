@@ -6,7 +6,7 @@
  * Time: 16:18
  */
 
-include_once("../part/Domain.php");
+include_once("part/Domain.php");
 $domain = new Domain();
 $domainInfo=$domain->getDomain();
 
@@ -22,7 +22,7 @@ $domainInfo=$domain->getDomain();
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("part/nav.php") ?>
+<?php include_once("part/nav.php") ?>
 
 <header>
     <div>
