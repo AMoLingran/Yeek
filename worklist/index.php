@@ -46,7 +46,7 @@ $list = add($list,"start");
 <header>
     <div>
         <p><span>Work List</span></p>
-        <p>Update for 4/8</p>
+        <p>Update for 4/13</p>
         <p><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>

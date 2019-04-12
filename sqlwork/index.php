@@ -140,7 +140,7 @@ function showUpload($fileArray)
 <header>
     <div>
         <p><span>SQL Work</span></p>
-        <p>Work for 4/8 </p>
+        <p>Work for 4/17 </p>
         <p><?php echo $domainInfo['name']; ?>版 v1.2</p>
     </div>
 </header>
