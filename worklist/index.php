@@ -6,6 +6,10 @@
  * Time: 16:18
  */
 
+include_once("../part/Domain.php");
+$domain = new Domain();
+$domainInfo=$domain->getDomain();
+
 $counter = 1;
 $list = [
     ['end' => '0415', 'start' => '0413', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.11.JPG'],
