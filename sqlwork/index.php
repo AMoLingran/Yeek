@@ -133,7 +133,7 @@ function showUpload($fileArray)
     <div>
         <p><span>SQL Work</span></p>
         <p>Work for 4/17 </p>
-        <p><?php echo $domainInfo['name']; ?>版</p>
+        <p><?php echo $domainInfo['name']; ?> - beta 版</p>
     </div>
 </header>
 <main>
@@ -157,7 +157,6 @@ function showUpload($fileArray)
         </div>
     </section>
     <br>
-
     <section>
         <div id="result">
             <?php

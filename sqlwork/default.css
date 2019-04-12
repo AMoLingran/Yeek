@@ -90,7 +90,9 @@ main {
     margin: 0 10%;
 }
 
+
 input {
+    font-size: 110%;
     text-align: center;
 }
 
@@ -119,7 +121,7 @@ input {
 }
 
 #file {
-padding: 25px 25%;
+padding: 25px 10%;
 }
 
 #check, #update {
