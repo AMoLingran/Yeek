@@ -71,9 +71,10 @@ table, th, td {
     font-size: 110%;
     border: 1px solid #4c4c4c;
 }
+
 td{
     min-width: 75px;
-    padding: 1.5% 1.5%;
+    padding: 10px 20px;
 }
 
 table {

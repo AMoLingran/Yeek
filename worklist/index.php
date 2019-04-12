@@ -6,16 +6,13 @@
  * Time: 16:18
  */
 
-include_once("../part/Domain.php");
-$domain = new Domain();
-$domainInfo=$domain->getDomain();
-
 $counter = 1;
 $list = [
-    ['end' => '0411', 'start' => '0408', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.8.JPG'],
-    ['end' => '长期', 'start' => '-', 'Subject' => '英语', 'info' => 'B级准备课堂表演节目，713下周五（4月12）上台。', 'annex' => ''],
-    ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '4/9 25-28号上台， 4/11 29-32', 'annex' => ''],
-    ['end' => '0408', 'start' => '-', 'Subject' => 'SQL Server', 'info' => '按“第六章”的要求编写实验报告', 'annex' => '第六章.doc'],
+    ['end' => '0415', 'start' => '0413', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.11.JPG'],
+    ['end' => '长期', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，714下周二（4/16）上台。', 'annex' => ''],
+    ['end' => '0416', 'start' => '-', 'Subject' => '思修', 'info' => '4/16 33-36号上台', 'annex' => ''],
+    ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
+    ['end' => '0417', 'start' => '0413', 'Subject' => 'SQL Server', 'info' => '按“第六章-上机实验二”的要求编写实验报告', 'annex' => '第六章-上机实验二.docx'],
 ];
 asort($list);
 function add($array,$flag){
@@ -58,7 +55,18 @@ $list = add($list,"start");
             <td>内容</td>
             <td>课件</td>
         </tr>
-        <?php foreach ($list as $item) {
+
+        <?php foreach ($list as $item) :?>
+        <tr>
+            <td><?php echo $item['start']?></td>
+            <td><?php echo $item['end']?></td>
+            <td><?php echo $item['Subject']?></td>
+            <td><?php echo $item['info']?></td>
+            <td><a download href="annex/<?php echo $item['annex']?>"/><?php echo $item['annex']?></td>
+        </tr>
+        <?php endforeach;?>
+
+        <?php /*foreach ($list as $item) {
             echo "<tr>";
             echo "<td>" . $item['start'] . "</td>";
             echo "<td>" . $item['end'] . "</td>";
@@ -67,11 +75,12 @@ $list = add($list,"start");
             echo "<td><a download href=annex/" . $item['annex'] . ">" . $item['annex'] . "</td>";
             echo "</tr>";
         }
-        ?>
+        */?>
     </table>
 
     <p id="OS">
-        <a href="http://gitee.com/Moreant/schoolwork">查看某人答案</a>
+        <a href="http://<?php echo $domainInfo['domain'];?>/worklist/oldAnnex">以往课件</a>
+        <a href="http://gitee.com/Moreant/schoolwork">某人答案</a>
         <br> <br>
         -此页的源码-<br><br>
         <a href="http://www.php.cn/blog/detail/11666.html">PhpStudy</a>
