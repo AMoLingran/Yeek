@@ -23,7 +23,7 @@ header {
     height: 350px;
     background: #2c2c2f;
     color: white;
-    font-family: 'Myriad','mini_思源黑体L','思源黑体L';
+    font-family: 'Myriad', 'mini_思源黑体L', '思源黑体L';
     font-size: 225%;
 }
 
@@ -57,12 +57,12 @@ main {
     margin: 5% 10% 10%;
 }
 
-section {
-    white-space: nowrap;
-    justify-content: space-around;
-    display: flex;
+#result {
+    text-align: center;
+    clear: left;
 }
-#historical{
+
+#historical {
     margin: 1%;
     text-align: center;
 }
@@ -82,4 +82,61 @@ section {
 #readme p:first-child {
     color: #ff4236;
     font-size: 110%;
+}
+
+#input div{
+    float: left;
+    padding:  3% 0;
+    margin: 0 10%;
+}
+
+input {
+    text-align: center;
+}
+
+#name {
+    outline-style: none;
+    float: left;
+    background: #00a9ff;
+    width: 298px;
+    height: 73px;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#file_input {
+    float: left;
+    display: block;
+    width: 300px;
+    height: 75px;
+    outline: none;
+    background-color: #00a9ff;
+    filter: alpha(opacity=0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#file {
+padding: 25px 25%;
+}
+
+#check, #update {
+    float: left;
+    background: #ff807d;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 75px;
+    height: 75px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #e1e1e1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
 }

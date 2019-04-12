@@ -123,14 +123,6 @@ function showUpload($fileArray)
 <head>
     <meta charset="UTF-8"/>
     <title>SQL Work</title>
-    <style>
-        fieldset {
-            width: 325px;
-            height: 50px;
-            padding: 20px;
-            margin: 5% 0;
-        }
-    </style>
     <link rel="icon" href="/logo.png" sizes="32x32">
     <link href="/navAndFooter.css" type="text/css" rel="stylesheet"/>
     <link href="default.css" type="text/css" rel="stylesheet"/>
@@ -141,24 +133,33 @@ function showUpload($fileArray)
     <div>
         <p><span>SQL Work</span></p>
         <p>Work for 4/17 </p>
-        <p><?php echo $domainInfo['name']; ?>版 v1.2</p>
+        <p><?php echo $domainInfo['name']; ?>版</p>
     </div>
 </header>
 <main>
+    <section id="input">
+        <div>
+            <form method="post" name="checkForm">
+                <label>
+                    <input type="text" name="name" id="name" placeholder="查询文件名" required="required"/>
+                    <input type="submit" name="check" id="check" value="查询"/>
+                </label>
+            </form>
+        </div>
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                <label for="file" id="file_input">
+                <input type="file" name="file" id="file" required="required"/>
+                </label>
+                <input type="submit" name="update" id="update" value="上传"/>
+            </form>
+            <br>
+        </div>
+    </section>
+    <br>
 
     <section>
-        <div>
-            <fieldset>
-                <legend>查询作业是否已上交</legend>
-                <form method="post" name="checkForm">
-                    文件名
-                    <label>
-                        <input type="text" name="name" required="required"/>
-                        <input type="submit" name="check" value="查询"/>
-                    </label>
-                </form>
-            </fieldset>
-            <br>
+        <div id="result">
             <?php
             if (isset($_POST['check'])) {
                 /*foreach ($suffixs as $suffix) {
@@ -172,19 +173,9 @@ function showUpload($fileArray)
                 }
             }
             ?>
-        </div>
-        <div>
-            <form method="post" enctype="multipart/form-data">
-                <fieldset>
-                    <legend>上交作业</legend>
-                    <label for="myfile"></label>
-                    <input type="file" name="file" required="required"/>
-                    <input type="submit" name="file" value="上传"/>
-                </fieldset>
-            </form>
-            <br>
+
             <?php
-            if (isset($_POST['file'])) {
+            if (isset($_POST['update'])) {
                 $fileInfo = $_FILES['file'];
                 $match = false;
                 foreach ($suffixs as $suffix) {
