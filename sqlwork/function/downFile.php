@@ -5,19 +5,23 @@
  * Date: 3/16 0016
  * Time: 16:06
  */
-$counter=0;
-$list =array();
+$counter = 0;
+$list = array();
 $path = __DIR__;
 $result = glob($path . '/*.*');
 foreach ($result as $item) {
     if (PATH_SEPARATOR == ':') {
-        $list[] = str_replace($path . "/", "", $item);
+        $str = str_replace($path . "/", "", $item);
     } else {
-        $list[] = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
+        $str = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
+    }
+    if($str=="index.php" | $str=='linux.php'){
+        continue;
+    }else{
+        $list[] = $str;
     }
 }
-array_pop($list);
-if(!isset($set)){
+if (!isset($set)) {
     $set = "";
 }
 ?>
@@ -26,12 +30,14 @@ if(!isset($set)){
 <head>
     <title>Document</title>
     <style>
-        fieldset{
+        fieldset {
             margin: 5%;
         }
-        legend{
-           text-align: center;
+
+        legend {
+            text-align: center;
         }
+
         table, th, td {
             border: 1px solid #4c4c4c;
             padding: 10px;

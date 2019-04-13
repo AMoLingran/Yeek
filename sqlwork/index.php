@@ -5,8 +5,11 @@ $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar');
 if (!file_exists('file')) {
     mkdir('file', 0777);
     chmod('file', 0777);
+}
+if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
 }
+
 
 include_once("../part/Domain.php");
 $domain = new Domain();
@@ -202,10 +205,10 @@ function showUpload($fileArray)
         <?php
         if (isset($_COOKIE['sqlwork'])) {
             $historical = $_COOKIE['sqlwork'];
-            echo '<p>你在 <span class="blue">' . $historical['time'] . "</span> 上传了：";
-            echo '<span class="blue">' . $historical['name'] . '</span>';
-            echo '，<span class="blue">' . $historical['size'] . '</span> MB';
-            echo ' 的文件</p>';
+            echo '<p>Cookie说：</p>';
+            echo '你上一次在<span class="blue">' . $historical['time'] . "</span>";
+            echo '，上传了<span class="blue">' . $historical['name'] . '</span>';
+            echo '，大小为<span class="blue">' . $historical['size'] . 'MB</span>的文件</p>';
         }
         ?>
     </div>
