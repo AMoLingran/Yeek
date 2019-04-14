@@ -12,11 +12,11 @@ $domainInfo=$domain->getDomain();
 
 $counter = 1;
 $list = [
-    ['end' => '0415', 'start' => '0413', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.11.JPG'],
+    ['end' => '0415', 'start' => '0411', 'Subject' => 'php', 'info' => '①复写4.8课堂笔记 ②在线练习可以做到四。', 'annex' => '1809.4.11.JPG'],
     ['end' => '长期', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，714下周二（4/16）上台。', 'annex' => ''],
     ['end' => '0416', 'start' => '-', 'Subject' => '思修', 'info' => '4/16 33-36号上台', 'annex' => ''],
     ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
-    ['end' => '0417', 'start' => '0413', 'Subject' => 'SQL Server', 'info' => '按“第六章-上机实验二”的要求编写实验报告', 'annex' => '第六章-上机实验二.docx'],
+    ['end' => '0417', 'start' => '0412', 'Subject' => 'SQL Server', 'info' => '按“第六章-上机实验二”的要求编写实验报告', 'annex' => '第六章-上机实验二.docx'],
 ];
 asort($list);
 function add($array,$flag){

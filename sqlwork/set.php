@@ -6,6 +6,7 @@
  * Time: 21:16
  */
 $set = "file/";
+$in = '';
 ?>
 
 <!doctype html>
@@ -13,13 +14,6 @@ $set = "file/";
 <head>
     <meta charset="UTF-8">
     <title>文件下载</title>
-    <style>
-        fieldset {
-            padding: 5% 0;
-            text-align: center;
-            margin: 5% 15%;
-        }
-    </style>
     <link rel="icon" href="/logo.png" sizes="32x32">
     <link href="/navAndFooter.css" type="text/css" rel="stylesheet"/>
     <link href="default.css" type="text/css" rel="stylesheet"/>

@@ -9,7 +9,9 @@ if (!file_exists('file')) {
 if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
 }
-
+if (!file_exists('file/linux.php')) {
+    copy("linux.php", 'file/linux.php');
+}
 
 include_once("../part/Domain.php");
 $domain = new Domain();

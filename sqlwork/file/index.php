@@ -23,6 +23,7 @@ foreach ($result as $item) {
 }
 if (!isset($set)) {
     $set = "";
+    $in='..';
 }
 ?>
 <!doctype html>
@@ -31,9 +32,10 @@ if (!isset($set)) {
     <title>Document</title>
     <style>
         fieldset {
-            margin: 5%;
+            padding: 5% 0;
+            text-align: center;
+            margin: 5% 10%;
         }
-
         legend {
             text-align: center;
         }
@@ -64,7 +66,10 @@ if (!isset($set)) {
                 <td><?php echo "<a href='$set$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
+
     </table>
+    <br>
+    <?php include("$in/zip.php"."") ?>
     <br><br>
 </fieldset>
 </body>
