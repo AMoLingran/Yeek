@@ -5,6 +5,23 @@
  * Date: 3/16 0016
  * Time: 16:06
  */
+
+if (!session_id()) {
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        function toLogin()
+        {
+            $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1) + 1);
+            $head = "";
+            for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
+                $head = $head . '../';
+            }
+            var_dump($head);
+            header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
+        }
+        toLogin();
+    }
+}
 $counter = 0;
 $list = array();
 $path = __DIR__;
@@ -69,7 +86,7 @@ if (!isset($set)) {
 
     </table>
     <br>
-    <?php include("$in/zip.php"."") ?>
+<?php include("$in/zip.php"."") ?>
     <br><br>
 </fieldset>
 </body>
