@@ -5,20 +5,42 @@
  * Date: 3/16 0016
  * Time: 16:06
  */
-$counter=0;
-$list =array();
+
+if (!session_id()) {
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        function toLogin()
+        {
+            $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1) + 1);
+            $head = "";
+            for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
+                $head = $head . '../';
+            }
+            var_dump($head);
+            header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
+        }
+        toLogin();
+    }
+}
+$counter = 0;
+$list = array();
 $path = __DIR__;
 $result = glob($path . '/*.*');
 foreach ($result as $item) {
     if (PATH_SEPARATOR == ':') {
-        $list[] = str_replace($path . "/", "", $item);
+        $str = str_replace($path . "/", "", $item);
     } else {
-        $list[] = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
+        $str = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
+    }
+    if($str=="index.php" | $str=='linux.php'){
+        continue;
+    }else{
+        $list[] = $str;
     }
 }
-array_pop($list);
-if(!isset($set)){
+if (!isset($set)) {
     $set = "";
+    $in='..';
 }
 ?>
 <!doctype html>
@@ -26,12 +48,15 @@ if(!isset($set)){
 <head>
     <title>Document</title>
     <style>
-        fieldset{
-            margin: 5%;
+        fieldset {
+            padding: 5% 0;
+            text-align: center;
+            margin: 5% 10%;
         }
-        legend{
-           text-align: center;
+        legend {
+            text-align: center;
         }
+
         table, th, td {
             border: 1px solid #4c4c4c;
             padding: 10px;
@@ -58,9 +83,11 @@ if(!isset($set)){
                 <td><?php echo "<a href='$set$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
+
     </table>
+    <br>
+<?php include("$in/zip.php"."") ?>
     <br><br>
 </fieldset>
-
 </body>
 </html>
