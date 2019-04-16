@@ -9,9 +9,7 @@ if (!file_exists('file')) {
 if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
 }
-
 $domainInfo = include_once("../part/Position.php");
-
 function coding($in_charset)
 {
     if (PATH_SEPARATOR == ':') {
@@ -210,8 +208,8 @@ function showUpload($fileArray)
         ?>
     </div>
     <div id="readme">
+        <p>最近校园网上传很慢，请看浏览器左下角的上传进度。</p>
         <p>上课当天上交的请在上课前找我确认</p>
-        <p>PS：断网后上传需耐心等待</p>
         <br>
         <p>
             <a href="/worklist" target="_blank">作业内容</a>

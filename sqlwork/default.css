@@ -79,7 +79,7 @@ main {
     font-size: 120%;
 }
 
-#readme p:first-child {
+#readme p:nth-child(1),#readme p:nth-child(2) {
     color: #ff4236;
     font-size: 110%;
 }
