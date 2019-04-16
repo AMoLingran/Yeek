@@ -6,15 +6,7 @@
  * Time: 16:19
  */
 
-if (PATH_SEPARATOR == ':') {
-    //Linux
-    $hostname = '一客';
-    $domain = 'yeek.top';
-} else {
-    //Windows
-    $hostname = '校园网';
-    $domain = '10.50.43.44';
-}
+
 ?>
 <footer>
     <hr>

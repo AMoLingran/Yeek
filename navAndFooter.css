@@ -10,16 +10,6 @@
     src: url("font/HYLuoHuaShiW.ttf");
 }
 
-@font-face {
-    font-family: 'syLight';
-    src: url('font/syLight.ttf');
-}
-
-@font-face {
-    font-family: 'syL';
-    src: url('font/SourceHanSansCN-Light.otf');
-}
-
 /*取消链接的下划线，和继承字体（因为a的默认字体是蓝色且不受class控制）*/
 a {
     text-decoration: none;

@@ -1,28 +1,28 @@
 <?php
 
-class Domain
+function getPosition()
 {
-function getDomain(){
     if (PATH_SEPARATOR == ':') {
         //Linux
-        $navInfo = [
+        $info = [
             'host' => '外网',
             'name' => '一客',
-            'domain' => $_SERVER['SERVER_NAME'],
+            'toName' => '校园',
             'toHost' => '内网',
             'toDomain' => '10.50.43.44',
         ];
     } else {
         //Windows
-        $navInfo = [
-            'fuck' => 'fuck?',
+        $info = [
             'host' => '内网',
             'name' => '校园',
-            'domain' => $_SERVER['SERVER_NAME'],
+            'toName' => '一客',
             'toHost' => '外网',
             'toDomain' => 'yeek.top',
         ];
     }
-    return $navInfo;
+    $info['domain'] = $_SERVER['SERVER_NAME'];
+    $info['local'] = $_SERVER['SCRIPT_NAME'];
+    return $info;
 }
-}
+return getPosition();

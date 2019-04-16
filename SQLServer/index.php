@@ -6,9 +6,7 @@
  * Time: 16:18
  */
 
-include_once("../part/Domain.php");
-$domain = new Domain();
-$domainInfo=$domain->getDomain();
+$domainInfo= include_once("../part/Position.php");
 
 ?>
 

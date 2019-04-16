@@ -10,9 +10,7 @@ if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
 }
 
-include_once("../part/Domain.php");
-$domain = new Domain();
-$domainInfo = $domain->getDomain();
+$domainInfo= include_once("../part/Position.php");
 
 function coding($in_charset)
 {
@@ -226,7 +224,7 @@ function showUpload($fileArray)
         <p>③别忘了检查一下文件大小是否一致</p><br>
         <p>④检查不到文件可能是我还没有同步内外网</p><br><br>
 
-        <p><a href="http://<?php echo $domainInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
+        <p><a href="http://<?php echo $domainInfo['Position'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
     </div>
 </main>
 <?php include_once("../part/sqlfooter.php") ?>

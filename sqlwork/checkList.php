@@ -3,10 +3,8 @@
 date_default_timezone_set('PRC');
 $counter = 0;
 
-include_once("../part/Domain.php");
-$domain = new Domain();
-$domainInfo=$domain->getDomain();
-$host = $domainInfo['domain'];
+$domainInfo= include_once("../part/Position.php");
+$host = $domainInfo['Position'];
 $url = "http://$host/sqlwork/gitList.php";
 $html = file_get_contents($url);
 $pattern = '#<br>#';
@@ -25,7 +23,7 @@ function getList()
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SSW - 查看文件列表</title>
+    <title>SQL Server - 查看文件列表</title>
     <style type="text/css">
         fieldset {
             padding: 5%;

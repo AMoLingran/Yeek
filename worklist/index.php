@@ -6,10 +6,7 @@
  * Time: 16:18
  */
 
-include_once("../part/Domain.php");
-$domain = new Domain();
-$domainInfo=$domain->getDomain();
-
+$domainInfo= include_once("../part/Position.php");
 $counter = 1;
 $list = [
     ['end' => '0415', 'start' => '0411', 'Subject' => 'php', 'info' => '发邮件给老师邮箱599187665@qq.com，内容记得带上学号姓名', 'annex' => 'php-email.zip'],
@@ -83,7 +80,7 @@ $list = add($list,"start");
     </table>
 
     <p id="OS">
-        <a href="http://<?php echo $domainInfo['domain'];?>/worklist/oldAnnex">以往课件</a>
+        <a href="http://<?php echo $domainInfo['Position'];?>/worklist/oldAnnex">以往课件</a>
         <a href="http://gitee.com/Moreant/schoolwork">某人答案</a>
         <br> <br>
         -此页的源码-<br><br>
