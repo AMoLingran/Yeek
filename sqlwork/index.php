@@ -9,15 +9,6 @@ if (!file_exists('file')) {
 if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
 }
-$domainInfo = include_once("../part/Position.php");
-function coding($in_charset)
-{
-    if (PATH_SEPARATOR == ':') {
-        return $in_charset;
-    } else {
-        return iconv('UTF-8', 'GBK', $in_charset);
-    }
-}
 
 function checkFile2($name)
 {
@@ -26,7 +17,7 @@ function checkFile2($name)
     if (pathinfo($name, PATHINFO_EXTENSION) == "") {
         $counter = 0;
         foreach ($suffixs as $suffix) {
-            $url = "file/" . coding($name) . '.' . $suffix;
+            $url = "file/" . encoding($name) . '.' . $suffix;
             if (file_exists($url)) {
                 $list[$counter]['name'] = $name;
                 $list[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
@@ -34,7 +25,7 @@ function checkFile2($name)
             }
         }
     } else {
-        $url = "file/" . coding($name);
+        $url = "file/" . encoding($name);
         if (file_exists($url)) {
             $list[0]['name'] = $name;
             $list[0]['size'] = round(filesize($url) / 1024 / 1024, 2);
@@ -57,7 +48,7 @@ function checkFile($name)
 
 function moveFile($fileInfo)
 {
-    if (move_uploaded_file($fileInfo['tmp_name'], "file/" . coding($fileInfo['name']))) {
+    if (move_uploaded_file($fileInfo['tmp_name'], "file/" . encoding($fileInfo['name']))) {
         return $fileArray = [
             'name' => $fileInfo['name'],
             'size' => round($fileInfo['size'] / 1024 / 1024, 2),
@@ -74,8 +65,8 @@ function moveFile($fileInfo)
 function upload($fileInfo)
 { // 模拟提交数据函数
     if (PATH_SEPARATOR == ';') {
-        $filePath = dirname(__FILE__) . "/file/" . coding($fileInfo['name']);
-        $fileName = coding($_FILES['file']['name']);
+        $filePath = dirname(__FILE__) . "/file/" . encoding($fileInfo['name']);
+        $fileName = encoding($_FILES['file']['name']);
         $fileArgs['upload'] = new CURLFile($filePath, 'file/exgpd', $fileName);
         $curl = curl_init('https://yeek.top/sqlwork/function/receive.php'); // 启动一个CURL会话
         curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
@@ -126,7 +117,7 @@ function showUpload($fileArray)
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
+<?php include_once("../part/nav.php") ?>
 <header>
     <div>
         <p><span>SQL Work</span></p>

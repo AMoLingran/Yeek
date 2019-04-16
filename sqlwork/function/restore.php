@@ -6,22 +6,17 @@
  * Time: 16:06
  */
 
+if(!function_exists('encoding')){
+    include_once ('../../part/encoding.php');
+}
 $domain = $_SERVER['HTTP_HOST'];
 date_default_timezone_set('PRC');
-function rCoding($in_charset)
-{
-    if (PATH_SEPARATOR == ':') {
-        return $in_charset;
-    } else {
-        return iconv('UTF-8', 'GBK', $in_charset);
-    }
-}
 $error = '未知错误';
 function restore()
 {
     global $error;
-    $new = "file/" . rCoding($_POST['name']);
-    $old = "delete/" . rCoding($_POST['name']);
+    $new = "file/" . encoding($_POST['name']);
+    $old = "delete/" . encoding($_POST['name']);
     if (!file_exists($new)) {
         if (file_exists($old)) {
             if (rename($old, $new)) {

@@ -6,6 +6,7 @@
  * Time: 21:16
  */
 
+include_once ('../part/encoding.php');
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {
@@ -36,10 +37,10 @@ $in = '';
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
-    <?php include("function/delete.php") ?>
-    <?php include("file/index.php") ?>
-    <?php include("function/restore.php") ?>
-<?php include("../part/sqlfooter.php") ?>
+<?php include_once("../part/nav.php") ?>
+    <?php include_once("function/delete.php") ?>
+    <?php include_once("file/index.php") ?>
+    <?php include_once("function/restore.php") ?>
+<?php include_once("../part/sqlfooter.php") ?>
 </body>
 </html>
