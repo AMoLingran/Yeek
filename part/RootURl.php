@@ -2,8 +2,6 @@
 function RootURL()
 {
     $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1));
-    var_dump($fromFile);
-    var_dump($_SERVER['PHP_SELF']);
     $head = "";
     for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
         $head = $head . '../';

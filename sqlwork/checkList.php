@@ -4,7 +4,7 @@ date_default_timezone_set('PRC');
 $counter = 0;
 
 $domainInfo= include_once("../part/Position.php");
-$host = $domainInfo['Position'];
+$host = $domainInfo['domain'];
 $url = "http://$host/sqlwork/gitList.php";
 $html = file_get_contents($url);
 $pattern = '#<br>#';
