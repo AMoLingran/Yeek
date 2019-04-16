@@ -5,7 +5,7 @@
  * Date: 3/18 0018
  * Time: 22:30
  */
-function getPosition()
+function getNavDomain()
 {
     if (PATH_SEPARATOR == ':') {
         //Linux
@@ -30,14 +30,14 @@ function getPosition()
     $info['local'] = $_SERVER['SCRIPT_NAME'];
     return $info;
 }
-$navDomain=  getPosition();
+$navDomain=  getNavDomain();
 
 ?>
 <nav>
     <ul>
-        <li><a href="http://<?php echo $navPosition['domain'] ?>">一客</a></li>
-        <li><a href="http://<?php echo $navPosition['domain'] ?>/worklist">作业清单</a></li>
-        <li><a href="http://<?php echo $navPosition['domain'] ?>/sqlwork">SQL Work</a></li>
-        <li><a href="http://<?php echo $navPosition['toDomain'] . $navPosition['local'] ?>">换至<?php echo $navPosition['toName'] ?></a></li>
+        <li><a href="http://<?php echo $navDomain['domain'] ?>">一客</a></li>
+        <li><a href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a></li>
+        <li><a href="http://<?php echo $navDomain['domain'] ?>/sqlwork">SQL Work</a></li>
+        <li><a href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a></li>
     </ul>
 </nav>
