@@ -1,5 +1,8 @@
 <?php
 date_default_timezone_set('PRC');
+include_once("../part/encoding.php");
+$domainInfo = include_once("../part/Position.php");
+
 $file = array();
 $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar');
 if (!file_exists('file')) {
@@ -8,6 +11,7 @@ if (!file_exists('file')) {
 }
 if (!file_exists('file/index.php')) {
     copy("function/downFile.php", 'file/index.php');
+    chmod('file/index.php', 0777);
 }
 
 function checkFile2($name)
@@ -33,17 +37,6 @@ function checkFile2($name)
 
     }
     return $list;
-}
-
-function checkFile($name)
-{
-    global $file, $counter;
-    $url = "file/" . coding($name);
-    if (file_exists($url)) {
-        $file[$counter]['name'] = $name;
-        $file[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
-        $counter++;
-    }
 }
 
 function moveFile($fileInfo)

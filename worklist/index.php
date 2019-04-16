@@ -39,7 +39,7 @@ $list = add($list,"start");
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
+<?php include_once("../part/nav.php") ?>
 <header>
     <div>
         <p><span>Work List</span></p>

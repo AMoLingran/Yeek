@@ -20,7 +20,7 @@ $domainInfo= include_once("../part/Position.php");
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
+<?php include_once("../part/nav.php") ?>
 <header>
     <div>
         <p><span>SQL Server</span></p>

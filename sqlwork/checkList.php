@@ -56,7 +56,7 @@ function getList()
     <link href="/navAndFooter.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
+<?php include_once("../part/nav.php") ?>
 <fieldset>
     <legend>你访问时的间为 <span><?php echo date("H:i:s") ?></span>
         , 正在查看 <span><?php echo $domainInfo['name'] ?></span> 的上交情况

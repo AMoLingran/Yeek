@@ -34,7 +34,7 @@ $list = [
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-<?php include("../part/nav.php") ?>
+<?php include_once("../part/nav.php") ?>
 <header>
     <div><p>Software1809</p>
         <p><span>周 末 作 业</span></p>
@@ -60,6 +60,6 @@ $list = [
         <a href="https://github.com/AMoLingran/Yeek" target="_blank" >在GitHub中</a>
     </p>
 </main>
-<?php echo include("../part/sqlfooter.php") ?>
+<?php echo include_once("../part/sqlfooter.php") ?>
 </body>
 </html>

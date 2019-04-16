@@ -80,13 +80,13 @@ if (!isset($set)) {
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
-                <td><?php echo "<a href='$set$item'>$item"; ?></a></td>
+                <td><?php echo "<a download href='$set$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
 
     </table>
     <br>
-    <?php include("$in/zip.php"."") ?>
+    <?php include_once("$in/zip.php"."") ?>
     <br><br>
 </fieldset>
 </body>
