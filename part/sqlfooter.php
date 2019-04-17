@@ -7,8 +7,7 @@
  */
 
 $rootUrl = include_once ('RootURl.php');
-$rootUrl = $rootUrl.'part/'
-
+$rootUrl = $rootUrl.'part/';
 ?>
 <footer>
     <hr>
@@ -21,7 +20,7 @@ $rootUrl = $rootUrl.'part/'
            style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
             <img src="<?php echo $rootUrl;?>beian.png" style="float:left;"/>
             <p style="float:left;height:20px;line-height:20px;
-            margin: 0px 0px 0px 5px; color:#939393;">
+            margin: 0 0 0 5px; color:#939393;">
                 粤公网安备 44011102002523号</p></a>
     </div>
     <br><br>
