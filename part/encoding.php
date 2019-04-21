@@ -1,5 +1,4 @@
 <?php
-var_dump(PHP_OS);
 function encoding($str)
 {
     if (is_string($str)) {
