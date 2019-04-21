@@ -6,22 +6,7 @@
  * Time: 16:06
  */
 
-if (!session_id()) {
-    session_start();
-    if (!isset($_SESSION['login'])) {
-        function toLogin()
-        {
-            $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1) + 1);
-            $head = "";
-            for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
-                $head = $head . '../';
-            }
-            var_dump($head);
-            header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
-        }
-        toLogin();
-    }
-}
+include_once ("../../part/nav.php");
 $counter = 0;
 $list = array();
 $path = __DIR__;
@@ -32,15 +17,15 @@ foreach ($result as $item) {
     } else {
         $str = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
     }
-    if($str=="index.php" | $str=='linux.php'){
+    if ($str == "index.php" | $str == 'linux.php') {
         continue;
-    }else{
+    } else {
         $list[] = $str;
     }
 }
 if (!isset($set)) {
     $set = "";
-    $in='..';
+    $in = '..';
 }
 ?>
 <!doctype html>
@@ -53,6 +38,7 @@ if (!isset($set)) {
             text-align: center;
             margin: 5% 10%;
         }
+
         legend {
             text-align: center;
         }
@@ -72,6 +58,7 @@ if (!isset($set)) {
             background-color: #efefef;
         }
     </style>
+    <link href="../../navAndFooter.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <fieldset>
@@ -86,8 +73,7 @@ if (!isset($set)) {
 
     </table>
     <br>
-<?php include_once("$in/zip.php"."") ?>
-    <br><br>
 </fieldset>
+<?php include_once ("../../part/sqlfooter.php"); ?>
 </body>
 </html>
