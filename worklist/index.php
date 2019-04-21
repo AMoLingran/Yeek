@@ -9,7 +9,7 @@
 $domainInfo= include_once("../part/Position.php");
 $counter = 1;
 $list = [
-    ['end' => '0422', 'start' => '0418', 'Subject' => 'php', 'info' => '发邮件给老师邮箱599187665@qq.com，内容记得带上学号姓名', 'annex' => 'php-发送电子邮件实验报告.doc'],
+    ['end' => '0422', 'start' => '0418', 'Subject' => 'php', 'info' => '编写发送电子邮件实验报告，并导出phpMyAdmin的test表', 'annex' => 'php-发送电子邮件实验报告.doc'],
     ['end' => '0423', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，715下周二（4/23）上台。', 'annex' => ''],
     ['end' => '0423', 'start' => '-', 'Subject' => '思修', 'info' => '4/23 37-40号上台', 'annex' => ''],
     ['end' => '0423', 'start' => '0416', 'Subject' => '数学', 'info' => '课本P83 6(4)、7（3）、9（1）', 'annex' => ''],
