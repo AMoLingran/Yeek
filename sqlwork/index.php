@@ -114,7 +114,7 @@ function showUpload($fileArray)
 <header>
     <div>
         <p><span>SQL Work</span></p>
-        <p>Work for 4/17 </p>
+        <p>Work for 4/24 </p>
         <p><?php echo $domainInfo['name']; ?> - beta 版</p>
     </div>
 </header>

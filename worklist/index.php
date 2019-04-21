@@ -9,12 +9,12 @@
 $domainInfo= include_once("../part/Position.php");
 $counter = 1;
 $list = [
-    ['end' => '0415', 'start' => '0411', 'Subject' => 'php', 'info' => '发邮件给老师邮箱599187665@qq.com，内容记得带上学号姓名', 'annex' => 'php-email.zip'],
-    ['end' => '0423', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，714下周二（4/23）上台。', 'annex' => ''],
+    ['end' => '0422', 'start' => '0418', 'Subject' => 'php', 'info' => '发邮件给老师邮箱599187665@qq.com，内容记得带上学号姓名', 'annex' => 'php-发送电子邮件实验报告.doc'],
+    ['end' => '0423', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，715下周二（4/23）上台。', 'annex' => ''],
     ['end' => '0423', 'start' => '-', 'Subject' => '思修', 'info' => '4/23 37-40号上台', 'annex' => ''],
     ['end' => '0423', 'start' => '0416', 'Subject' => '数学', 'info' => '课本P83 6(4)、7（3）、9（1）', 'annex' => ''],
     ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
-    ['end' => '0424', 'start' => '0417', 'Subject' => 'SQL Server', 'info' => '按“第七章-上机实验”的要求编写实验报告', 'annex' => 'sql-第七章-上机实验.doc'],
+    ['end' => '0424', 'start' => '0417', 'Subject' => 'SQL Server', 'info' => '按“第七章-上机实验”的要求编写实验报告', 'annex' => 'sql-第七章-上机实验一.doc'],
 ];
 asort($list);
 function add($array,$flag){
@@ -44,7 +44,7 @@ $list = add($list,"start");
 <header>
     <div>
         <p><span>Work List</span></p>
-        <p>Update for 4/17</p>
+        <p>Update for 4/21</p>
         <p><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>
@@ -81,7 +81,7 @@ $list = add($list,"start");
     </table>
 
     <p id="OS">
-        <a href="http://<?php echo $domainInfo['Position'];?>/worklist/oldAnnex">以往课件</a>
+        <a href="http://<?php echo $domainInfo['domain'];?>/worklist/oldAnnex">以往课件</a>
         <a href="http://gitee.com/Moreant/schoolwork">某人答案</a>
         <br> <br>
         -此页的源码-<br><br>
