@@ -6,7 +6,7 @@
  * Time: 21:16
  */
 
-include_once ('../part/encoding.php');
+include_once('../part/encoding.php');
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {
@@ -20,6 +20,7 @@ if (!session_id()) {
             var_dump($head);
             header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
         }
+
         toLogin();
     }
 }
@@ -38,9 +39,10 @@ $in = '';
 </head>
 <body>
 <?php include_once("../part/nav.php") ?>
-    <?php include_once("function/delete.php") ?>
-    <?php include_once("file/index.php") ?>
-    <?php include_once("function/restore.php") ?>
+<?php include_once("file/index.php") ?>
+<?php include_once("function/movepack.php") ?>
+<?php include_once("function/delete.php") ?>
+<?php include_once("function/restore.php") ?>
 <?php include_once("../part/sqlfooter.php") ?>
 </body>
 </html>

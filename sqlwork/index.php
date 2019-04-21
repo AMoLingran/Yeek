@@ -14,7 +14,7 @@ if (!file_exists('file/index.php')) {
     chmod('file/index.php', 0777);
 }
 
-function checkFile2($name)
+function checkFile($name)
 {
     $list = array();
     global $suffixs;
@@ -143,10 +143,7 @@ function showUpload($fileArray)
         <div id="result">
             <?php
             if (isset($_POST['check'])) {
-                /*foreach ($suffixs as $suffix) {
-                    checkFile($_POST['name'] . "." . $suffix);
-                }*/
-                $result = checkFile2($_POST['name']);
+                $result = checkFile($_POST['name']);
                 if (count($result) > 0) {
                     showCheck($result);
                 } else {
@@ -162,7 +159,7 @@ function showUpload($fileArray)
                 foreach ($suffixs as $suffix) {
                     $fileName = $fileInfo['name'];
                     if ((pathinfo($fileName, PATHINFO_EXTENSION)) == $suffix) {
-                        $result = checkFile2($fileName);
+                        $result = checkFile($fileName);
                         if (count($result) > 0) {
                             showCheck($result);
                             $match = true;

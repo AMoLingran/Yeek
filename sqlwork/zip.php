@@ -16,9 +16,9 @@ if (!session_id()) {
     }
 }
 
-if (isset($_POST['zip'])) {
+if (isset($_POST['zip_sub'])) {
     system('zip -r file/pack.zip file');
 } ?>
 <form method="post">
-    <input type="submit" name="zip" value="压缩">
+    <input type="submit" name="zip_sub" value="压缩">
 </form>
