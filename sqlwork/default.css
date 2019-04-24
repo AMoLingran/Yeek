@@ -79,21 +79,28 @@ main {
     font-size: 120%;
 }
 
-#readme p:nth-child(1),#readme p:nth-child(2) {
+#readme p:nth-child(1), #readme p:nth-child(2) {
     color: #ff4236;
     font-size: 110%;
 }
 
-#input div{
-    float: left;
-    padding:  3% 0;
-    margin: 0 10%;
+.checkout{
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
 }
 
-
-input {
+#input {
     font-size: 110%;
     text-align: center;
+    color: white;
+}
+
+#input div {
+    float: left;
+    padding: 3% 0;
+    margin: 0 10%;
 }
 
 #name {
@@ -121,7 +128,7 @@ input {
 }
 
 #file {
-padding: 25px 10%;
+    padding: 25px 10%;
 }
 
 #check, #update {
