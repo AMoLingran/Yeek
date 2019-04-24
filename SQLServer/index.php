@@ -64,6 +64,9 @@ $domainInfo= include_once("../part/Position.php");
         <dl>
             <dt>仓库：</dt>
             <br>
+            <dd><a target="_blank" href="Download/NET_Framework_3.5.zip">NET_Framework_3.5.zip(size:
+                    68.7MB)</a></dd>
+            <br>
             <dd><a target="_blank" href="Download/SQL_Server_Management_Studio_2005_x64.msi">SQL_Server_Management_Studio_2005
                     (size: 40.3MB)</a></dd>
             <br>
@@ -71,18 +74,10 @@ $domainInfo= include_once("../part/Position.php");
                     (size:
                     832.81MB)</a></dd>
             <br>
-            <dd><a target="_blank" href="Download/SQL_Server_2008_x64.zip">SQL_Server_2008_x64 (size:
-                    4.37GB)</a></dd>
-            <br>
-            <dd><a target="_blank" href="Download/SQL_Server_2005_x64.zip">SQL_Server_2005_x64 (size:
-                    1.85GB)</a></dd>
-            <br>
             <dd><a target="_blank" href="Download/SQL_Server_64_替换文件.rar">SQL_Server_64_替换文件 (size:
                     10.21MB)</a></dd>
             <br>
-            <dd><a target="_blank"
-                   href="Download/SQL_Server_2005_SP4.exe">SQL_Server_2005_SP4
-                    (size: 391.69MB) </a></dd>
+
         </dl>
     </article>
     <article>
