@@ -11,9 +11,9 @@ $counter = 1;
 $list = [
 //    ['end' => '0422', 'start' => '0418', 'Subject' => 'php', 'info' => '编写发送电子邮件实验报告，并导出phpMyAdmin的test表', 'annex' => 'php-发送电子邮件实验报告.doc'],
     ['end' => '0430', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，716下周二（4/30）上台。', 'annex' => ''],
-    ['end' => '0425', 'start' => '-', 'Subject' => '思修', 'info' => '4/25 41-44号上台', 'annex' => ''],
+    ['end' => '0507', 'start' => '-', 'Subject' => '思修', 'info' => '5月27日 45-48号上台', 'annex' => ''],
     ['end' => '0430', 'start' => '0423', 'Subject' => '数学', 'info' => '课本P95 3(1)(4)、P107 1(2)(4)', 'annex' => ''],
-    ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
+    ['end' => '0430', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
     ['end' => '0426', 'start' => '0424', 'Subject' => 'SQL Server', 'info' => '按“第八章-上机实验二”的要求编写实验报告', 'annex' => 'sql-第八章-上机实验二.doc'],
 ];
 asort($list);
