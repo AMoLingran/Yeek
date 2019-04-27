@@ -14,7 +14,8 @@ $list = [
     ['end' => '0507', 'start' => '-', 'Subject' => '思修', 'info' => '5月27日 45-48号上台', 'annex' => ''],
     ['end' => '0430', 'start' => '0423', 'Subject' => '数学', 'info' => '课本P95 3(1)(4)、P107 1(2)(4)', 'annex' => ''],
     ['end' => '0430', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
-    ['end' => '0426', 'start' => '0424', 'Subject' => 'SQL Server', 'info' => '按“第八章-上机实验二”的要求编写实验报告', 'annex' => 'sql-第八章-上机实验二.doc'],
+    ['end' => '0429', 'start' => '0426', 'Subject' => 'Android', 'info' => '完成chapter2~3和实验3。', 'annex' => 'Android-4月29日交.zip'],
+//    ['end' => '0426', 'start' => '0424', 'Subject' => 'SQL Server', 'info' => '按“第八章-上机实验二”的要求编写实验报告', 'annex' => 'sql-第八章-上机实验二.doc'],
 ];
 asort($list);
 function add($array,$flag){
@@ -44,7 +45,7 @@ $list = add($list,"start");
 <header>
     <div>
         <p><span>Work List</span></p>
-        <p>Update for 4/24</p>
+        <p>Update for 4/27</p>
         <p><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>
