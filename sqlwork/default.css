@@ -84,23 +84,24 @@ main {
     font-size: 110%;
 }
 
-.checkout{
+.checkout {
     display: block;
     margin: 0;
     text-align: center;
     font-size: 24px;
 }
 
-#input {
-    font-size: 110%;
+#input input {
     text-align: center;
     color: white;
+    font-size: 110%;
 }
 
 #input div {
+    justify-content: space-around;
+    display: flex;
     float: left;
     padding: 3% 0;
-    margin: 0 10%;
 }
 
 #name {
@@ -143,7 +144,7 @@ main {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #e1e1e1;
+    color: white;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */

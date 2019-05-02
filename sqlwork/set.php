@@ -41,6 +41,7 @@ $in = '';
 <?php include_once("../part/nav.php") ?>
 <?php include_once("file/index.php") ?>
 <?php include_once("function/movepack.php") ?>
+<?php include_once("function/upWork.php") ?>
 <?php include_once("function/delete.php") ?>
 <?php include_once("function/restore.php") ?>
 <?php include_once("../part/sqlfooter.php") ?>
