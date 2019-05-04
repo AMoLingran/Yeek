@@ -6,7 +6,7 @@
  * Time: 16:18
  */
 
-$domainInfo= include_once("part/Position.php");
+$domainInfo = include_once("part/Position.php");
 
 ?>
 
@@ -31,9 +31,12 @@ $domainInfo= include_once("part/Position.php");
 </header>
 
 <main>
+    <ul>作业上交-综合（测试版）：
+        <li><a href="upwork">作业上交</a></li>
+        <br>
+    </ul>
     <ul>SQL Server：
-        <li>
-            <a href="SQLServer">安装教程和文件下载</a></li>
+        <li><a href="SQLServer">安装教程和文件下载</a></li>
         <li><a href="sqlwork">作业上交</a></li>
         <br>
     </ul>
