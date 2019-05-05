@@ -57,16 +57,17 @@ nav ul li:first-child {
 
 
 /*设定鼠标悬停在 首页按钮*/
-nav ul li a:hover{
+nav ul li a:hover {
     background: #ebebeb;
     text-decoration: none;
     color: black;
 }
-nav ul li p:hover{
+
+nav ul li p:hover {
     background: #ebebeb;
     text-decoration: none;
     color: black;
-    cursor:default;
+    cursor: default;
 }
 
 
@@ -76,11 +77,14 @@ nav div div {
 
 /*底部信息栏*/
 footer {
+
     font-size: 90%;
     margin: 0 5% 0 5%;
     text-align: center;
 }
-
+footer hr{
+    clear: both;
+}
 footer a {
     text-decoration: none;
     color: #0088ff;

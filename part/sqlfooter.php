@@ -10,8 +10,9 @@ $rootUrl = include_once ('RootURl.php');
 $rootUrl = $rootUrl.'part/';
 ?>
 <footer>
-    <hr>
+
     <br>
+    <hr>
     <br><br>
     <p>莫泠然 | molingran@yeek.top</p><br>
     <p>Copyright © 2018-<?php echo date('Y') ?> Yeek All Rights Reserved.</p>
