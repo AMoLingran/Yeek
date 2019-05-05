@@ -1,8 +1,9 @@
 <?php
+
 date_default_timezone_set('PRC');
 include_once("../part/encoding.php");
 $domainInfo = include_once("../part/Position.php");
-
+header("Location:meta.php");
 $file = array();
 $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar');
 if (!file_exists('file')) {
