@@ -54,7 +54,11 @@ span {
 }
 
 main {
-    margin: 3% 10% 10%;
+    clear: left;
+    margin: 1% 10%;
+}
+main hr{
+    margin: 5%;
 }
 
 #result {
@@ -87,7 +91,6 @@ main {
 #input {
     justify-content: space-around;
     display: flex;
-    margin: 1% 0 ;
 }
 
 #input div form input{

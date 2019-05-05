@@ -1,6 +1,6 @@
-<?php
-?>
+
 <main>
+    <hr>
     <section id="input">
         <div>
             <form method="post" name="checkForm">
@@ -64,9 +64,10 @@
         if (isset($_COOKIE['sqlwork'])) {
             $historical = $_COOKIE['sqlwork'];
             echo '<p>Cookie说：</p>';
-            echo '你上一次在<span class="blue">' . $historical['time'] . "</span>";
+            echo '你上一次在<span class="blue">' .$historical['subject']. "</span>";
             echo '，上传了<span class="blue">' . $historical['name'] . '</span>';
-            echo '，大小为<span class="blue">' . $historical['size'] . 'MB</span>的文件</p>';
+            echo '，大小为<span class="blue">' . $historical['size'] . 'MB</span>的文件';
+            echo '，时间为<span class="blue">' . $historical['time'] . '</span></p>';
         }
         ?>
     </div>
@@ -80,7 +81,7 @@
         <br>
         <p>
             <a href="/worklist" target="_blank">作业内容</a>
-            <a href="../checkList.php">上交名单</a>
+            <a href="checkList.php">上交名单</a>
             <a href="https://gitee.com/Moreant/schoolwork">某人答案</a>
         </p>
         <br>

@@ -2,19 +2,25 @@
 ?>
 <style>
     #select_subject {
-        justify-content: space-around;
-        display: flex;
-        margin: 1% 10%;
+        margin: 10px 20%;
+        font-size: 120%;
+        clear: both;
     }
 
+    #select_subject p{
+
+    }
     #select_subject form {
-        float: left;
+
     }
 
     #select_subject form input {
+        margin: 0 5%;
+        float: left;
         line-height: 50px;
         height: 60px;
         width: 150px;
+        font-size: 100%;
         border: 1px solid rgba(255, 255, 255, 0);
         background: #ff5a88;
         color: white;
@@ -37,6 +43,8 @@
 </style>
 
 <div id="select_subject">
+    <p>选择科目：</p>
+    <br>
     <form method="get">
         <input type="submit" value="SQL Server"/>
         <input type="hidden" name="subject" value="sql"/>
@@ -47,3 +55,4 @@
     </form>
 </div>
 
+<br>

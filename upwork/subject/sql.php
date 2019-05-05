@@ -18,8 +18,8 @@
 <header>
     <div>
         <p><span>SQL Work</span></p>
-        <p>alpha内测</p>
-        <p><?php echo $domainInfo['name']; ?>版</p>
+        <p>work 5/5</p>
+        <p><?php echo $domainInfo['name']; ?>alpha内测 - 版</p>
     </div>
 </header>
 

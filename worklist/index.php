@@ -10,11 +10,12 @@ $domainInfo= include_once("../part/Position.php");
 $counter = 1;
 $list = [
 //    ['end' => '0422', 'start' => '0418', 'Subject' => 'php', 'info' => '编写发送电子邮件实验报告，并导出phpMyAdmin的test表', 'annex' => 'php-发送电子邮件实验报告.doc'],
-    ['end' => '0430', 'start' => '-', 'Subject' => '英语', 'info' => 'B级课堂表演节目，716下周二（4/30）上台。', 'annex' => ''],
-    ['end' => '0425', 'start' => '-', 'Subject' => '思修', 'info' => '4/25 41-44号上台', 'annex' => ''],
-    ['end' => '0430', 'start' => '0423', 'Subject' => '数学', 'info' => '课本P95 3(1)(4)、P107 1(2)(4)', 'annex' => ''],
-    ['end' => '长期', 'start' => '-', 'Subject' => '思修', 'info' => '第十周 - 微电影制作与展示', 'annex' => ''],
-    ['end' => '0426', 'start' => '0424', 'Subject' => 'SQL Server', 'info' => '按“第八章-上机实验二”的要求编写实验报告', 'annex' => 'sql-第八章-上机实验二.doc'],
+    ['end' => '0506', 'start' => '-', 'Subject' => '英语', 'info' => 'B级视频展示，717下周二（5/06）上台', 'annex' => ''],
+    ['end' => '0507', 'start' => '-', 'Subject' => '思修', 'info' => '5月7日 45-48号上台', 'annex' => ''],
+    ['end' => '0506', 'start' => '0430', 'Subject' => '数学', 'info' => '课本P107 1(8)、P117 3(1)', 'annex' => ''],
+    ['end' => '0505', 'start' => '0426', 'Subject' => 'Android', 'info' => '完成chapter2~3和实验3', 'annex' => 'Android-4月29日交.zip'],
+    ['end' => '0509', 'start' => '0428', 'Subject' => 'JavaSE', 'info' => '见课件', 'annex' => 'java-作业六.ppt'],
+//    ['end' => '0426', 'start' => '0424', 'Subject' => 'SQL Server', 'info' => '按“第八章-上机实验二”的要求编写实验报告', 'annex' => 'sql-第八章-上机实验二.doc'],
 ];
 asort($list);
 function add($array,$flag){
@@ -43,8 +44,8 @@ $list = add($list,"start");
 <?php include_once("../part/nav.php") ?>
 <header>
     <div>
-        <p><span>Work List</span></p>
-        <p>Update for 4/24</p>
+        <p><span>劳动节快乐</span></p>
+        <p>Update for 5/04</p>
         <p><?php echo $domainInfo['name'] ?>版</p>
     </div>
 </header>

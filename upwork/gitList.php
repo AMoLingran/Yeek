@@ -1,7 +1,7 @@
 <?php
 {
     $string  = '';
-    $dir = 'file';
+    $dir = 'file_sql';
     foreach (glob($dir . '/*') as $file) {
         $string = $string . $file;
     }

@@ -6,7 +6,7 @@ $domainInfo = include_once("../part/Position.php");
 if (isset($_GET['subject'])) {
     if (file_exists("subject/" . $_GET['subject'] . ".php")) {
         $subject_url = $_GET['subject'] . ".php";
-        $subject_dir = "file_".$_GET['subject'];
+        $subject_dir = "file_" . $_GET['subject'];
         if (!file_exists($subject_dir)) {
             mkdir($subject_dir, 0777);
             chmod($subject_dir, 0777);
@@ -104,6 +104,7 @@ function showUpload($fileArray)
 //setcookie
         $time = date("Y/m/d H:i:s");
         setcookie('sqlwork[name]', $fileArray['name'], time() + 3 * 24 * 3600);
+        setcookie('sqlwork[subject]', $_GET['subject'], time() + 3 * 24 * 3600);
         setcookie('sqlwork[size]', $fileArray['size'], time() + 3 * 24 * 3600);
         setcookie('sqlwork[time]', $time, time() + 3 * 24 * 3600);
     } else {
@@ -126,9 +127,11 @@ function showUpload($fileArray)
 <body>
 <?php include_once("../part/nav.php") ?>
 <?php include_once('subject/' . $subject_url . "") ?>
-<?php include_once("function/select.php")?>
-<?php if($subject_url!="home.php"):?>
-<?php include_once('function/main.php') ?>
+<?php include_once("function/select.php") ?>
+
+<?php if ($subject_url != "home.php"): ?>
+
+    <?php include_once('function/main.php') ?>
 <?php endif; ?>
 <?php include_once("../part/sqlfooter.php") ?>
 </body>

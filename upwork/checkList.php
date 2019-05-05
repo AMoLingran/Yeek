@@ -5,7 +5,7 @@ $counter = 0;
 
 $domainInfo= include_once("../part/Position.php");
 $host = $domainInfo['domain'];
-$url = "http://$host/sqlwork/gitList.php";
+$url = "http://$host/upwork/gitList.php";
 $html = file_get_contents($url);
 $pattern = '#<br>#';
 $array = preg_split($pattern, $html, -1, PREG_SPLIT_NO_EMPTY);
