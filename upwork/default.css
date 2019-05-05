@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('../font/MyriadPro.ttf');
+}
+
+@font-face {
+    font-family: 'mini_思源黑体L';
+    src: url('../font/mini_SourceHanSansCN-Light.ttf');
+}
+
+@font-face {
+    font-family: '思源黑体L';
+    src: url('../font/SourceHanSansCN-Light.ttf');
+}
+
+header {
+    width: 100%;
+    height: 350px;
+    background: #2c2c2f;
+    color: white;
+    font-family: 'Myriad', 'mini_思源黑体L', '思源黑体L';
+    font-size: 225%;
+}
+
+header div {
+    top: 90px;
+    left: 20%;
+    position: absolute;
+    white-space: nowrap;
+}
+
+header span {
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 300%;
+}
+
+header p:last-child {
+    font-size: 75%;
+}
+
+
+span {
+    color: #ff4236;
+}
+
+.blue {
+    color: #0088ff;
+}
+
+main {
+    clear: left;
+    margin: 1% 10%;
+}
+main hr{
+    margin: 5%;
+}
+
+#result {
+    text-align: center;
+    clear: left;
+}
+
+#historical {
+    margin: 1%;
+    text-align: center;
+}
+
+#readme {
+    margin: 5%;
+    text-align: center;
+    font-size: 120%;
+}
+
+#readme a {
+    margin: 0 3%;
+    text-align: center;
+    font-size: 120%;
+}
+
+#readme .red {
+    color: #ff4236;
+    font-size: 110%;
+}
+
+#input {
+    justify-content: space-around;
+    display: flex;
+}
+
+#input div form input{
+    text-align: center;
+    font-size: 110%;
+    color: white;
+}
+
+
+#name {
+    outline-style: none;
+    float: left;
+    background: #00a9ff;
+    width: 298px;
+    height: 73px;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#file_input {
+    float: left;
+    display: block;
+    width: 300px;
+    height: 75px;
+    outline: none;
+    background-color: #00a9ff;
+    filter: alpha(opacity=0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#file {
+    padding: 25px 10%;
+}
+
+#check, #update {
+    float: left;
+    background: #ff807d;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 75px;
+    height: 75px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: white;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+}
