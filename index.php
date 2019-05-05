@@ -37,7 +37,7 @@ $domainInfo = include_once("part/Position.php");
     </ul>
     <ul>SQL Server：
         <li><a href="SQLServer">安装教程和文件下载</a></li>
-        <li><a href="sqlwork">作业上交</a></li>
+        <li><a href="sqlwork">作业上交(已废弃)</a></li>
         <br>
     </ul>
     <ul>作业清单：

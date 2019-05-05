@@ -77,13 +77,10 @@ nav div div {
 
 /*底部信息栏*/
 footer {
-
+    clear: both;
     font-size: 90%;
     margin: 0 5% 0 5%;
     text-align: center;
-}
-footer hr{
-    clear: both;
 }
 footer a {
     text-decoration: none;

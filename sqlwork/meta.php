@@ -1,6 +1,6 @@
 <?php
 ?>
-<meta http-equiv="refresh" content="5;../upwork">
+<meta http-equiv="refresh" content="5;../upwork/?subject=sql">
 <style>
     div {
         margin: 10% 50%;

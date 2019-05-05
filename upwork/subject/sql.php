@@ -19,7 +19,7 @@
     <div>
         <p><span>SQL Work</span></p>
         <p>Work 5/5</p>
-        <p><?php echo $domainInfo['name']; ?>alpha内测 - 版</p>
+        <p><?php echo $domainInfo['name']; ?> - Bate内测版</p>
     </div>
 </header>
 
