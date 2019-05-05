@@ -54,7 +54,11 @@ span {
 }
 
 main {
-    margin: 5% 10% 10%;
+    clear: left;
+    margin: 1% 10%;
+}
+main hr{
+    margin: 5%;
 }
 
 #result {
@@ -79,44 +83,22 @@ main {
     font-size: 120%;
 }
 
-#readme p:nth-child(1), #readme p:nth-child(2) {
+#readme .red {
     color: #ff4236;
     font-size: 110%;
 }
 
-<<<<<<< HEAD
 #input {
     justify-content: space-around;
     display: flex;
-    margin: 1% 0 ;
 }
 
 #input div form input{
-=======
-.checkout {
-    display: block;
-    margin: 0;
-    text-align: center;
-    font-size: 24px;
-}
-
-#input input {
->>>>>>> UWL
     text-align: center;
     font-size: 110%;
     color: white;
-    font-size: 110%;
 }
 
-<<<<<<< HEAD
-=======
-#input div {
-    justify-content: space-around;
-    display: flex;
-    float: left;
-    padding: 3% 0;
-}
->>>>>>> UWL
 
 #name {
     outline-style: none;

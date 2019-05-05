@@ -103,6 +103,7 @@ function showUpload($fileArray)
         echo $fileArray['uploadResult'];
 //setcookie
         $time = date("Y/m/d H:i:s");
+        setcookie('sqlwork[subject]', $_GET['subject'], time() + 3 * 24 * 3600);
         setcookie('sqlwork[name]', $fileArray['name'], time() + 3 * 24 * 3600);
         setcookie('sqlwork[size]', $fileArray['size'], time() + 3 * 24 * 3600);
         setcookie('sqlwork[time]', $time, time() + 3 * 24 * 3600);

@@ -1,27 +1,27 @@
-<?php
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>作业上传</title>
+    <title>SQL Work</title>
     <style>
         header {
             width: 100%;
             height: 350px;
-            background: #378c42;
+            background: #2c2c2f;
             color: white;
             font-family: 'Myriad', 'mini_思源黑体L', '思源黑体L';
             font-size: 225%;
         }
     </style>
 </head>
+
 <header>
     <div>
-        <p><span>请选择科目</span></p>
-        <p> - Bate内测</p>
-        <p><?php echo $domainInfo['name']; ?>版</p>
+        <p><span>SQL Work</span></p>
+        <p>Work 5/5</p>
+        <p><?php echo $domainInfo['name']; ?> - Bate内测版</p>
     </div>
 </header>
-</html>
+
+
+
