@@ -84,6 +84,7 @@ main {
     font-size: 110%;
 }
 
+<<<<<<< HEAD
 #input {
     justify-content: space-around;
     display: flex;
@@ -91,11 +92,31 @@ main {
 }
 
 #input div form input{
+=======
+.checkout {
+    display: block;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+}
+
+#input input {
+>>>>>>> UWL
     text-align: center;
     font-size: 110%;
     color: white;
+    font-size: 110%;
 }
 
+<<<<<<< HEAD
+=======
+#input div {
+    justify-content: space-around;
+    display: flex;
+    float: left;
+    padding: 3% 0;
+}
+>>>>>>> UWL
 
 #name {
     outline-style: none;

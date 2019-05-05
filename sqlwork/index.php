@@ -203,7 +203,6 @@ function showUpload($fileArray)
         <p>②要替换旧文件在新文件名后面加个“2”就行</p><br>
         <p>③别忘了检查一下文件大小是否一致</p><br>
         <p>④检查不到文件可能是我还没有同步内外网</p><br><br>
-
         <p><a href="http://<?php echo $domainInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
     </div>
 </main>

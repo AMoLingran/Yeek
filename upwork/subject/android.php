@@ -17,8 +17,13 @@
 <header>
     <div>
         <p><span>Android Work</span></p>
+<<<<<<< HEAD
         <p>-</p>
         <p><?php echo $domainInfo['name']; ?>版 - Bate内测</p>
+=======
+        <p>alpha内测</p>
+        <p><?php echo $domainInfo['name']; ?>版</p>
+>>>>>>> UWL
     </div>
 </header>
 </html>

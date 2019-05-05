@@ -2,6 +2,7 @@
 ?>
 <style>
     #select_subject {
+<<<<<<< HEAD
         margin: 10px 20%;
         font-size: 120%;
         clear: both;
@@ -50,9 +51,28 @@
         <input type="hidden" name="subject" value="sql"/>
     </form>
     <form method="get">
+=======
+
+    }
+
+    #select_subject form {
+    float: left;
+    }
+</style>
+
+<div id="select_subject">
+    <form method="get" >
+        <input type="submit" value="SQL Server"/>
+        <input type="hidden" name="subject" value="sql"/>
+    </form>
+    <form method="get" >
+>>>>>>> UWL
         <input type="submit" value="Android"/>
         <input type="hidden" name="subject" value="android"/>
     </form>
 </div>
 
+<<<<<<< HEAD
 <br>
+=======
+>>>>>>> UWL

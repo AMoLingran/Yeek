@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 
 <main>
     <hr>
+=======
+<?php
+?>
+<main>
+>>>>>>> UWL
     <section id="input">
         <div>
             <form method="post" name="checkForm">
@@ -64,14 +70,21 @@
         if (isset($_COOKIE['sqlwork'])) {
             $historical = $_COOKIE['sqlwork'];
             echo '<p>Cookie说：</p>';
+<<<<<<< HEAD
             echo '你上一次在<span class="blue">' .$historical['subject']. "</span>";
             echo '，上传了<span class="blue">' . $historical['name'] . '</span>';
             echo '，大小为<span class="blue">' . $historical['size'] . 'MB</span>的文件';
             echo '，时间为<span class="blue">' . $historical['time'] . '</span></p>';
+=======
+            echo '你上一次在<span class="blue">' . $historical['time'] . "</span>";
+            echo '，上传了<span class="blue">' . $historical['name'] . '</span>';
+            echo '，大小为<span class="blue">' . $historical['size'] . 'MB</span>的文件</p>';
+>>>>>>> UWL
         }
         ?>
     </div>
     <div id="readme">
+<<<<<<< HEAD
         <div class="red">
             <p>文件大小不得超过10MB</p>
         <p>测试版本，本站不可避免的会发生翻车、文件丢失的事，请注意好自己备份作业，切勿上传后就删除作业。</p>
@@ -82,6 +95,14 @@
         <p>
             <a href="/worklist" target="_blank">作业内容</a>
             <a href="checkList.php">上交名单</a>
+=======
+        <p>最近校园网上传很慢，请看浏览器左下角的上传进度。</p>
+        <p>上课当天上交的请在上课前找我确认</p>
+        <br>
+        <p>
+            <a href="/worklist" target="_blank">作业内容</a>
+            <a href="../checkList.php">上交名单</a>
+>>>>>>> UWL
             <a href="https://gitee.com/Moreant/schoolwork">某人答案</a>
         </p>
         <br>
