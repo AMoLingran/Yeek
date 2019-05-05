@@ -17,7 +17,7 @@
 <header>
     <div>
         <p><span>Android Work</span></p>
-        <p>alpha内测</p>
+        <p>Alpha内测</p>
         <p><?php echo $domainInfo['name']; ?>版</p>
     </div>
 </header>

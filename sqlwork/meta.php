@@ -1,5 +1,6 @@
 <?php
 ?>
+<meta http-equiv="refresh" content="5;../upwork">
 <style>
     div {
         margin: 10% 50%;
@@ -13,6 +14,7 @@
 <div>
     <p>请去新的文件上传</p>
     <a>yeek.top/upwork</a>
-    <br><br>
-    <a href="../upwork">立即转跳 </a>
+    <br>
+    <p>5秒后自动跳转</p>
+    <a href="../upwork">立即跳转 </a>
 </div>

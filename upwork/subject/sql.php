@@ -18,7 +18,7 @@
 <header>
     <div>
         <p><span>SQL Work</span></p>
-        <p>work 5/5</p>
+        <p>Work 5/5</p>
         <p><?php echo $domainInfo['name']; ?>alpha内测 - 版</p>
     </div>
 </header>
