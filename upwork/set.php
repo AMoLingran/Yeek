@@ -24,7 +24,10 @@ if (!session_id()) {
         toLogin();
     }
 }
-$set = "file/";
+if (!isset($_GET['subject'])){
+    $_GET['subject']="sql";
+}
+$set = "file_".$_GET['subject']."/";
 $in = '';
 ?>
 
@@ -39,7 +42,8 @@ $in = '';
 </head>
 <body>
 <?php include_once("../part/nav.php") ?>
-<?php include_once("file/index.php") ?>
+<?php include_once("function/select.php") ?>
+<?php include_once("file_".$_GET['subject']."/index.php") ?>
 <?php include_once("function/movepack.php") ?>
 <?php include_once("function/upWork.php") ?>
 <?php include_once("function/delete.php") ?>

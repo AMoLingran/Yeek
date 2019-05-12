@@ -1,7 +1,6 @@
 <?php
 session_start();
 date_default_timezone_set('PRC');
-include_once("../part/encoding.php");
 $domainInfo = include_once("../part/Position.php");
 if (isset($_GET['subject'])) {
     if (file_exists("subject/" . $_GET['subject'] . ".php")) {
@@ -31,7 +30,7 @@ function checkFile($name)
     if (pathinfo($name, PATHINFO_EXTENSION) == "") {
         $counter = 0;
         foreach ($suffixs as $suffix) {
-            $url = "$subject_dir/" . encoding($name) . '.' . $suffix;
+            $url = "$subject_dir/" . $name . '.' . $suffix;
             if (file_exists($url)) {
                 $list[$counter]['name'] = $name;
                 $list[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
@@ -39,7 +38,7 @@ function checkFile($name)
             }
         }
     } else {
-        $url = "$subject_dir/" . encoding($name);
+        $url = "$subject_dir/" . $name;
         if (file_exists($url)) {
             $list[0]['name'] = $name;
             $list[0]['size'] = round(filesize($url) / 1024 / 1024, 2);
@@ -52,7 +51,7 @@ function checkFile($name)
 function moveFile($fileInfo)
 {
     global $subject_dir;
-    if (move_uploaded_file($fileInfo['tmp_name'], "$subject_dir/" . encoding($fileInfo['name']))) {
+    if (move_uploaded_file($fileInfo['tmp_name'], "$subject_dir/" . $fileInfo['name'])) {
         return $fileArray = [
             'subject' => $_GET['subject'],
             'name' => $fileInfo['name'],
