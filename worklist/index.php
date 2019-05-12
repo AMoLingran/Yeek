@@ -14,7 +14,7 @@ $list = [
     ['end' => '0514', 'start' => '-', 'Subject' => '英语', 'info' => 'B级视频展示，717上台', 'annex' => ''],
     ['end' => '0514', 'start' => '-', 'Subject' => '思修', 'info' => '5月14日 53-54号上台', 'annex' => ''],
     ['end' => '0514', 'start' => '0507', 'Subject' => '数学', 'info' => '课本P177 5(1)、8(2)', 'annex' => ''],
-    ['end' => '0508', 'start' => '0515', 'Subject' => 'Android', 'info' => '完成lab4', 'annex' => 'Android-lab4.zip'],
+    ['end' => '0515', 'start' => '0508', 'Subject' => 'Android', 'info' => '完成lab4', 'annex' => 'Android-lab4.zip'],
 //    ['end' => '0509', 'start' => '0428', 'Subject' => 'JavaSE', 'info' => '见课件', 'annex' => 'java-作业六.ppt'],
     ['end' => '0513', 'start' => '0510', 'Subject' => 'SQL Server', 'info' => '按“第9章上机实验三”的要求编写实验报告', 'annex' => 'sql-第9章上机实验三.doc'],
 ];
