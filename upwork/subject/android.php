@@ -17,7 +17,7 @@
 <header>
     <div>
         <p><span>Android Work</span></p>
-        <p>lab4 Work 5/15</p>
+        <p>lab4 - Work on 5/15</p>
         <p><?php echo $domainInfo['name']; ?>版 - Bate内测</p>
     </div>
 </header>

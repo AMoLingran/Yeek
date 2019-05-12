@@ -64,6 +64,7 @@ main hr{
 #result {
     text-align: center;
     clear: left;
+    font-size: 110%;
 }
 
 #historical {
@@ -85,7 +86,6 @@ main hr{
 
 #readme .red {
     color: #ff4236;
-    font-size: 110%;
 }
 
 #input {

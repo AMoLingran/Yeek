@@ -20,11 +20,7 @@
 <header>
     <div>
         <p><span>请选择科目</span></p>
-<<<<<<< HEAD
         <p> - Bate内测</p>
-=======
-        <p>alpha内测</p>
->>>>>>> UWL
         <p><?php echo $domainInfo['name']; ?>版</p>
     </div>
 </header>
