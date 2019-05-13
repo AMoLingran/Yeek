@@ -1,5 +1,4 @@
 <?php
-
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {
@@ -22,18 +21,18 @@ if (!isset($subject)) {
     if (isset($lastDir)) {
         $zipDir = $lastDir;
     } else {
-       exit("错误的访问方式");
+        exit("错误的打开方式");
     }
+
 } else {
     $zipDir = "file_$subject";
-
 }
 
 $zipValue="压缩 $zipDir 的文件";
 $zipName = $zipDir.date("md");
 
 if (isset($_POST['zip_sub'])) {
-    system("zip -r $zipDir/$zipName.zip $zipDir");
+    system("zip -r $zipDir/pack.zip $zipDir");
 } ?>
 <form method="post">
     <input type="submit" name="zip_sub" value="<?php echo strtoupper($zipValue) ?>"/>

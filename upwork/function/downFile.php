@@ -87,7 +87,7 @@ if(strpos($_SERVER['PHP_SELF'],'index.php')){
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
-                <td><?php echo "<a download href='$set$item'>$item"; ?></a></td>
+                <td><?php echo "<a download href='$lastDir$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
 

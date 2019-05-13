@@ -29,6 +29,7 @@ if (isset($_GET['subject'])) {
 } else {
     $subject = "sql";
 }
+$fileDir = "file_" . $subject."/";
 ?>
 
 <!doctype html>
@@ -43,9 +44,10 @@ if (isset($_GET['subject'])) {
 <body>
 <?php include_once("../part/nav.php") ?>
 <?php include_once("function/select.php") ?>
-<?php include_once("file_" . $subject . "/index.php") ?>
-<?php include_once("function/movepack.php") ?>
-<?php include_once("function/upWork.php") ?>
+<?php include_once($fileDir."index.php") ?>
+<?php if (PHP_OS === 'Linux'):?>
+    <?php include_once("function/movepack.php") ?>
+<?php endif;?>
 <?php include_once("function/delete.php") ?>
 <?php include_once("function/restore.php") ?>
 <?php include_once("../part/sqlfooter.php") ?>
