@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <style>
     #select_subject {
@@ -49,11 +50,11 @@
 <div id="select_subject">
     <p>选择科目：</p>
     <br>
-    <form method="get">
+    <form method="post">
         <input type="submit" value="SQL Server"/>
         <input type="hidden" name="subject" value="sql"/>
     </form>
-    <form method="get">
+    <form method="post">
         <input type="submit" value="Android"/>
         <input type="hidden" name="subject" value="android"/>
     </form>

@@ -2,19 +2,19 @@
 //$domain = $_SERVER['HTTP_HOST'];
 date_default_timezone_set('PRC');
 $counter = 0;
-if(!isset($_GET['subject'])){
-    $_GET['subject']="sql";
+if(!isset($_SESSION['subject'])){
+    $_SESSION['subject']="sql";
 }
 $domainInfo= include_once("../part/Position.php");
 $host = $domainInfo['domain'];
-$url = "http://$host/upwork/gitList_".$_GET['subject'].".php";
+$url = "http://$host/upwork/gitList_".$_SESSION['subject'].".php";
 $html = file_get_contents($url);
 $pattern = '#<br>#';
 $array = preg_split($pattern, $html, -1, PREG_SPLIT_NO_EMPTY);
 
 function getList()
 {
-    $url = "http://yeek.top/sqlwork/gitList_".$_GET['subject'].".php";
+    $url = "http://yeek.top/sqlwork/gitList_".$_SESSION['subject'].".php";
     $html = file_get_contents($url);
     $pattern = '#<br>#';
     return $array = preg_split($pattern, $html, -1, PREG_SPLIT_NO_EMPTY);
@@ -62,7 +62,7 @@ function getList()
 <?php include_once("function/select.php") ?>
 <fieldset>
     <legend>你访问时的间为 <span><?php echo date("H:i:s") ?></span>
-        , 正在查看 <span><?php echo $_GET['subject'] ?></span> 的上交情况
+        , 正在查看 <span><?php echo $_SESSION['subject'] ?></span> 的上交情况
     </legend>
     <table>
         <tr>

@@ -7,6 +7,7 @@
  */
 
 include_once('../part/encoding.php');
+include_once ("function/subject.php");
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {
@@ -24,10 +25,8 @@ if (!session_id()) {
         toLogin();
     }
 }
-if (isset($_GET['subject'])) {
-    $subject = $_GET['subject'];
-} else {
-    $subject = "sql";
+if(isset($_SESSION['subject'])){
+    $subject=$_SESSION['subject'];
 }
 $fileDir = "file_" . $subject."/";
 ?>
@@ -45,9 +44,9 @@ $fileDir = "file_" . $subject."/";
 <?php include_once("../part/nav.php") ?>
 <?php include_once("function/select.php") ?>
 <?php include_once($fileDir."index.php") ?>
-<?php if (PHP_OS === 'Linux'):?>
+<?php //if (PHP_OS === 'Linux'):?>
     <?php include_once("function/movepack.php") ?>
-<?php endif;?>
+<?php //endif;?>
 <?php include_once("function/delete.php") ?>
 <?php include_once("function/restore.php") ?>
 <?php include_once("../part/sqlfooter.php") ?>
