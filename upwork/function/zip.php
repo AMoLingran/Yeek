@@ -1,4 +1,5 @@
 <?php
+
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {
@@ -12,13 +13,28 @@ if (!session_id()) {
             var_dump($head);
             header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
         }
+
         toLogin();
     }
 }
+$disabled = "";
+if (!isset($subject)) {
+    if (isset($lastDir)) {
+        $zipDir = $lastDir;
+    } else {
+       exit("错误的访问方式");
+    }
+} else {
+    $zipDir = "file_$subject";
+
+}
+
+$zipValue="压缩 $zipDir 的文件";
+$zipName = $zipDir.date("md");
 
 if (isset($_POST['zip_sub'])) {
-    system('zip -r file/pack.zip file');
+    system("zip -r $zipDir/$zipName.zip $zipDir");
 } ?>
 <form method="post">
-    <input type="submit" name="zip_sub" value="压缩">
+    <input type="submit" name="zip_sub" value="<?php echo strtoupper($zipValue) ?>"/>
 </form>

@@ -11,8 +11,10 @@ if (!session_id()) {
     if (!isset($_SESSION['login'])) {
         function toLogin()
         {
+
             $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1) + 1);
             $head = "";
+
             for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
                 $head = $head . '../';
             }
@@ -22,6 +24,10 @@ if (!session_id()) {
         toLogin();
     }
 }
+
+$start = strpos($_SERVER['PHP_SELF'], 'file_');
+$end =  strrpos($_SERVER['PHP_SELF'], '/index.php');
+$lastDir = substr($_SERVER['PHP_SELF'],$start,$end-$start);
 $counter = 0;
 $list = array();
 $path = __DIR__;
@@ -38,9 +44,10 @@ foreach ($result as $item) {
         $list[] = $str;
     }
 }
-if (!isset($set)) {
-    $set = "";
+if(strpos($_SERVER['PHP_SELF'],'index.php')){
     $in='..';
+}else{
+    $in="";
 }
 ?>
 <!doctype html>
