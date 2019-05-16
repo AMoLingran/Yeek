@@ -1,22 +1,22 @@
 <?php
-session_start();
+if(!session_id()){
+    session_start();
+}
 date_default_timezone_set('PRC');
 include_once("../part/encoding.php");
+include_once ("function/subject.php");
 $domainInfo = include_once("../part/Position.php");
-if (isset($_GET['subject'])) {
-    if (file_exists("subject/" . $_GET['subject'] . ".php")) {
-        $subject_url = $_GET['subject'] . ".php";
-        $subject_dir = "file_" . $_GET['subject'];
+if (isset($_SESSION['subject'])) {
+    $subject = $_SESSION['subject'];
+    if (file_exists("subject/" . $subject. ".php")) {
+        $subject_url = $subject . ".php";
+        $subject_dir = "file_" . $subject;
         if (!file_exists($subject_dir)) {
             mkdir($subject_dir, 0777);
-            chmod($subject_dir, 0777);
         }
         if (!file_exists("$subject_dir/index.php")) {
             copy("function/downFile.php", "$subject_dir/index.php");
-            chmod("$subject_dir/index.php", 0777);
         }
-    } else {
-        $subject_url = "home.php";
     }
 } else {
     $subject_url = "home.php";
@@ -54,7 +54,7 @@ function moveFile($fileInfo)
     global $subject_dir;
     if (move_uploaded_file($fileInfo['tmp_name'], "$subject_dir/" . encoding($fileInfo['name']))) {
         return $fileArray = [
-            'subject' => $_GET['subject'],
+            'subject' => $_SESSION['subject'],
             'name' => $fileInfo['name'],
             'size' => round($fileInfo['size'] / 1024 / 1024, 2),
             'error' => $fileInfo['error']
@@ -80,13 +80,13 @@ function showUpload($fileArray)
         $time = date("Y/m/d H:i:s");
 
         echo "<p>上交成功</p><p>[&nbsp;";
-        echo "'科目'=><span>" . $_GET['subject'] . '&nbsp;,</span>';
+        echo "'科目'=><span>" . $_SESSION['subject'] . '&nbsp;,</span>';
         echo '&nbsp;\'文件名\'=><span>' . $fileArray['name'] . '&nbsp;,</span>';
         echo '&nbsp;\'大小\'=><span>' . $fileArray['size'] . '</span>MB&nbsp;';
         echo '&nbsp;\'时间\'=><span class="blue">' . $time . '</span>&nbsp;]</p>';
 
 //setcookie
-        setcookie('last_upload[subject]', $_GET['subject'], time() + 3 * 24 * 3600);
+        setcookie('last_upload[subject]', $_SESSION['subject'], time() + 3 * 24 * 3600);
         setcookie('last_upload[name]', $fileArray['name'], time() + 3 * 24 * 3600);
         setcookie('last_upload[size]', $fileArray['size'], time() + 3 * 24 * 3600);
         setcookie('last_upload[time]', $time, time() + 3 * 24 * 3600);

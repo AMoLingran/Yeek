@@ -1,7 +1,10 @@
 <?php
+if(!session_id()){
+    exit("错误的打开方式");
+}
 include_once('../part/encoding.php');
-if (isset($_GET['subject'])) {
-    $subject = $_GET['subject'];
+if (isset($_SESSION['subject'])) {
+    $subject = $_SESSION['subject'];
 } else {
     $subject = "sql";
 }
