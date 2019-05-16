@@ -25,7 +25,7 @@ setcookie('tips_sql',"tips_sql",time()+ 3*60);
     <div>
         <p><span>SQL Work</span></p>
         <p>第九章上机实验三 - Work on 5/13（已结束）</p>
-        <p><?php echo $domainInfo['name']; ?> - Bate内测版</p>
+        <p><?php echo $domainInfo['name']; ?> - Bate1.1</p>
     </div>
 </header>
 

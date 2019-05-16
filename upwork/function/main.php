@@ -89,6 +89,12 @@
             <p>②要替换旧文件在新文件名后面加个“2”就行</p><br>
             <p>③别忘了检查一下文件大小是否一致</p><br>
             <p>④检查不到文件可能是我还没有同步内外网</p><br><br>
+
+            <p>Alpha(sqlwork)：单科目、基础功能。开发已结束（4/15-4/27）。</p><br>
+            <p>Bate(upwork)：Alpha基础上的多功科目版本。开发已结束（4/27-5/13）。</p><br>
+            <p>Bate1.1(upwork)：Bate基础上的重构和优化。开发进行中（5/14- ）。</p><br>
+            <p>Gamma(upwork&worklist)：以Bate1.1为基础的数据库链接版。脑补中（ - ）。</p><br><br>
+
             <p><a href="http://<?php echo $domainInfo['domain'] ?>/SQLServer">SQL Server 安装教程与下载</a></p>
         </div>
     </main>
