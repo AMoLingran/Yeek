@@ -25,6 +25,7 @@ if (!session_id()) {
         toLogin();
     }
 }
+
 if(isset($_SESSION['subject'])){
     $subject=$_SESSION['subject'];
 }

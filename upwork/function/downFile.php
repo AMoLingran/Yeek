@@ -25,9 +25,9 @@ if (!session_id()) {
     }
 }
 
-$start = strpos($_SERVER['PHP_SELF'], 'file_');
-$end =  strrpos($_SERVER['PHP_SELF'], '/index.php');
-$lastDir = substr($_SERVER['PHP_SELF'],$start,$end-$start);
+if(!isset($fileDir)){
+    $fileDir="";
+}
 $counter = 0;
 $list = array();
 $path = __DIR__;
@@ -87,7 +87,7 @@ if(strpos($_SERVER['PHP_SELF'],'index.php')){
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
-                <td><?php echo "<a download href='$lastDir$item'>$item"; ?></a></td>
+                <td><?php echo "<a download href='$fileDir$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
 

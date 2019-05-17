@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+echo "<script language=\"JavaScript\">alert(\"lab4已经上交老师，补交请联系老师。 -5月15日\");</script>";
 <head>
     <meta charset="UTF-8"/>
     <title>Android Work</title>

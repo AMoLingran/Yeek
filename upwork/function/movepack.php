@@ -8,14 +8,15 @@ if (isset($_SESSION['subject'])) {
 } else {
     $subject = "sql";
 }
-if (!file_exists('back_file/')) {
-    mkdir("back_file/");
+if (!file_exists('backup/')) {
+    mkdir("backup/");
 }
 $fileDir = "file_" . $subject . "/";
 
 if (isset($_POST['move_sub'])) {
     $oldFileName = "pack.zip";
-    $newFileName = $subject . "_" . $_POST['new_file_name'] . ".zip";
+    //backup_sql_0518.zip
+    $newFileName = "backup_".$subject . "_" . $_POST['new_file_name'] . ".zip";
     $oldFileName = "$fileDir/$oldFileName"; //旧目录
     $newFileName = "back_file/$newFileName"; //新目录
     if (file_exists($oldFileName)) {
@@ -26,7 +27,7 @@ if (isset($_POST['move_sub'])) {
                 echo "移动失败";
             }
         } else {
-            echo " back_file_$subject" . "_" . "$newFileName.zip";
+            echo " backup_$subject" . "_" . "$newFileName.zip";
         }
     } else {
         echo "被移动文件不存在";
@@ -45,7 +46,7 @@ if (isset($_POST['move_and_delete'])) {
 <fieldset>
     <form method="post">
         <label>
-            back_file_<input type="text" name="new_file_name" required="required">.zip<br>
+            backup_<span><?php echo $subject?></span>_<input type="text" name="new_file_name" required="required">.zip<br>
             移动并删除源文件<input type="checkbox" name="move_and_delete" required="required"><br>
             <input type="submit" name="move_sub" value="移动">
         </label>

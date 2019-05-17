@@ -16,14 +16,11 @@ if (!session_id()) {
         toLogin();
     }
 }
-$disabled = "";
+echo $disabled = "";
 if (!isset($subject)) {
-    if (isset($lastDir)) {
-        $zipDir = $lastDir;
-    } else {
-        exit("错误的打开方式");
+    if (isset($fileDir)) {
+        $zipDir = $fileDir;
     }
-
 } else {
     $zipDir = "file_$subject";
 }
