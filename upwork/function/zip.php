@@ -16,21 +16,36 @@ if (!session_id()) {
         toLogin();
     }
 }
-echo $disabled = "";
+
+
 if (!isset($subject)) {
-    if (isset($fileDir)) {
-        $zipDir = $fileDir;
+    if (!isset($fileDir)) {
+        exit("错误的打开方式");
     }
+    $zipDir = ".";
 } else {
     $zipDir = "file_$subject";
 }
 
-$zipValue="压缩 $zipDir 的文件";
-$zipName = $zipDir.date("md");
+function dir_name($zipDir)
+{
+    $dir = $_SERVER['PHP_SELF'];
+    $at2 = stripos($dir, "file_");
+    $at = strrpos($dir, "/index.php");
+    $dirName = substr($dir, $at2, $at - $at2);
+    if (empty($dirName)) {
+        return $zipDir;
+    } else {
+        return $dirName;
+    }
+}
 
+$zipValue = "压缩 " . dir_name($zipDir) . " 的文件";
+$zipName = $zipDir . "_" . date("md");
 if (isset($_POST['zip_sub'])) {
-    system("zip -r $zipDir/pack.zip $zipDir");
-} ?>
+    system("zip -r $zipDir/pack.zip $zipDir/");
+}
+?>
 <form method="post">
     <input type="submit" name="zip_sub" value="<?php echo strtoupper($zipValue) ?>"/>
 </form>

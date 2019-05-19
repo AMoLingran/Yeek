@@ -5,22 +5,10 @@ if(!session_id()){
 date_default_timezone_set('PRC');
 include_once("../part/encoding.php");
 include_once ("function/subject.php");
-$domainInfo = include_once("../part/Position.php");
-if (isset($_SESSION['subject'])) {
-    $subject = $_SESSION['subject'];
-    if (file_exists("subject/" . $subject. ".php")) {
-        $subject_url = $subject . ".php";
-        $subject_dir = "file_" . $subject;
-        if (!file_exists($subject_dir)) {
-            mkdir($subject_dir, 0777);
-        }
-        if (!file_exists("$subject_dir/index.php")) {
-            copy("function/downFile.php", "$subject_dir/index.php");
-        }
-    }
-} else {
-    $subject_url = "home.php";
+if(!isset($subject_url)){
+    $subject_url="home.php";
 }
+$domainInfo = include_once("../part/Position.php");
 $file = array();
 $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar','mp4');
 function checkFile($name)
@@ -52,7 +40,10 @@ function checkFile($name)
 function moveFile($fileInfo)
 {
     global $subject_dir;
-    if (move_uploaded_file($fileInfo['tmp_name'], "$subject_dir/" . encoding($fileInfo['name']))) {
+    $tempFile =$fileInfo['tmp_name'];
+    $updateFile = "$subject_dir/" . encoding($fileInfo['name']);
+    if (move_uploaded_file($tempFile, $updateFile)) {
+        chmod("$updateFile",0777);
         return $fileArray = [
             'subject' => $_SESSION['subject'],
             'name' => $fileInfo['name'],

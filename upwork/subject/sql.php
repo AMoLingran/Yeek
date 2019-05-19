@@ -1,6 +1,6 @@
 <?php
 if(!isset($_COOKIE['tips_sql'])){
-//echo "<script language=\"JavaScript\">alert(\"第九章上机实验三已经上交老师，补交请联系老师。\");</script>";
+echo "<script language=\"JavaScript\">alert(\"第十章上机实验一已经上交老师，补交请联系老师。 --5/16\");</script>";
 setcookie('tips_sql',"tips_sql",time()+ 3*60);
 }
 ?>

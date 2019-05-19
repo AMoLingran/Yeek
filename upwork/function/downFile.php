@@ -25,8 +25,8 @@ if (!session_id()) {
     }
 }
 
-if(!isset($fileDir)){
-    $fileDir="";
+if (!isset($fileDir)) {
+    $fileDir = "";
 }
 $counter = 0;
 $list = array();
@@ -38,17 +38,18 @@ foreach ($result as $item) {
     } else {
         $str = str_replace($path . "/", "", iconv('GBK', 'UTF-8', $item));
     }
-    if($str=="index.php" | $str=='linux.php'){
+    if ($str == "index.php" | $str == 'linux.php') {
         continue;
-    }else{
+    } else {
         $list[] = $str;
     }
 }
-if(strpos($_SERVER['PHP_SELF'],'index.php')){
-    $in='..';
-}else{
-    $in="";
+if (strpos($_SERVER['PHP_SELF'], 'index.php')) {
+    $in = '../';
+} else {
+    $in = "";
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -60,6 +61,7 @@ if(strpos($_SERVER['PHP_SELF'],'index.php')){
             text-align: center;
             margin: 5% 10%;
         }
+
         legend {
             text-align: center;
         }
@@ -82,19 +84,19 @@ if(strpos($_SERVER['PHP_SELF'],'index.php')){
 </head>
 <body>
 <fieldset>
-    <legend>下载 <span><?php echo __DIR__ ?></span> 的文件</legend>
-    <br><br>
+    <legend>下载 <span><?php echo $_SERVER['PHP_SELF'] ?></span> 的文件</legend>
+    <br>
+    <?php include_once("$in" . "function/zip.php" . "") ?>
+    <br>
     <table>
         <tr>
             <?php foreach ($list as $item) : $counter++; ?>
                 <td><?php echo "<a download href='$fileDir$item'>$item"; ?></a></td>
                 <?php if ($counter % 5 == 0) echo "<tr></tr>"; endforeach; ?>
         </tr>
-
     </table>
     <br>
-    <?php include_once("$in/function/zip.php"."") ?>
-    <br><br>
+    <br>
 </fieldset>
 </body>
 </html>
