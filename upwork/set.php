@@ -25,9 +25,8 @@ if (!session_id()) {
         toLogin();
     }
 }
-
-if(isset($_SESSION['subject'])){
-    $subject=$_SESSION['subject'];
+if(!isset($subject)){
+    header("Location:index.php");
 }
 $fileDir = "file_" . $subject."/";
 ?>
