@@ -110,7 +110,7 @@ function showUpload($fileArray)
 
 function writeLog($type, $logStr)
 {
-    $backupDir = "../log_backup";
+    $backupDir = "../log";
     $date = "time: " . date("Y/m/d H:i:s");
 //    $logStr = iconv("UTF-8", "GBK", $logStr);
     if (!file_exists($backupDir)) {
