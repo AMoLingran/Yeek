@@ -28,7 +28,6 @@ if (isset($_SESSION['subject'])) {
             chmod("$subject_dir",0777);
         }
         if (!file_exists("$subject_dir/index.php")) {
-            var_dump("?");
             copy("function/downFile.php", "$subject_dir/index.php");
             chmod("$subject_dir/index.php",0777);
         }
