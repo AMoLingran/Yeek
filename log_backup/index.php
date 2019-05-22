@@ -6,25 +6,6 @@
  * Time: 16:06
  */
 
-if (!session_id()) {
-    session_start();
-    if (!isset($_SESSION['login'])) {
-        function toLogin()
-        {
-
-            $fromFile = substr($_SERVER['PHP_SELF'], strpos($_SERVER['PHP_SELF'], '/', 1) + 1);
-            $head = "";
-
-            for ($int = substr_count($fromFile, '/'); $int > 0; $int--) {
-                $head = $head . '../';
-            }
-            var_dump($head);
-            header("location:" . $head . "login.php?hint=unLogged&fromFile=$fromFile");
-        }
-        toLogin();
-    }
-}
-
 if (!isset($fileDir)) {
     $fileDir = "";
 }
@@ -86,7 +67,6 @@ if (strpos($_SERVER['PHP_SELF'], 'index.php')) {
 <fieldset>
     <legend>下载 <span><?php echo $_SERVER['PHP_SELF'] ?></span> 的文件</legend>
     <br>
-    <?php include_once("$in" . "function/zip.php" . "") ?>
     <br>
     <table>
         <tr>
