@@ -1,7 +1,7 @@
 <?php
 if(!isset($_COOKIE['tips_android'])) {
-    echo "<script language=\"JavaScript\">alert(\"lab4已经上交老师，补交请联系老师。 --5月15日\");</script>";
-    setcookie('tips_android',"tips_android",time()+ 3*60);
+//    echo "<script language=\"JavaScript\">alert(\"lab4已经上交老师，补交请联系老师。 --5月15日\");</script>";
+//    setcookie('tips_android',"tips_android",time()+ 3*60);
 }
 ?>
 <!doctype html>
@@ -23,7 +23,8 @@ if(!isset($_COOKIE['tips_android'])) {
 <header>
     <div>
         <p><span>Android Work</span></p>
-        <p>lab4 - Work on 5/15</p>
+<!--        <p>lab4 - Work on 5/15</p>-->
+        <p> - </p>
         <p><?php echo $domainInfo['name']; ?> - Bate1.1</p>
     </div>
 </header>
