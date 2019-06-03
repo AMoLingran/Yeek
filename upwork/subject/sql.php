@@ -24,7 +24,7 @@ if(!isset($_COOKIE['tips_sql'])){
 <header>
     <div>
         <p><span>SQL Work</span></p>
-        <p>第十章上机实验二 - Work on 5/24（中午前）</p>
+        <p>第十章上机实验二 - Work on 5/24</p>
         <p><?php echo $domainInfo['name']; ?> - Bate1.1</p>
     </div>
 </header>
