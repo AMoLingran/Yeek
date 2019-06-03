@@ -13,3 +13,6 @@ Download/
 /worklist/annex
 /worklist/oldAnnex
 /upwork/file_*/*.*
+/log
+/database/file/*.xlsx
+test.php
