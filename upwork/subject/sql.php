@@ -3,12 +3,16 @@ if(!isset($_COOKIE['tips_sql'])){
 //echo "<script language=\"JavaScript\">alert(\"第十章上机实验一已经上交老师，补交请联系老师。 --5/16\");</script>";
 //setcookie('tips_sql',"tips_sql",time()+ 3*60);
 }
+
+
+if(!isset($pdo)){
+    exit('连接数据库失败');
+}
+
+
+require_once "function/getWorkInfo.php";
+$work = getWorkInfo($pdo,1);
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>SQL Work</title>
     <style>
         header {
             width: 100%;
@@ -19,13 +23,11 @@ if(!isset($_COOKIE['tips_sql'])){
             font-size: 225%;
         }
     </style>
-</head>
-
 <header>
     <div>
-        <p><span>SQL Work</span></p>
-        <p>第十章上机实验二 - Work on 5/24</p>
-        <p><?php echo $domainInfo['name']; ?> - Bate1.1</p>
+        <p><span><?php echo $work['subName']?></span></p>
+        <p><?php echo $work['name'] . "&nbsp;&nbsp; | &nbsp;&nbsp;" . $work['end']; ?></p>
+        <p><?php echo $domainInfo['name'] . " - " . $version; ?></p>
     </div>
 </header>
 
