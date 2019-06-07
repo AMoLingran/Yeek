@@ -2,7 +2,7 @@
 if(!session_id()){
     session_start();
 }
-include_once ("function/subject.php");
+include_once("function/WorkInfo.php");
 //$domain = $_SERVER['HTTP_HOST'];
 date_default_timezone_set('PRC');
 $counter = 0;

@@ -7,7 +7,7 @@
  */
 
 include_once('../part/encoding.php');
-include_once ("function/subject.php");
+include_once("function/WorkInfo.php");
 if (!session_id()) {
     session_start();
     if (!isset($_SESSION['login'])) {

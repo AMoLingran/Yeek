@@ -1,24 +1,19 @@
-<?php
-
-?>
 <style>
     #select_subject {
         margin: 10px 20%;
         font-size: 120%;
-        clear: both;
     }
-
-    #select_subject p {
-
+    
+    #select_subject p{
+        margin-top: 3%;
     }
 
     #select_subject form {
-        float: left;
-        margin-left:10%;
+        margin-right:10%;
     }
 
     #select_subject form input {
-        margin: 0 5%;
+        margin: 3%  3%  3% 0 ;
         float: left;
         line-height: 50px;
         height: 60px;
@@ -49,14 +44,13 @@
 
 <div id="select_subject">
     <p>选择科目：</p>
-    <br>
     <form method="post">
         <input type="submit" value="SQL Server"/>
-        <input type="hidden" name="subject" value="sql"/>
+        <input type="hidden" name="workId" value="1"/>
     </form>
     <form method="post">
         <input type="submit" value="Android"/>
-        <input type="hidden" name="subject" value="android"/>
+        <input type="hidden" name="workId" value="5"/>
     </form>
 </div>
 <br>

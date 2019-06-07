@@ -11,5 +11,7 @@ function getPDO($dbType, $dbHost, $dbName, $dbCharset, $dbUsername, $dbPassword)
     return $pdo;
 }
 
+$pdo = getPDO("mysql", "localhost", "yeek", "utf8", "moreant", "moreant");
+
 
 

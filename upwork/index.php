@@ -6,31 +6,10 @@ date_default_timezone_set('PRC');
 //获取科目php
 
 include_once("../part/encoding.php");
-require_once("function/subject.php");
 require_once "../database/dbConfig.php";
-require_once "function/getWorkInfo.php";
-
+require_once("function/WorkInfo.php");
+require_once "function/Upload.php";
 $domainInfo = include_once("../part/Position.php");
-$suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar', 'mp4');
-$version = "bate 2.0";
-@$subject = $_SESSION['subject'];
-$file = array();
-
-$pdo = getPDO("mysql", "localhost", "yeek", "utf8", "moreant", "moreant");
-
-if (!isset($subject_url)) {
-    $subject_url = "";
-}
-$workId=0;
-if ($subject === "android") {
-    $workId=5;
-    $subjectColor = "#378c42";
-}
-if ($subject === 'sql') {
-    $workId=1;
-    $subjectColor = "#2c2c2f";
-}
-$work = getWorkInfo($pdo, $workId);
 
 function insertUploadInfo($fileName, $date, $workId, $fileSize)
 {
@@ -53,32 +32,6 @@ VALUES (?,?, ?,?, ?)";
     } else {
         return false;
     }
-}
-
-function checkFile($name)
-{
-    $list = array();
-    global $suffixs;
-    global $subject_dir;
-    if (pathinfo($name, PATHINFO_EXTENSION) == "") {
-        $counter = 0;
-        foreach ($suffixs as $suffix) {
-            $url = "$subject_dir/" . encoding($name) . '.' . $suffix;
-            if (file_exists($url)) {
-                $list[$counter]['name'] = $name;
-                $list[$counter]['size'] = round(filesize($url) / 1024 / 1024, 2);
-                $counter++;
-            }
-        }
-    } else {
-        $url = "$subject_dir/" . encoding($name);
-        if (file_exists($url)) {
-            $list[0]['name'] = $name;
-            $list[0]['size'] = round(filesize($url) / 1024 / 1024, 2);
-        }
-
-    }
-    return $list;
 }
 
 function moveFile($fileInfo)
@@ -190,6 +143,35 @@ function writeLog($type, $logStr)
     }
 }
 
+$suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar', 'mp4');
+$version = "bate 2.0";
+$file = array();
+
+switch ($work['callname']) {
+    case "android":
+        $subjectColor = "#378c42";
+        break;
+    case "sql":
+        $subjectColor = "#2c2c2f";
+        break;
+    default:
+        $subjectColor = "#0088ff";
+        break;
+}
+
+if(isset($_FILES['file'])){
+    $fileInfo = $_FILES['file'];
+    var_dump($fileInfo);
+    $upload = new Upload($pdo);
+    $fileExists = $upload->fileIsExists($fileInfo['name'], $workId);
+    if($fileExists){
+        echo "文件已存在";
+    }else{
+        $upload->moveFile($fileInfo,$work['file_dir']);
+    }
+}
+
+
 ?>
 
 <!doctype html>
@@ -209,7 +191,6 @@ function writeLog($type, $logStr)
 <body>
 <?php include_once("../part/nav.php") ?>
 
-<?php if (isset($work)): ?>
     <header>
         <div>
             <p><span><?php echo $work['subName'] ?></span></p>
@@ -217,12 +198,11 @@ function writeLog($type, $logStr)
             <p><?php echo $domainInfo['name'] . " - " . $version; ?></p>
         </div>
     </header>
-<?php else: include_once "subject/home.php"; endif; ?>
 
 <?php include_once("function/select.php") ?>
 
-<?php if (isset($work)): include_once('function/main.php');endif; ?>
+<?php if (!empty($work['name'])): include_once('function/main.php');endif; ?>
 
-<?php include_once("../part/sqlfooter.php") ?>
+<?php include_once("../part/footer.php") ?>
 </body>
 </html>

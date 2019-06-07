@@ -54,64 +54,17 @@ span {
 
 main {
     clear: left;
-    margin: 1% 10%;
-}
-main hr{
-    margin: 5%;
+    margin: 0 20%;
 }
 
-#result {
-    text-align: center;
-    clear: left;
-    font-size: 110%;
-}
-
-#historical {
-    margin: 1%;
-    text-align: center;
-}
-
-#readme {
-    margin: 5%;
-    text-align: center;
-    font-size: 120%;
-}
-
-#readme a {
-    margin: 0 3%;
-    text-align: center;
-    font-size: 120%;
-}
-
-#readme .red {
-    color: #ff4236;
-}
-
-#input {
-    justify-content: space-around;
-    display: flex;
-}
-
-#input div form input{
-    text-align: center;
-    font-size: 110%;
-    color: white;
+#file_box {
+    margin: 3% 0;
 }
 
 
-#name {
-    outline-style: none;
-    float: left;
-    background: #00a9ff;
-    width: 298px;
-    height: 73px;
-    color: white;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
 
-#file_input {
+
+#file_box #file_input {
     float: left;
     display: block;
     width: 300px;
@@ -123,11 +76,17 @@ main hr{
     border-bottom-left-radius: 10px;
 }
 
-#file {
+#file_box form input{
+    text-align: center;
+    color: white;
+    font-size: 110%;
+}
+
+#file_box #file_input #file {
     padding: 25px 10%;
 }
 
-#check, #update {
+#file_box #upload {
     float: left;
     background: #ff807d;
     color: white;
@@ -138,10 +97,3 @@ main hr{
     border-bottom-right-radius: 10px;
 }
 
-::-webkit-input-placeholder { /* WebKit browsers */
-    color: white;
-}
-
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: white;
-}
