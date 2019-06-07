@@ -7,10 +7,9 @@ function my_autoloader($class) {
 }
 spl_autoload_register('my_autoloader');
 
+
 $db = new DBUtils("mysql", "localhost", "yeek", "utf8", "moreant", "moreant");
-
 $workInfo = new WorkInfo($db);
-
 $workArray = $workInfo->getNeedUploadWork();
 
 ?>
@@ -24,7 +23,7 @@ $workArray = $workInfo->getNeedUploadWork();
     <title>作业上传</title>
     <meta charset="UTF-8">
     <link rel="icon" href="/logo.png" sizes="32x32">
-    <link href="../navAndFooter.css" type="text/css" rel="stylesheet"/>
+    <link href="navAndFooter.css" type="text/css" rel="stylesheet"/>
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <style>
