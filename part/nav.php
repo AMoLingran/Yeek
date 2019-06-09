@@ -38,6 +38,7 @@ $navDomain=  getNavDomain();
         <li><a href="http://<?php echo $navDomain['domain'] ?>">一客</a></li>
         <li><a href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a></li>
         <li><a href="http://<?php echo $navDomain['domain'] ?>/upwork">作业上传</a></li>
+        <li><a href="http://<?php echo $navDomain['domain'] ?>/newUpwork">新 · 作业上传(php项目开发版)</a></li>
         <li><a href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a></li>
     </ul>
 </nav>
