@@ -57,6 +57,16 @@ main {
     margin: 3% 0;
 }
 
+a {
+    text-decoration: none;
+
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited{
+    color: #0088ff;
+}
 
 
 
@@ -93,3 +103,32 @@ main {
     border-bottom-right-radius: 10px;
 }
 
+table, th, td {
+    font-size: 110%;
+    border: 1px solid #4c4c4c;
+}
+
+td{
+    min-width: 75px;
+    padding: 10px 20px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: auto;
+}
+
+table tr:first-child {
+    color: white;
+    background: #ff4d40;
+}
+
+table tr:first-child td:hover {
+    background: #ff4d40;
+}
+
+
+tbody td:hover {
+    background-color: #efefef;
+}

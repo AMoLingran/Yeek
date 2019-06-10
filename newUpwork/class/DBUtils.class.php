@@ -42,4 +42,17 @@ class DBUtils
         }
         return null;
     }
+
+    function myExecute($sql, $array=null){
+        $pdo = $this->pdo;
+        $pdoS = $pdo->prepare($sql);
+        $execute = $pdoS->execute($array);
+        if($execute){
+                return $pdoS->rowCount();
+        }else{
+            echo "查询失败";
+        }
+        return null;
+    }
+
 }

@@ -9,8 +9,7 @@ spl_autoload_register('my_autoloader');
 
 
 $db = new DBUtils("mysql", "yeek.top", "yeek", "utf8", "moreant", "moreant");
-$workInfo = new WorkInfo($db);
-$workArray = $workInfo->getNeedUploadWork();
+
 
 ?>
 
@@ -39,12 +38,14 @@ $workArray = $workInfo->getNeedUploadWork();
 </header>
 
 
-<?php foreach ($workArray as $item):?>
+
+
+<?php if(!empty($workArray)):foreach ($workArray as $item):?>
 <p align="center">
     <?php echo $item['NAME']." - ".$item['name']."<br>"; ?>
 </p>
-<?php endforeach;?>
-
+<?php endforeach;endif;?>
+<p   align="center"><a href="workManage.php">作业管理</a></p>
 <br>
 <br>
 <p   align="center"><a href="https://gitee.com/Moreant/Yeek/tree/newUpwork/newUpwork">项目地址：</a></p>
