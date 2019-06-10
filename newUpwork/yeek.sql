@@ -2,12 +2,12 @@ CREATE TABLE `upwork_work`
 (
     `id`          int(10)     NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'uid',
     `name`        varchar(30) NOT NULL COMMENT '作业名',
-    `subject`     varchar(20) NOT NULL COMMENT '科目',
+    `courseId`     varchar(20) NOT NULL COMMENT '科目',
     `start`       date                 DEFAULT NULL COMMENT '开始日期',
     `end`         date                 DEFAULT NULL COMMENT '上交日期',
     `annex`       varchar(20)          DEFAULT NULL COMMENT '课件名',
     `remarks`     text COMMENT '备注',
-    `need_upload` bit(1)      NOT NULL DEFAULT b'0'
+    `need_upload` boolean      NOT NULL  COMMENT '1表示要上传'
 ) COMMENT ='作业表';
 
 
@@ -38,6 +38,26 @@ CREATE TABLE upwork_file
     fileName   varchar(50) not null comment '文件名',
     fileDir    varchar(50) not null comment '文件路径',
     `fileSize` varchar(50) NOT NULL COMMENT '文件大小',
-    recycle    bit(1)      not null default false comment '1表示将要回收'
+    recycle    boolean     not null default false comment '1表示将要回收'
 ) COMMENT '文件表';
+
+create table upworkl_course
+(
+    id        int auto_increment,
+    name      varchar(30) not null,
+    teacher   varchar(30) not null,
+    color     varchar(30) not null,
+    call_name varchar(20) not null,
+    constraint class_pk
+        primary key (id)
+);
+
+create unique index class_call_name_uindex
+    on upworkl_course (call_name);
+
+create unique index class_name_uindex
+    on upworkl_course (name);
+
+create unique index class_teacher_uindex
+    on upworkl_course (teacher);
 

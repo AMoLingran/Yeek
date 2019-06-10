@@ -8,7 +8,7 @@ function my_autoloader($class) {
 spl_autoload_register('my_autoloader');
 
 
-$db = new DBUtils("mysql", "yeek.top", "yeek", "utf8", "moreant", "moreant");
+$db = new DBUtils();
 
 
 ?>

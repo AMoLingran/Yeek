@@ -57,17 +57,18 @@ main {
     margin: 3% 0;
 }
 
-a {
+main a {
     text-decoration: none;
 
 }
-a:hover {
+
+main a:hover {
     text-decoration: underline;
 }
-a:visited{
+
+main a:visited {
     color: #0088ff;
 }
-
 
 
 #file_box #file_input {
@@ -82,7 +83,7 @@ a:visited{
     border-bottom-left-radius: 10px;
 }
 
-#file_box form input{
+#file_box form input {
     text-align: center;
     color: white;
     font-size: 110%;
@@ -108,8 +109,8 @@ table, th, td {
     border: 1px solid #4c4c4c;
 }
 
-td{
-    min-width: 75px;
+td {
+
     padding: 10px 20px;
 }
 

@@ -6,9 +6,9 @@ class DBUtils
 
     public $pdo;
 
-    function __construct($dbType, $dbHost, $dbName, $dbCharset, $dbUsername, $dbPassword)
+    function __construct($dbHost="yeek.top", $dbUsername="test1", $dbPassword="test")
     {
-        $dsn = "$dbType:host=$dbHost;dbname=$dbName;charset=$dbCharset";
+        $dsn = "mysql:host=$dbHost;dbname=yeek;charset=utf8";
         try {
             $pdo = new PDO($dsn, $dbUsername, $dbPassword);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,7 +17,6 @@ class DBUtils
         }
         $this->pdo = $pdo;
     }
-
 
     /**
      * 自定义（方便的）查询方法
