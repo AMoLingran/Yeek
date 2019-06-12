@@ -6,6 +6,12 @@ class DBUtils
 
     public $pdo;
 
+    /**
+     * DBUtils constructor.
+     * @param string $dbHost
+     * @param string $dbUsername
+     * @param string $dbPassword
+     */
     function __construct($dbHost="yeek.top", $dbUsername="moreant", $dbPassword="moreant")
     {
         $dsn = "mysql:host=$dbHost;dbname=yeek;charset=utf8";
@@ -42,6 +48,11 @@ class DBUtils
         return null;
     }
 
+    /**
+     * @param $sql
+     * @param null $array
+     * @return int|null
+     */
     function myExecute($sql, $array=null){
         $pdo = $this->pdo;
         $pdoS = $pdo->prepare($sql);

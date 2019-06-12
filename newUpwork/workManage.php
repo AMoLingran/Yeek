@@ -9,7 +9,7 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-$db = new DBUtils("localhost");
+$db = new DBUtils();
 $work = new Work($db);
 $courseArray = $work->getCourse();
 
