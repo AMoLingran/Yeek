@@ -4,11 +4,8 @@ $rootDir = dirname(__FILE__)."/";
 $rootUrl = include_once($rootDir.'../function/RootURl.php');
 $rootUrl = $rootUrl . 'part/';
 ?>
-<footer>
-    <br><br><br><br>
-    <hr>
-    <br>
-    <br>
+<footer class="text-center" style="margin-top: 5%" >
+
     <p>Moreant | 552191481@qq.top</p><br>
     <p>Copyright © 2018-<?php echo date('Y') ?> Yeek All Rights Reserved.</p>
     <div style="width:300px;margin:0 auto; padding:20px 0;">

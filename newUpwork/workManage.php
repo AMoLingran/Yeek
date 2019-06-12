@@ -9,7 +9,7 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-$db = new DBUtils();
+$db = new DBUtils("localhost");
 $work = new Work($db);
 $courseArray = $work->getCourse();
 
@@ -19,6 +19,7 @@ function getWorkInfo($id = "", $name = "", $subject = "", $start = "", $end = ""
     $workInfo = $work->selectWorkInfo($id, $name, $subject, $start, $end, $need_upload);
     return $workInfo;
 }
+
 $workInfo = getWorkInfo();
 if (isset($_POST['select_submit'])) {
 
@@ -53,108 +54,113 @@ if (isset($_POST['insert_submit'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>作业管理</title>
-    <link href="default.css" type="text/css" rel="stylesheet">
-    <link href="navAndFooter.css" type="text/css" rel="stylesheet">
-    <style>
-        main {
-            margin: 3% 10%;
-        }
-
-        fieldset {
-            padding: 30px;
-        }
-    </style>
+    <link rel="icon" href="logo.png" sizes="32x32">
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-<?php include_once $rootDir."part/nav.php" ?>
-<main>
-    <fieldset>
-        <legend>查询：</legend>
-        <form action="workManage.php" id="select" method="post">
 
-            <label for="select_id">id：</label>
-            <input id="select_id" name="select_id" type="number">
+<?php include_once $rootDir . "part/nav.php" ?>
 
-            <label for="select_name">作业名：</label>
-            <input id="select_name" name="select_name" type="text">
+<main style="margin: 3% 10% 0">
+    <div class="container" id="manage">
+        <div class=" card ">
+            <div class="card-header ">
+                <a class="card-link" data-toggle="collapse" href="#select_box">查询</a>
+            </div>
+            <div id="select_box" class="collapse" data-parent="#manage">
+                <div class="card-body">
+                    <form class="form-inline" action="workManage.php" id="select" method="post">
 
-            <label for="select_subject">科目：</label>
-            <select id="select_subject" name="select_subject">
-                <option value="">未选择</option>
-                <?php foreach ($courseArray as $cor_item): ?>
-                    <option value="<?php echo $cor_item['id'] ?>">
-                        <?php echo $cor_item['name'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+                        <label class="mr-3" for="select_id">id：
+                        <input class="form-control" id="select_id" name="select_id" type="number">
+                        </label>
 
-            <label for="select_start">开始</label>
-            <input id="select_start" type="date" name="select_start">
+                        <label class="mr-3" for="select_name">作业名：
+                        <input class="form-control" id="select_name" name="select_name" type="text">
+                        </label>
 
-            <label for="select_end"> 结束</label>
-            <input id="select_end" type="date" name="select_end">
+                        <label class="mr-3" for="select_subject">科目：
+                        <select class="form-control" id="select_subject" name="select_subject">
+                            <option value="">未选择</option>
+                            <?php foreach ($courseArray as $cor_item): ?>
+                                <option value="<?php echo $cor_item['id'] ?>">
+                                    <?php echo $cor_item['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        </label>
 
-            <label for="select_need_upload">是否需要上交 </label>
-            <select id="select_need_upload" name="select_need_upload">
-                <option value="">未选择</option>
-                <option value="false">否</option>
-                <option value="true">是</option>
-            </select>
+                        <label class="mr-3" for="select_start">开始
+                        <input class="form-control" id="select_start" type="date" name="select_start">
+                        </label>
 
-            <input id="select_submit" type="submit" name="select_submit" value="查询">
-        </form>
+                        <label class="mr-3" for="select_end"> 结束
+                        <input class="form-control" id="select_end" type="date" name="select_end">
+                        </label>
 
+                        <label class="mr-3" for="select_need_upload">是否需要上交
+                        <select class="form-control" id="select_need_upload" name="select_need_upload">
+                            <option value="">未选择</option>
+                            <option value="false">否</option>
+                            <option value="true">是</option>
+                        </select>
+                        </label>
 
-    </fieldset>
+                        <input class="ml-2 btn btn-primary" id="select_submit" type="submit" name="select_submit" value="查询">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link"  data-toggle="collapse" href="#insert_box">插入</a>
+            </div>
+            <div id="insert_box" class="collapse" data-parent="#manage">
+                <div class="card-body">
+                    <form class="form-inline" action="workManage.php" id="insert" method="post">
 
-    <br>
-    <br>
-    <fieldset>
-        <legend>插入：</legend>
-        <form action="workManage.php" id="insert" method="post">
+                        <label class="mr-3"  for="insert_name">作业名：</label>
+                        <input class="form-control" id="insert_name" name="insert_name" type="text" required>
 
-            <label for="insert_name">作业名：</label>
-            <input id="insert_name" name="insert_name" type="text" required>
+                        <label class="mr-3" for="insert_subject">科目：</label>
+                        <select class="form-control" id="insert_subject" name="insert_subject" required>
+                            <option value="">未选择</option>
+                            <?php foreach ($courseArray as $cor_item): ?>
+                                <option value="<?php echo $cor_item['id'] ?>">
+                                    <?php echo $cor_item['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
-            <label for="insert_subject">科目：</label>
-            <select id="insert_subject" name="insert_subject" required>
-                <option value="">未选择</option>
-                <?php foreach ($courseArray as $cor_item): ?>
-                    <option value="<?php echo $cor_item['id'] ?>">
-                        <?php echo $cor_item['name'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
+                        <label class="mr-3" for="insert_start">开始日期</label>
+                        <input class="form-control" id="insert_start" name="insert_start" type="date">
 
-            <label for="insert_start">开始日期</label>
-            <input id="insert_start" name="insert_start" type="date" >
+                        <label class="mr-3" for="insert_end">结束日期</label>
+                        <input class="form-control" id="insert_end" name="insert_end" type="date">
 
-            <label for="insert_end">结束日期</label>
-            <input id="insert_end" name="insert_end" type="date" >
+                        <label class="mr-3" for="insert_need_upload">是否需要上交</label>
+                        <select class="form-control" id="insert_need_upload" name="insert_need_upload" required>
+                            <option value="">未选择</option>
+                            <option value="false">否</option>
+                            <option value="true">是</option>
+                        </select>
 
-            <br>
+                        <label class="mr-3" for="insert_annex">课件名</label>
+                        <input class="form-control" id="insert_annex" name="insert_annex" type="text">
 
-            <label for="insert_need_upload">是否需要上交</label>
-            <select id="insert_need_upload" name="insert_need_upload" required>
-                <option value="">未选择</option>
-                <option value="false">否</option>
-                <option value="true">是</option>
-            </select>
+                        <label class="mr-3" for="insert_remarks">备注</label>
+                        <textarea class="form-control" id="insert_remarks" name="insert_remarks" rows="1"
+                                  cols="30"></textarea>
 
-            <label for="insert_annex">课件名</label>
-            <input id="insert_annex" name="insert_annex" type="text">
-
-            <label for="insert_remarks">备注</label>
-            <textarea id="insert_remarks" name="insert_remarks" rows="1" cols="30"></textarea>
-
-            <input id="insert_submit" type="submit" name="insert_submit" value="插入">
-        </form>
-    </fieldset>
-
+                        <input class="ml-3 btn  btn-primary" id="insert_submit" type="submit" name="insert_submit" value="插入">
+                    </form>
+                </div>
+            </div>
+        </div></div>
     <br>
     <br>
     <?php
@@ -199,37 +205,43 @@ if (isset($_POST['insert_submit'])) {
     ?>
 
     <?php if (isset($workInfo)) : ?>
-        <table>
-            <tr>
-                <td>id</td>
-                <td>作业名</td>
-                <td>科目</td>
-                <td>开始日期</td>
-                <td>结束日期</td>
-                <td>课件</td>
-                <td>备注</td>
-                <td>需要上交</td>
-                <td>操作</td>
-            </tr>
-            <?php foreach ($workInfo as $work_item) : ?>
+        <div class="container  table-responsive">
+            <table class="table table-hover table-bordered text-center" >
+                <thead>
                 <tr>
-                    <td><?php echo $work_item['id'] ?></td>
-                    <td><?php echo $work_item['name'] ?></td>
-                    <td><?php echo $work_item['subject'] ?></td>
-                    <td><?php echo $work_item['start'] ?></td>
-                    <td><?php echo $work_item['end'] ?></td>
-                    <td><?php echo $work_item['annex'] ?></td>
-                    <td><?php echo $work_item['remarks'] ?></td>
-                    <td><?php if ($work_item['need_upload'] == '1') {
-                            echo "需要";
-                        }; ?></td>
-                    <td><a href="?update_id=<?php echo $work_item[0] ?>">修改</a>
-                        /
-                        <a href="?delete_id=<?php echo $work_item[0] ?>">删除</a>
-                    </td>
+                    <td>id</td>
+                    <td>作业名</td>
+                    <td>科目</td>
+                    <td>开始日期</td>
+                    <td>结束日期</td>
+                    <td>课件</td>
+                    <td>备注</td>
+                    <td>需要上交</td>
+                    <td>操作</td>
                 </tr>
-            <?php endforeach; ?>
-        </table>
+                </thead>
+                <tbody>
+                <?php foreach ($workInfo as $work_item) : ?>
+                    <tr >
+                        <td><?php echo $work_item['id'] ?></td>
+                        <td><?php echo $work_item['name'] ?></td>
+                        <td><?php echo $work_item['subject'] ?></td>
+                        <td><?php echo $work_item['start'] ?></td>
+                        <td><?php echo $work_item['end'] ?></td>
+                        <td><?php echo $work_item['annex'] ?></td>
+                        <td><?php echo $work_item['remarks'] ?></td>
+                        <td><?php if ($work_item['need_upload'] == '1') {
+                                echo "需要";
+                            }; ?></td>
+                        <td><a href="?update_id=<?php echo $work_item[0] ?>">修改</a>
+                            /
+                            <a href="?delete_id=<?php echo $work_item[0] ?>">删除</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                <tbody>
+            </table>
+        </div>
     <?php endif; ?>
 
 
@@ -252,7 +264,8 @@ if (isset($_POST['insert_submit'])) {
             <form action="workManage.php" id="update" method="post">
 
                 <label for="update_name">作业名：</label>
-                <input id="update_name" name="update_name" type="text" required value="<?php echo $workInfo[0][1] ?>">
+                <input id="update_name" name="update_name" type="text" required
+                       value="<?php echo $workInfo[0][1] ?>">
 
                 <label for="update_subject">科目：</label>
                 <select id="update_subject" name="update_subject" required>
@@ -296,7 +309,7 @@ if (isset($_POST['insert_submit'])) {
         </fieldset>
     <?php endif; ?>
 </main>
-<?php include_once $rootDir."part/footer.php" ?>
+<?php include_once $rootDir . "part/footer.php" ?>
 </body>
 </html>
 

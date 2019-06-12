@@ -33,12 +33,12 @@ function getNavDomain()
 $navDomain=  getNavDomain();
 
 ?>
-<nav>
-    <ul>
-        <li><a href="http://<?php echo $navDomain['domain'] ?>">一客</a></li>
-        <li><a href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a></li>
-        <li><a href="http://<?php echo $navDomain['domain'] ?>/upwork">作业上传</a></li>
-        <li><a href="http://<?php echo $navDomain['domain'] ?>/newUpwork">新 · 作业上传(php项目开发版)</a></li>
-        <li><a href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a></li>
-    </ul>
+<nav class="container-fluid justify-content-center navbar-expand-sm bg-light">
+<ul  class="navbar-nav p-3 nav-pills nav-justified">
+    <li class="nav-item"><a class="nav-link h4" href="http://<?php echo $navDomain['domain'] ?>">一客</a></li>
+    <li class="nav-item"><a class="nav-link h4" href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a></li>
+    <li class="nav-item"><a class="nav-link h4" href="http://<?php echo $navDomain['domain'] ?>/upwork">作业上传</a></li>
+    <li class="nav-item"><a class="nav-link h4 active " href="http://<?php echo $navDomain['domain'] ?>/newUpwork">新作业上传(项目开发)</a></li>
+    <li class="nav-item"><a class="nav-link h4" href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a></li>
+</ul>
 </nav>

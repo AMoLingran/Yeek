@@ -21,9 +21,11 @@ $db = new DBUtils();
 <head>
     <title>作业上传</title>
     <meta charset="UTF-8">
-    <link rel="icon" href="/logo.png" sizes="32x32">
-    <link href="navAndFooter.css" type="text/css" rel="stylesheet"/>
-    <link href="default.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="logo.png" sizes="32x32">
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <style>
 
@@ -31,22 +33,17 @@ $db = new DBUtils();
 <body>
 <?php include_once $rootDir."part/nav.php"; ?>
 
-<header>
-    <div>
-
-    </div>
-</header>
-
-
-
 
 <?php if(!empty($workArray)):foreach ($workArray as $item):?>
 <p align="center">
     <?php echo $item['NAME']." - ".$item['name']."<br>"; ?>
 </p>
 <?php endforeach;endif;?>
-<p   align="center"><a href="workManage.php">作业管理</a></p>
+
 <br>
+<div class="text-center mt-5 mb-5">
+    <a href="workManage.php" class="btn btn-info btn-lg" role="button">作业管理</a>
+</div>
 <br>
 <p   align="center"><a href="https://gitee.com/Moreant/Yeek/tree/newUpwork/newUpwork">项目地址：</a></p>
 <?php require_once $rootDir."part/footer.php"; ?>

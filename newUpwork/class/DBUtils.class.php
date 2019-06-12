@@ -6,7 +6,7 @@ class DBUtils
 
     public $pdo;
 
-    function __construct($dbHost="yeek.top", $dbUsername="test1", $dbPassword="test")
+    function __construct($dbHost="yeek.top", $dbUsername="moreant", $dbPassword="moreant")
     {
         $dsn = "mysql:host=$dbHost;dbname=yeek;charset=utf8";
         try {

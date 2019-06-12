@@ -139,7 +139,3 @@ VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);";
         return $result;
     }
 }
-
-
-
-

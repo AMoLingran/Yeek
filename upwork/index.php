@@ -11,28 +11,6 @@ require_once("function/WorkInfo.php");
 require_once "function/Upload.php";
 $domainInfo = include_once("../part/Position.php");
 
-function insertUploadInfo($fileName, $date, $workId, $fileSize)
-{
-    global $pdo;
-    $sql = "INSERT INTO `log_upwork_upload` (`fileName`, `date`, `uploader`, `workId`, `fileSize`) 
-VALUES (?,?, ?,?, ?)";
-    $pdoS = $pdo->prepare($sql);
-
-    $pattern = "#(\d+)(?<=(\w))#";
-    preg_match($pattern, $fileName, $uploader);
-    if (isset($uploader[0])) {
-        $uploader = $uploader[0];
-    } else {
-        $uploader = "unknown";
-    }
-
-    $pdoS->execute(array($fileName, $date, $uploader, $workId, $fileSize));
-    if ($pdoS->rowCount() === 1) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 function moveFile($fileInfo)
 {
@@ -147,17 +125,6 @@ $suffixs = array('docx', 'doc', 'pptx', 'ppt', 'txt', 'java', 'zip', 'rar', 'mp4
 $version = "bate 2.0";
 $file = array();
 
-switch ($work['callname']) {
-    case "android":
-        $subjectColor = "#378c42";
-        break;
-    case "sql":
-        $subjectColor = "#2c2c2f";
-        break;
-    default:
-        $subjectColor = "#0088ff";
-        break;
-}
 
 if(isset($_FILES['file'])){
     $fileInfo = $_FILES['file'];
@@ -185,7 +152,7 @@ if(isset($_FILES['file'])){
 </head>
 <style>
     header {
-        background: <?php echo $subjectColor ?>;
+        background: #0088ff;
     }
 </style>
 <body>
@@ -195,7 +162,7 @@ if(isset($_FILES['file'])){
         <div>
             <p><span><?php echo $work['subName'] ?></span></p>
             <p><?php echo $work['name'] . " - " . $work['end']; ?></p>
-            <p><?php echo $domainInfo['name'] . " - " . $version; ?></p>
+            <p><?php echo $domainInfo['name'] . " - " . $version; ?> - 已废弃</p>
         </div>
     </header>
 
