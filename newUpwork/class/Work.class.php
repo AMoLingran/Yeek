@@ -47,7 +47,7 @@ class Work
             $sql .= " AND a.need_upload=$need_upload";
         }
         $sql .= "  ORDER BY id ASC";
-        var_dump("当前查询语句：".$sql);
+//        var_dump("当前查询语句：".$sql);
         $result = $this->db->myQuery($sql);
         return $result;
     }
