@@ -64,8 +64,8 @@ class Work
      */
     function insertWork($name, $courseId, $start, $end, $need_upload, $annex, $remarks)
     {
-        $sql = "INSERT INTO upwork_work (`name`, courseId, `start`, `end`, `annex`, `remarks`, `need_upload`) 
-VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);";
+        $sql = 'INSERT INTO upwork_work (`name`, courseId, `start`, `end`, `annex`, `remarks`, `need_upload`) 
+VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);';
         if (empty($start)) {
             $start = null;
         }

@@ -29,28 +29,54 @@ spl_autoload_register('my_autoloader');
 <body>
 
 <?php include_once $rootDir . "part/nav.php" ?>
+<div class="container col-sm-3">
+    <p class="h1 text-center mb-sm-4">登录</p>
+    <form method="post" class="form-group">
 
-<div class="container mt-5 w-25">
-    <div class="card">
-        <div class="card-header text-center h3">
-            登录
+        <label for="username"></label>
+        <input class="form-control mb-3" type="text" name="username" id="username" placeholder="输入账号" required>
+
+        <label for="password"></label>
+        <input class="form-control mb-3" type="text" name="password" id="password" placeholder="输入密码" required>
+
+    </form>
+
+    <button type="submit" class="mt-4 btn btn-primary btn-block" onclick="login()">立即登录</button>
+
+    <div class="mt-4">
+        <div class="float-left">
+            <a href="#">←忘记密码</a>
         </div>
-        <div class="card-body">
-            <form class="form-group">
-                <label  for="username">账号</label>
-                <input class="form-control mb-3" type="text" name="username" id="username">
-
-
-                <label  for="password">密码</label>
-                <input class="form-control mb-3" type="text" name="password" id="password">
-
-                <input class="btn btn-primary" type="submit" name="submit" id="submit" value="登录">
-
-            </form>
+        <div class="float-right">
+            <a href="register.php">立即注册→</a>
         </div>
     </div>
 </div>
 
+
+<script>
+    function login() {
+        let username = $("#username").val();
+        let password = $("#password").val();
+        $.post("function/account.php",
+            {
+                type: "login",
+                username: username,
+                password: password,
+            },
+            function (data, status) {
+                let backInfo = jQuery.parseJSON(data);
+                let code = backInfo.code;
+                if (code === "1") {
+                    alert("登录成功");
+                    window.location.href = "index.php"
+                }
+                if (code === "0") {
+                    alert("用户名或密码错误，请重试");
+                }
+            });
+    }
+</script>
 
 </body>
 </html>

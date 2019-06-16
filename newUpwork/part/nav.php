@@ -1,4 +1,9 @@
 <?php
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 /**
  * Created by PhpStorm.
  * User: MoLingran
@@ -37,9 +42,7 @@ $navDomain = getNavDomain();
 <nav class="navbar navbar-expand-md bg-dark navbar-dark " style="margin-bottom: 5%">
 
     <a class=" nav-link navbar-brand h4" href="http://<?php echo $navDomain['domain'] ?>">一客</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" >
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ">
             <li class="nav-item">
@@ -56,5 +59,13 @@ $navDomain = getNavDomain();
                    href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a>
             </li>
         </ul>
+
     </div>
+    <div class="flex-row-reverse">
+        <a class="nav-link navbar-brand h4" href="#"><?php echo @$_SESSION['username'] ?></a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </nav>

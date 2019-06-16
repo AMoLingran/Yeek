@@ -16,8 +16,14 @@ $db = new DBUtils();
 
 if (isset($_POST['workId'])) {
     $id = $_POST['workId'];
-    $result = $db->myQuery("SELECT a.name,a.end,b.name AS 'subject' FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id AND a.id=$id");
-    echo json_encode(array ('name'=>$result[0]['name'],'end'=>$result[0]['end'],'subject'=>$result[0]['subject']));
+    $result = $db->myQuery("SELECT a.name,a.end,b.name AS 'subject',b.call_name FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id AND a.id=$id");
+    $info=[
+        'name'=>$result[0]['name'],
+        'end'=>$result[0]['end'],
+        'subject'=>$result[0]['subject'],
+        'call_name'=>$result[0]['call_name'],
+    ];
+    echo json_encode($info);
 //    echo $result[0]['name'];
 //    echo $result[0]['end'];
 }

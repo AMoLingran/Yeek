@@ -204,35 +204,6 @@ if (isset($_POST['update_submit'])) {
     </div>
 
 
-    <script>
-
-        function host(msg) {
-            window.location.href = "workManage.php?msg=" + msg;
-        }
-
-        function deleteWork(id) {
-            $.post("workManage.php", {
-                    delete_submit: "delete_submit",
-                    delete_id: id
-                },
-                host('delete'));
-        }
-
-        function updateWork(id) {
-            $.post("workManage.php", {
-                    update_submit: "update_submit",
-                    update_id: id,
-                    update_name: $("#update_name").val(),
-                    update_subject: $("#update_subject").val(),
-                    update_start: $("#update_start").val(),
-                    update_end: $("#update_end").val(),
-                    update_need_upload: $("#update_need_upload").val(),
-                    update_annex: $("#update_annex").val(),
-                    update_remarks: $("#update_remarks").val()
-                },
-                host('update'));
-        }
-    </script>
 
 
     <div class="container mt-5">
@@ -359,6 +330,38 @@ if (isset($_POST['update_submit'])) {
 
 </main>
 <?php include_once $rootDir . "part/footer.php" ?>
+
+
+<script>
+
+    function host(msg) {
+        window.location.href = "workManage.php?msg=" + msg;
+    }
+
+    function deleteWork(id) {
+        $.post("workManage.php", {
+                delete_submit: "delete_submit",
+                delete_id: id
+            },
+            host('delete'));
+    }
+
+    function updateWork(id) {
+        $.post("workManage.php", {
+                update_submit: "update_submit",
+                update_id: id,
+                update_name: $("#update_name").val(),
+                update_subject: $("#update_subject").val(),
+                update_start: $("#update_start").val(),
+                update_end: $("#update_end").val(),
+                update_need_upload: $("#update_need_upload").val(),
+                update_annex: $("#update_annex").val(),
+                update_remarks: $("#update_remarks").val()
+            },
+            host('update'));
+    }
+</script>
+
 </body>
 </html>
 

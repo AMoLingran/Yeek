@@ -12,12 +12,12 @@ class DBUtils
      * @param string $dbUsername
      * @param string $dbPassword
      */
-    function __construct($dbHost="yeek.top", $dbUsername="moreant", $dbPassword="moreant")
+    function __construct($dbHost = "localhost", $dbUsername = "moreant", $dbPassword = "moreant")
     {
         $dsn = "mysql:host=$dbHost;dbname=yeek;charset=utf8";
         try {
             $pdo = new PDO($dsn, $dbUsername, $dbPassword);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         } catch (PDOException $e) {
             exit("连接出错" . $e->getMessage());
         }
@@ -31,18 +31,18 @@ class DBUtils
      * @param bool $all 获取最后一个结果还是所有结果
      * @return array|null 成功返回数组，失败返回null
      */
-    function myQuery($sql, $array=null, $all=true)
+    function myQuery($sql, $array = null, $all = true)
     {
         $pdo = $this->pdo;
         $pdoS = $pdo->prepare($sql);
         $execute = $pdoS->execute($array);
-        if($execute){
-            if($all){
+        if ($execute) {
+            if ($all) {
                 return $pdoS->fetchAll();
-            }else{
+            } else {
                 return $pdoS->fetch();
             }
-        }else{
+        } else {
             echo "查询失败";
         }
         return null;
@@ -53,16 +53,16 @@ class DBUtils
      * @param null $array
      * @return int|null
      */
-    function myExecute($sql, $array=null){
+    function myExecute($sql, $array = null)
+    {
         $pdo = $this->pdo;
         $pdoS = $pdo->prepare($sql);
         $execute = $pdoS->execute($array);
-        if($execute){
-                return $pdoS->rowCount();
-        }else{
-            echo "查询失败";
+        if ($execute) {
+            return $pdoS->rowCount();
+        } else {
+            return $pdoS->errorCode();
         }
-        return null;
     }
 
 }
