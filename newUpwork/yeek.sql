@@ -2,12 +2,12 @@ CREATE TABLE `upwork_work`
 (
     `id`          int(10)     NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'uid',
     `name`        varchar(30) NOT NULL COMMENT '作业名',
-    `courseId`     varchar(20) NOT NULL COMMENT '科目',
-    `start`       date                 DEFAULT NULL COMMENT '开始日期',
-    `end`         date                 DEFAULT NULL COMMENT '上交日期',
-    `annex`       varchar(20)          DEFAULT NULL COMMENT '课件名',
+    `courseId`    varchar(20) NOT NULL COMMENT '科目',
+    `start`       date        DEFAULT NULL COMMENT '开始日期',
+    `end`         date        DEFAULT NULL COMMENT '上交日期',
+    `annex`       varchar(20) DEFAULT NULL COMMENT '课件名',
     `remarks`     text COMMENT '备注',
-    `need_upload` boolean      NOT NULL  COMMENT '1表示要上传'
+    `need_upload` boolean     NOT NULL COMMENT '1表示要上传'
 ) COMMENT ='作业表';
 
 
@@ -52,6 +52,24 @@ create table upworkl_course
         primary key (id)
 );
 
+create table yeek_user
+(
+    id       int auto_increment,
+    username varchar(50) not null,
+    password varchar(50) not null,
+    email    varchar(50) not null,
+
+    constraint user_pk
+        primary key (id)
+);
+
+
+create unique index user_username_uindex
+    on yeek_user (username);
+create unique index user_email_uindex
+    on yeek_user (email);
+
+
 create unique index class_call_name_uindex
     on upworkl_course (call_name);
 
@@ -60,4 +78,3 @@ create unique index class_name_uindex
 
 create unique index class_teacher_uindex
     on upworkl_course (teacher);
-

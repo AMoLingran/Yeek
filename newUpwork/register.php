@@ -21,6 +21,8 @@ spl_autoload_register('my_autoloader');
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="logo.png" sizes="32x32">
+
     <script src="bootstrap/js/jquery.min.js"></script>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.js"></script>

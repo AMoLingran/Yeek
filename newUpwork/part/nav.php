@@ -3,6 +3,13 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+if(isset($_SESSION['username'])){
+    $username = $_SESSION['username'];
+    $userLink = "user.php";
+}else{
+    $username = "未登录";
+    $userLink = "login.php";
+}
 
 /**
  * Created by PhpStorm.
@@ -62,7 +69,7 @@ $navDomain = getNavDomain();
 
     </div>
     <div class="flex-row-reverse">
-        <a class="nav-link navbar-brand h4" href="#"><?php echo @$_SESSION['username'] ?></a>
+        <a class="nav-link navbar-brand h4" href="http://<?php echo $navDomain['domain']."/newUpwork/".$userLink ?>"><?php echo $username; ?></a>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

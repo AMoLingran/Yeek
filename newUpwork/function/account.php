@@ -38,7 +38,7 @@ function login($db)
     $username = $_POST['username'];
     $password = sha1($_POST['password']);
     @$result = $db->myQuery(
-        "SELECT count(*) FROM yeek_user WHERE user=? AND password=?",
+        "SELECT count(*) FROM yeek_user WHERE username=? AND password=?",
         [
             $username,
             $password,
@@ -62,7 +62,7 @@ function register($db)
     $email = $_POST['email'];
 
     @$result = $db->myExecute(
-        "INSERT INTO yeek_user(user,password,email) values (?,?,?)",
+        "INSERT INTO yeek_user(username,password,email) values (?,?,?)",
         [
             $username,
             $password,
