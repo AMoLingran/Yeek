@@ -22,12 +22,14 @@ class Work
      * @param boolean $need_upload
      * @param string $start
      * @param string $end
+     * @param string $annex
+     * @param string $remarks
      * @return array|null
      */
-    function selectWorkInfo($id = "", $name = "", $courseId = "", $start = "", $end = "", $need_upload = true)
+    function selectWorkInfo($id = "", $name = "", $courseId = "", $need_upload = true, $start = "", $end = "",$annex = "", $remarks = "")
     {
 
-        $sql = "SELECT a.*,b.name as subject FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id";
+        $sql = "SELECT a.*,b.name as subject,b.call_name  FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id";
         if (!empty($id)) {
             $sql .= " AND a.id = $id";
         }
@@ -37,15 +39,22 @@ class Work
         if (!empty($courseId)) {
             $sql .= " AND a.courseId LIKE '%$courseId%'";
         }
+        if ($need_upload) {
+            $sql .= " AND a.need_upload=$need_upload";
+        }
         if (!empty($start)) {
             $sql .= " AND a.start>='$start'";
         }
         if (!empty($end)) {
             $sql .= " AND a.end>='$end'";
         }
-        if ($need_upload) {
-            $sql .= " AND a.need_upload=$need_upload";
+        if (!empty($annex)) {
+            $sql .= " AND a.annex LIKE '%$annex%'";
         }
+        if (!empty($remarks)) {
+            $sql .= " AND a.remarks LIKE '%$remarks%'";
+        }
+
         $sql .= "  ORDER BY id ASC";
 //        var_dump("当前查询语句：".$sql);
         $result = $this->db->myQuery($sql);
@@ -62,7 +71,7 @@ class Work
      * @param string $remarks
      * @return int|null
      */
-    function insertWork($name, $courseId, $start, $end, $need_upload, $annex, $remarks)
+    function insertWork($name, $courseId, $need_upload, $start, $end, $annex, $remarks)
     {
         $sql = 'INSERT INTO upwork_work (`name`, courseId, `start`, `end`, `annex`, `remarks`, need_upload) 
 VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);';
@@ -96,7 +105,7 @@ VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);';
      * @param string $remarks
      * @return int|null
      */
-    function updateWork($id, $name, $courseId, $start, $end, $need_upload, $annex, $remarks)
+    function updateWork($id, $name, $courseId, $need_upload, $start, $end, $annex, $remarks)
     {
         $sql = "UPDATE yeek.upwork_work SET name =:name,courseId=:courseId,start=:start,end=:end,
                             need_upload=:need_upload,annex=:annex,remarks=:remarks WHERE id = :id";

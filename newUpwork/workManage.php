@@ -335,7 +335,9 @@ if (isset($_POST['update_submit'])) {
 <script>
 
     function host(msg) {
+        window.location.reload();
         window.location.href = "workManage.php?msg=" + msg;
+
     }
 
     function deleteWork(id) {
