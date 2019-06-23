@@ -9,8 +9,8 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-$db = new DBUtils();
-$work = new Work($db);
+$db = new DBUtilsOld();
+$work = new WorkOld($db);
 $courseArray = $work->getCourse();
 
 function getWorkInfo($id = "", $name = "", $subject = "", $start = "", $end = "", $need_upload = "")

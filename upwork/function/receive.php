@@ -13,7 +13,7 @@ if (isset($_FILES)&&!empty($_FILES)) {
     if (move_uploaded_file($fileInfo['tmp_name'], "../file/" . encoding($fileInfo['name']))) {
         echo '成功同步到外网';
     } else {
-        echo '同步外网失败，错误代码：' . $_FILES['file']['error'];
+        echo '同步外网失败，错误代码：' . $_FILES['File']['error'];
     }
 }else{
     echo "文件为空，接收上传失败";

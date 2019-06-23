@@ -12,7 +12,7 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-$db = new DBUtils();
+$db = new DBUtilsOld();
 
 
 if (isset($_POST['type'])) {
@@ -31,7 +31,7 @@ if (isset($_POST['type'])) {
 
 
 /**
- * @param $db DBUtils
+ * @param $db DBUtilsOld
  */
 function login($db)
 {
@@ -53,7 +53,7 @@ function login($db)
 
 
 /**
- * @param $db DBUtils
+ * @param $db DBUtilsOld
  */
 function register($db)
 {

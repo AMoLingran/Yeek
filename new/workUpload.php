@@ -61,7 +61,7 @@ $rootDir = dirname(__FILE__) . "/";
                 <!-- End Page Header -->
 
                 <!-- Show Table-->
-                <div class="card card-small mb-4">
+                <div class="card card-small">
                     <div class="card-header border-bottom">
                         <h6 class="m-0">需交作业</h6>
                     </div>
@@ -268,7 +268,6 @@ $rootDir = dirname(__FILE__) . "/";
                 id: id,
             },
             function (data) {
-
                 let uploadModalText = $('#uploadModalText');
 
                 let work = jQuery.parseJSON(data);
@@ -278,9 +277,14 @@ $rootDir = dirname(__FILE__) . "/";
                 let callname = work[0].call_name;
                 file_dir = "file_" + callname + "_" + id;
                 //每次选择都刷新文件上传框
-                uploadModalText.find("span").text(subject+" - "+name);
+                uploadModalText.find("span").text(subject + " - " + name);
                 $("#uploadModalStatus").text("");
-                $('#file').fileinput('refresh', {uploadExtraData: {'dir': file_dir,}}).fileinput('clear');
+                $('#file').fileinput('refresh', {
+                    uploadExtraData: {
+                        'dir': file_dir,
+                        workId: uploadId
+                    }
+                }).fileinput('clear');
             }
         );
     }

@@ -1,6 +1,12 @@
 <?php
 
 
+/**
+ * Class DBUtils
+ * 待填的坑：防SQL注入
+ */
+
+
 class DBUtils
 {
 

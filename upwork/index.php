@@ -126,8 +126,8 @@ $version = "bate 2.0";
 $file = array();
 
 
-if(isset($_FILES['file'])){
-    $fileInfo = $_FILES['file'];
+if(isset($_FILES['File'])){
+    $fileInfo = $_FILES['File'];
     var_dump($fileInfo);
     $upload = new Upload($pdo);
     $fileExists = $upload->fileIsExists($fileInfo['name'], $workId);

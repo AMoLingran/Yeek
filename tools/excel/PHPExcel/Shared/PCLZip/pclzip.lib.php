@@ -1894,7 +1894,7 @@ class PclZip
             // ----- Look for real file or folder
             if (file_exists($v_descr['filename'])) {
                 if (@is_file($v_descr['filename'])) {
-                    $v_descr['type'] = 'file';
+                    $v_descr['type'] = 'File';
                 } elseif (@is_dir($v_descr['filename'])) {
                     $v_descr['type'] = 'folder';
                 } elseif (@is_link($v_descr['filename'])) {
@@ -2339,7 +2339,7 @@ class PclZip
             // or a dir with all its path removed
     //            if (    (is_file($p_filedescr_list[$j]['filename']))
     //                    || (    is_dir($p_filedescr_list[$j]['filename'])
-            if (($p_filedescr_list[$j]['type'] == 'file') || ($p_filedescr_list[$j]['type'] == 'virtual_file') || (($p_filedescr_list[$j]['type'] == 'folder') && (!isset($p_options[PCLZIP_OPT_REMOVE_ALL_PATH]) || !$p_options[PCLZIP_OPT_REMOVE_ALL_PATH]))) {
+            if (($p_filedescr_list[$j]['type'] == 'File') || ($p_filedescr_list[$j]['type'] == 'virtual_file') || (($p_filedescr_list[$j]['type'] == 'folder') && (!isset($p_options[PCLZIP_OPT_REMOVE_ALL_PATH]) || !$p_options[PCLZIP_OPT_REMOVE_ALL_PATH]))) {
                 // ----- Add the file
                 $v_result = $this->privAddFile($p_filedescr_list[$j], $v_header, $p_options);
                 if ($v_result != 1) {
@@ -2409,7 +2409,7 @@ class PclZip
         $p_header['index'] = -1;
 
         // ----- Look for regular file
-        if ($p_filedescr['type']=='file') {
+        if ($p_filedescr['type']== 'File') {
             $p_header['external'] = 0x00000000;
             $p_header['size'] = filesize($p_filename);
         } elseif ($p_filedescr['type']=='folder') {
@@ -2478,7 +2478,7 @@ class PclZip
         // ----- Look if no error, or file not skipped
         if ($p_header['status'] == 'ok') {
             // ----- Look for a file
-            if ($p_filedescr['type'] == 'file') {
+            if ($p_filedescr['type'] == 'File') {
                 // ----- Look for using temporary file to zip
                 if ((!isset($p_options[PCLZIP_OPT_TEMP_FILE_OFF])) && (isset($p_options[PCLZIP_OPT_TEMP_FILE_ON]) || (isset($p_options[PCLZIP_OPT_TEMP_FILE_THRESHOLD]) && ($p_options[PCLZIP_OPT_TEMP_FILE_THRESHOLD] <= $p_header['size'])))) {
                     $v_result = $this->privAddFileUsingTempFile($p_filedescr, $p_header, $p_options);

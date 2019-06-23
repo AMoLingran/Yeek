@@ -1,14 +1,14 @@
 <?php
 
 
-class Work
+class WorkOld
 {
 
     private $db;
 
     /**
      * WorkInfo constructor.
-     * @param $db DBUtils
+     * @param $db DBUtilsOld
      */
     function __construct($db)
     {

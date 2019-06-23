@@ -6,7 +6,7 @@ function my_autoloader($class)
 }
 
 spl_autoload_register('my_autoloader');
-$db = new DBUtils();
+$db = new DBUtilsOld();
 
 //if(isset($_POST['workId'])){
 //    $id = $_POST['workId'];

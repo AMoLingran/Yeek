@@ -379,14 +379,16 @@ $rootDir = dirname(__FILE__) . "/";
 
                                 <!-- 模态框底部 -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                            onclick="delSubmit()">修改
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal"
+                                            onclick="delSubmit()">删除
                                     </button>
                                 </div>
 
                             </div>
                         </div>
                     </div>
+                    <!-- End 删除模态框 -->
+
                 </div>
                 <!-- End Work Table -->
             </div>

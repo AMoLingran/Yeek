@@ -8,7 +8,7 @@ function my_autoloader($class)
 }
 
 spl_autoload_register('my_autoloader');
-$db = new DBUtils();
+$db = new DBUtilsOld();
 
 
 $result = $db->myQuery("SELECT a.name,a.id,b.name AS 'subject' FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id AND need_upload=1");

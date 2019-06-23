@@ -8,10 +8,10 @@ $work = new Work($db);
 if (isset($_POST['flag'])) {
     switch ($_POST['flag']) {
         case "subject":
-            subject($db);
+            echo subject($db);
             break;
         case "query":
-            query(
+            echo query(
                 $work,
                 @$_POST['id'],
                 @$_POST['name'],
@@ -22,9 +22,10 @@ if (isset($_POST['flag'])) {
                 @$_POST['annex'],
                 @$_POST['remarks']
             );
+            exit();
             break;
         case "insert":
-            insert(
+            echo insert(
                 $work,
                 $_POST['name'],
                 $_POST['subject'],
@@ -34,6 +35,7 @@ if (isset($_POST['flag'])) {
                 @$_POST['annex'],
                 @$_POST['remarks']
             );
+            exit();
             break;
         case "del":
             del(
@@ -42,7 +44,7 @@ if (isset($_POST['flag'])) {
             );
             break;
         case "update":
-            update(
+            echo update(
                 $work,
                 $_POST['id'],
                 $_POST['name'],
@@ -53,6 +55,7 @@ if (isset($_POST['flag'])) {
                 @$_POST['annex'],
                 @$_POST['remarks']
             );
+            exit();
             break;
         default:
             break;
@@ -62,51 +65,51 @@ if (isset($_POST['flag'])) {
 
 /**
  * @param Work $work
+ * @return false|string
  */
 function update($work, $id,$name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
 {
     $result = $work->updateWork($id,$name, $courseId, $upload, $start, $end, $annex, $remarks);
-    echo json_encode(array('code' => $result));
-    exit();
+    return json_encode(array('code' => $result));
 }
-
 
 
 /**
  * @param Work $work
+ * @return false|string
  */
 function del($work, $id)
 {
     $result = $work->deleteWork($id);
-    echo json_encode(array('code' => $result));
-    exit();
+    return json_encode(array('code' => $result));
+
 }
 
 
 /**
  * @param Work $work
+ * @return false|string
  */
 function insert($work, $name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
 {
     $result = $work->insertWork($name, $courseId, $upload, $start, $end, $annex, $remarks);
-    echo json_encode(array('code' => $result));
-    exit();
+    return json_encode(array('code' => $result));
+
 }
 
 /**
  * @param Work $work
+ * @return false|string
  */
 function query($work, $id = "", $name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
 {
     $result = $work->selectWorkInfo($id, $name, $courseId, $upload, $start, $end, $annex, $remarks);
-
-    echo json_encode($result);
-
-    exit();
+    return json_encode($result);
 }
 
 /**
  * @param DBUtils $db
+ * @return false|string
  */
 function subject($db)
 {
@@ -116,8 +119,7 @@ function subject($db)
 //        $subject[$key]['id'] = $item['id'];
 //        $subject[$key]['name'] = $item['name'];
 //    }
-    echo json_encode($query);
-    exit();
+    return json_encode($query);
 }
 
 

@@ -1,4 +1,9 @@
 <?php
+include_once "../myHead.php";
+$db = new DBUtils();
+$file = new File($db);
+
+
 
 if(!isset($_FILES['file'])){
     exit("你的打开方式不正确");
@@ -32,6 +37,11 @@ if(file_exists("$dir".$fileName)){
 }
 if(move_uploaded_file($fileInfo['tmp_name'],$dir.$fileName)){
     chmod($dir.$fileName, 0777);
+    $workId = $_POST['workId'];
+    $fileSize = $fileInfo['size'];
+    $uploader = "unknown";
+
+    $file->insertFile($workId,$fileInfo['name'],$fileSize,$uploader);
     echo   json_encode(array(
         'code'=>1,
         "request"=>"文件上传成功",

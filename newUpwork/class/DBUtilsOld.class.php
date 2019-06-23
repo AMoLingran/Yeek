@@ -1,7 +1,7 @@
 <?php
 
 
-class DBUtils
+class DBUtilsOld
 {
 
     public $pdo;

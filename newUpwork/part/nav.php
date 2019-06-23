@@ -47,32 +47,37 @@ $navDomain = getNavDomain();
 
 ?>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark " style="margin-bottom: 5%">
+    <div class="container">
+    <a class=" nav-link navbar-brand " href="http://<?php echo $navDomain['domain'] ?>">一客</a>
 
-    <a class=" nav-link navbar-brand h4" href="http://<?php echo $navDomain['domain'] ?>">一客</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link h4" href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a>
+                <a class="nav-link " href="http://<?php echo $navDomain['domain'] ?>/worklist">作业清单</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h4" href="http://<?php echo $navDomain['domain'] ?>/upwork">作业上传</a>
+                <a class="nav-link " href="http://<?php echo $navDomain['domain'] ?>/upwork">作业上传</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h4 active "
+                <a class="nav-link  active "
                    href="http://<?php echo $navDomain['domain'] ?>/newUpwork">新作业上传(项目开发)</a></li>
             <li class="nav-item">
-                <a class="nav-link h4"
+                <a class="nav-link "
                    href="http://<?php echo $navDomain['toDomain'] . $navDomain['local'] ?>">换至<?php echo $navDomain['toName'] ?></a>
             </li>
         </ul>
 
-    </div>
-    <div class="flex-row-reverse">
-        <a class="nav-link navbar-brand h4" href="http://<?php echo $navDomain['domain']."/newUpwork/".$userLink ?>"><?php echo $username; ?></a>
-    </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link navbar-brand" href="http://<?php echo $navDomain['domain']."/newUpwork/".$userLink ?>"><?php echo $username; ?></a>
+            </li>
+        </ul>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
+
+    </div>
 </nav>
