@@ -77,7 +77,7 @@ function getList()
     </table>
 </fieldset>
 <br>
-<a class="a" href="/upwork">返回上一页</a>
+<a class="a" href="//upworkwork">返回上一页</a>
 <br><br><br>
 <?php include_once("../part/sqlfooter.php") ?>
 </body>

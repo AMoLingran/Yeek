@@ -4,6 +4,11 @@ include_once "myHead.php";
 
 $rootDir = dirname(__FILE__) . "/";
 
+$db = new DBUtils();
+$work = new Work($db);
+
+$workInfo = $work->needDo(false);
+
 
 ?>
 <!doctype html>
@@ -11,29 +16,31 @@ $rootDir = dirname(__FILE__) . "/";
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>首页</title>
+    <title>作业概览</title>
+    <link rel="icon" href="logo.png" sizes="32x32">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="styles/icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <link rel="stylesheet" href="styles/fileinput.css">
+
+    <!--    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
+    <link href="styles/icon.css" rel="stylesheet">
+
+    <script async defer src="scripts/buttons.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/popper.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/Chart.min.js"></script>
+    <script src="scripts/shards.min.js"></script>
+    <script src="scripts/jquery.sharrre.min.js"></script>
     <script src="scripts/extras.1.1.0.min.js"></script>
     <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
     <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
+    <script src="scripts/fileinput.js"></script>
+    <script src="scripts/zh.js"></script>
 
 
 </head>
@@ -102,6 +109,165 @@ $rootDir = dirname(__FILE__) . "/";
                     </div>
                 </div>
                 <!-- End Small Stats Blocks -->
+
+                <div class="row">
+                    <?php if (isset($workInfo)): ;?>
+                        <div class="col-lg-4 col-12">
+                            <?php for($key0=0;$key0<count($workInfo);$key0+=3):?>
+                                <div class="card card-small mb-4">
+                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                        <div class="ml-0">#<?php echo $workInfo[$key0]['id'];?></div>
+                                        <div class="text-primary"><?php echo $workInfo[$key0]['subject'];?></div>
+
+                                    </div>
+                                    <div class="card-body border-bottom ">
+                                        <h5 class="text-dark"><?php echo $workInfo[$key0]['name'];?></h5>
+                                        <?php echo $workInfo[$key0]['remarks'];?>
+                                        <p><a href="#"><?php echo $workInfo[$key0]['annex'];?></a></p>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                    <span class="d-flex mb-2">
+                                        <i class="material-icons mr-1">flag</i>
+                                        <strong class="mr-1">状态:</strong>
+                                        <span class="text-danger">未完成</span>
+                                    </span>
+                                            </div>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-success">
+                                                 <i class="material-icons">check</i>
+                                            </span>
+                                                </button>
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-danger">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                                </button>
+                                                <?php if($workInfo[$key0]['need_upload']=='1'): ?>
+                                                <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key0]['id']?>)">
+                                            <span class="text">
+                                                <i class="material-icons text-primary">vertical_align_top</i>
+                                            </span>上交
+                                                </button>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-muted d-flex justify-content-between ">
+                                        <div>Start: <?php echo substr($workInfo[$key0]['start'],5);?></div>
+                                        <div>End:  <span class="text-success"><?php echo substr($workInfo[$key0]['end'],5);?></span></div>
+
+                                    </div>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <?php for($key1=1;$key1<count($workInfo);$key1+=3):?>
+                                <div class="card card-small mb-4">
+                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                        <div class="ml-0">#<?php echo $workInfo[$key1]['id'];?></div>
+                                        <div class="text-primary"><?php echo $workInfo[$key1]['subject'];?></div>
+
+                                    </div>
+                                    <div class="card-body border-bottom ">
+                                        <h5 class="text-dark"><?php echo $workInfo[$key1]['name'];?></h5>
+                                        <?php echo $workInfo[$key1]['remarks'];?>
+                                        <p><a href="#"><?php echo $workInfo[$key1]['annex'];?></a></p>
+
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                    <span class="d-flex mb-2">
+                                        <i class="material-icons mr-1">flag</i>
+                                        <strong class="mr-1">状态:</strong>
+                                        <span class="text-danger">未完成</span>
+                                    </span>
+                                            </div>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-success">
+                                                 <i class="material-icons">check</i>
+                                            </span>
+                                                </button>
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-danger">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                                    <?php if($workInfo[$key1]['need_upload']=='1'): ?>
+                                                </button>
+                                                <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key1]['id']?>)">
+                                            <span class="text">
+                                                <i class="material-icons text-primary">vertical_align_top</i>
+                                            </span>上交
+                                                </button>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-muted d-flex justify-content-between ">
+                                        <div>Start: <?php echo substr($workInfo[$key1]['start'],5);?></div>
+                                        <div>End:  <span class="text-success"><?php echo substr($workInfo[$key1]['start'],5);?></span></div>
+
+                                    </div>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+
+
+                        <div class="col-lg-4 col-12">
+                            <?php for($key2=2;$key2<count($workInfo);$key2+=3):?>
+                                <div class="card card-small mb-4">
+                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                        <div class="ml-0">#<?php echo $workInfo[$key2]['id'];?></div>
+                                        <div class="text-primary"><?php echo $workInfo[$key2]['subject'];?></div>
+
+                                    </div>
+                                    <div class="card-body border-bottom ">
+                                        <h5 class="text-dark"><?php echo $workInfo[$key2]['name'];?></h5>
+                                        <?php echo $workInfo[$key2]['remarks'];?>
+                                        <p><a href="#"><?php echo $workInfo[$key2]['annex'];?></a></p>
+
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                    <span class="d-flex mb-2">
+                                        <i class="material-icons mr-1">flag</i>
+                                        <strong class="mr-1">状态:</strong>
+                                        <span class="text-danger">未完成</span>
+                                    </span>
+                                            </div>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-success">
+                                                 <i class="material-icons">check</i>
+                                            </span>
+                                                </button>
+                                                <button type="button" class="btn btn-white">
+                                            <span class="text-danger">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                                </button>
+                                                <?php if($workInfo[$key2]['need_upload']=='1'): ?>
+                                                    <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key2]['id']?>)">
+                                            <span class="text">
+                                                <i class="material-icons text-primary">vertical_align_top</i>
+                                            </span>上交
+                                                </button>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-muted d-flex justify-content-between ">
+                                        <div>Start: <?php echo substr($workInfo[$key2]['start'],5);?></div>
+                                        <div>End: <span class="text-success"><?php echo substr($workInfo[$key2]['start'],5);?></span></div>
+
+                                    </div>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+
             </div>
             <!-- Footer -->
             <?php include_once $rootDir . "part/footer.php" ?>
@@ -115,6 +281,9 @@ $rootDir = dirname(__FILE__) . "/";
     $(document).ready(function () {
         $("#nav_lift li a").eq(0).attr("class", "nav-link active");
     });
+    function upload(id) {
+        alert(id)
+    }
 </script>
 
 

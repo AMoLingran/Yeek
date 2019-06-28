@@ -15,8 +15,8 @@ $account = new Account($db);
  *
  */
 if (!empty($_POST)) {
-    $username = $_POST['username'];
-    $password = sha1($_POST['password']);
+    @$username = $_POST['username'];
+    @$password = sha1($_POST['password']);
     //关闭undefined警号，避免jQuery获取json对象错误
     @$email = $_POST['email'];
 

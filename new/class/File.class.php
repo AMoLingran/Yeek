@@ -16,16 +16,15 @@ class File
     }
 
 
-    function insertFile($workId,$fileName,$fileSize,$uploader,$fileDir="" )
+    function insertFile($uploadId,$fileName,$fileSize,$fileDir="" )
     {
         $db = $this->db;
-        $sql = "INSERT INTO upwork_file(workId, fileName,fileSize, uploader,fileDir) 
-                VALUES(:workId,:fileName,:fileSize,:uploader,:fileDir)";
+        $sql = "INSERT INTO upwork_file(uploadId, fileName,fileSize,fileDir) 
+                VALUES(:uploadId,:fileName,:fileSize,:fileDir)";
         $data = array(
-            'workId'=>$workId,
+            'uploadId'=>$uploadId,
             'fileName'=>$fileName,
             'fileSize'=>$fileSize,
-            'uploader'=>$uploader,
             'fileDir'=>$fileDir,
         );
         $result = $db->myExecute($sql,$data);

@@ -5,17 +5,17 @@
 
 @font-face {
     font-family: 'Myriad';
-    src: url('../font/MyriadPro.ttf');
+    src: url('../../font/MyriadPro.ttf');
 }
 
 @font-face {
     font-family: 'mini_思源黑体L';
-    src: url('../font/mini_SourceHanSansCN-Light.ttf');
+    src: url('../../font/mini_SourceHanSansCN-Light.ttf');
 }
 
 @font-face {
     font-family: '思源黑体L';
-    src: url('../font/SourceHanSansCN-Light.ttf');
+    src: url('../../font/SourceHanSansCN-Light.ttf');
 }
 
 header {

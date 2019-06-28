@@ -20,7 +20,7 @@ $rootDir = dirname(__FILE__) . "/";
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
 
     <!--    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/icon.css" rel="stylesheet">
 
     <script async defer src="scripts/buttons.js"></script>
     <script src="scripts/jquery.min.js"></script>
@@ -145,7 +145,7 @@ $rootDir = dirname(__FILE__) . "/";
                                                     <select id="queryUpload" name="queryUpload" class="form-control">
                                                         <option value="" selected>默认</option>
                                                         <option value="1">需要</option>
-                                                        <option value="0">不需要</option>
+                                                        <option value="false">不需要</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-lg-2 col-6">
@@ -252,7 +252,7 @@ $rootDir = dirname(__FILE__) . "/";
                                 <h6 class="m-0">作业</h6>
                             </div>
                             <div id="table" class="card-body p-0 pb-3 text-center table-responsive-xl ">
-                                <table class="table mb-0" style="min-width:768px">
+                                <table class="table mb-0" style="min-width:1200px">
                                     <thead class="bg-light">
                                     <tr>
                                         <th scope="col" class="border-0">#</th>
@@ -458,7 +458,7 @@ $rootDir = dirname(__FILE__) . "/";
             let name = $("#insertName");
             let subject = $("#insertSubject");
             let upload = $("#insertUpload");
-            let start = $("#inputStart");
+            let start = $("#insertStart");
             let end = $("#insertEnd");
             let annex = $("#insertAnnex");
             let remarks = $("#insertRemarks");
@@ -508,6 +508,7 @@ $rootDir = dirname(__FILE__) . "/";
                     let result = jQuery.parseJSON(data);
                     if (result.code === 1) {
                         alertManage("succ", "插入成功");
+                        window.location.reload();
                         getWork();
                     } else {
                         alertManage("danger", "插入失败");
@@ -574,10 +575,10 @@ $rootDir = dirname(__FILE__) . "/";
                             end = end.slice(5, 10);
                         }
                         if (!annex) {
-                            end = "";
+                            annex = "";
                         }
                         if (!remarks) {
-                            end = "";
+                            remarks = "";
                         }
                         workTable += "<tr>" +
                             "<td>" + id + "</td>" +
@@ -586,7 +587,7 @@ $rootDir = dirname(__FILE__) . "/";
                             "<td>" + start + "</td>" +
                             "<td>" + end + "</td>" +
                             "<td>" + annex + "</td>" +
-                            "<td>" + remarks + "</td>" +
+                            "<td style='max-width:300px'>" + remarks + "</td>" +
                             "<td>" + need_upload + "</td>" +
                             "<td><a href='#' data-toggle='modal' data-target='#updateModal' onclick='update(" + id + ")'>修改</a>" +
                             "/" +
@@ -673,7 +674,7 @@ $rootDir = dirname(__FILE__) . "/";
         let name = $("#updateName");
         let subject = $("#updateSubject");
         let upload = $("#updateUpload");
-        let start = $("#inputStart");
+        let start = $("#updateStart");
         let end = $("#updateEnd");
         let annex = $("#updateAnnex");
         let remarks = $("#updateRemarks");

@@ -4,6 +4,12 @@ include_once "myHead.php";
 
 $rootDir = dirname(__FILE__) . "/";
 
+$db = new DBUtils();
+$work = new Work($db);
+
+
+$workInfo = $work->needDo(true);
+
 
 ?>
 <!doctype html>
@@ -22,7 +28,7 @@ $rootDir = dirname(__FILE__) . "/";
     <link rel="stylesheet" href="styles/fileinput.css">
 
     <!--    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/icon.css" rel="stylesheet">
 
     <script async defer src="scripts/buttons.js"></script>
     <script src="scripts/jquery.min.js"></script>
@@ -66,7 +72,7 @@ $rootDir = dirname(__FILE__) . "/";
                         <h6 class="m-0">需交作业</h6>
                     </div>
                     <div id="table" class="card-body p-0 pb-3 text-center table-responsive-xl ">
-                        <table class="table mb-0" style="min-width:768px">
+                        <table class="table mb-0" style="min-width:1200px">
                             <thead class="bg-light">
                             <tr>
                                 <th scope="col" class="border-0">#</th>
@@ -82,7 +88,26 @@ $rootDir = dirname(__FILE__) . "/";
                             </thead>
 
                             <tbody id="tbody">
+                            <?php if (isset($workInfo)): ?>
+                            <?php foreach ($workInfo as $item): ?>
 
+                            <tr>
+                                <td><?php echo $item['id']?></td>
+                                <td><?php echo $item['name']?></td>
+                                <td><?php echo $item['subject']?></td>
+                                <td><?php echo  substr($item['start'],5)?></td>
+                                <td><?php echo  substr($item['end'],5)?></td>
+                                <td><?php echo $item['annex']?></td>
+                                <td style="max-width: 300px"><?php echo $item['remarks']?></td>
+                                <td><?php echo "未上传"?></td>
+                                <td>
+                                    <a href="#" data-toggle="modal" data-target="#uploadModal" onclick="upload(<?php echo $item['id']?>)">上传</a>
+                                    /
+                                    <a href='#' data-toggle='modal' data-target='#delModal' onclick='download(<?php echo $item['id']?>)'>下载</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
 
                             </tbody>
                         </table>
@@ -140,32 +165,8 @@ $rootDir = dirname(__FILE__) . "/";
     $(document).ready(function () {
         $("#nav_lift li a").eq(1).addClass("active");
 
-        $.post("viewModel/workModel.php",
-            {
-                flag: "subject",
-            },
-            function (data) {
-                let subject = jQuery.parseJSON(data);
-                new Vue({
-                    el: '#control',
-                    data: {
-                        subject
-                    }
-                });
-                let subjectOption = "<option value=''>未选择</option>";
-                for (let i = 0; i < subject.length; i++) {
-                    subjectOption += "<option " +
-                        "id='subject_" + subject[i].id + "'" +
-                        " value='" + subject[i].id + "'" +
-                        ">" +
-                        subject[i].name
-                        + "</option>"
-                }
-                $("#updateSubject").html(subjectOption)
 
-            }
-        );
-        getWork();
+        // getWork();
 
 
         $('#file').fileinput({
@@ -188,76 +189,6 @@ $rootDir = dirname(__FILE__) . "/";
         });
 
     });
-
-    function getWork(id, name, subject, start, end, annex, remarks) {
-        $.post("viewModel/workModel.php",
-            {
-                flag: "query",
-                id: id,
-                name: name,
-                subject: subject,
-                upload: "true",
-                start: start,
-                end: end,
-                annex: annex,
-                remarks: remarks,
-            },
-            function (data) {
-                let workTable = "";
-                let work = jQuery.parseJSON(data);
-
-                if (data === "[]") {
-                    alertManage("warning", "没有找到结果");
-                } else {
-                    for (let i = 0; i < work.length; i++) {
-                        let id = work[i].id;
-                        let name = work[i].name;
-                        let subject = work[i].subject;
-                        let start = work[i].start;
-                        let end = work[i].end;
-                        let annex = work[i].annex;
-                        let remarks = work[i].remarks;
-                        let need_upload = work[i].need_upload;
-                        if (need_upload === '1') {
-                            need_upload = "未上传"
-                        } else {
-                            need_upload = ""
-                        }
-                        if (!start) {
-                            start = "";
-                        } else {
-                            start = start.slice(5, 10);
-                        }
-                        if (!end) {
-                            end = "";
-                        } else {
-                            end = end.slice(5, 10);
-                        }
-                        if (!annex) {
-                            end = "";
-                        }
-                        if (!remarks) {
-                            end = "";
-                        }
-                        workTable += "<tr>" +
-                            "<td>" + id + "</td>" +
-                            "<td>" + name + "</td>" +
-                            "<td>" + subject + "</td>" +
-                            "<td>" + start + "</td>" +
-                            "<td>" + end + "</td>" +
-                            "<td>" + annex + "</td>" +
-                            "<td>" + remarks + "</td>" +
-                            "<td>" + need_upload + "</td>" +
-                            "<td><a href='#' data-toggle='modal' data-target='#uploadModal' onclick='upload(" + id + ")'>上传</a>" +
-                            "/" +
-                            "<a href='#' data-toggle='modal' data-target='#delModal' onclick='download(" + id + ")'>下载</a></td><tr>";
-                    }
-
-                }
-                $("#tbody").html(workTable);
-            }
-        )
-    }
 
     function upload(id) {
         uploadId = id;

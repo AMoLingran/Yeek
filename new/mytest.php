@@ -1,12 +1,13 @@
 <?php
-
+//date_default_timezone_set('Asia/Shanghai');
 include_once "myHead.php";
 $rootDir = dirname(__FILE__) . "/";
 
-
 ?>
+
+
 <!doctype html>
-<html class="no-js h-100" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -18,6 +19,7 @@ $rootDir = dirname(__FILE__) . "/";
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <link rel="stylesheet" href="styles/fileinput.css">
 
     <!--    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,7 +34,8 @@ $rootDir = dirname(__FILE__) . "/";
     <script src="scripts/extras.1.1.0.min.js"></script>
     <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
     <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
-    <script src="scripts/vue.min.js"></script>
+    <script src="scripts/fileinput.js"></script>
+    <script src="scripts/zh.js"></script>
 
 
 </head>
@@ -43,333 +46,247 @@ $rootDir = dirname(__FILE__) . "/";
         <!-- Main Sidebar -->
         <?php include_once $rootDir . "part/navLift.php" ?>
         <!-- End Main Sidebar -->
-
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-
             <!-- Main Navbar -->
             <?php include_once $rootDir . "part/navMain.php" ?>
             <!-- / .main-navbar -->
-
-            <!-- Alert -->
-            <!-- <div id="alert_box" class="alert alert-success alert-dismissible fade show mb-0" role="alert">
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                     <span aria-hidden="true">×</span>
-                 </button>
-                 <i class="fa fa-check mx-2"></i>
-                 <strong>查询成功</strong>
-             </div>-->
-            <!-- End Alert-->
-
             <div class="main-content-container container-fluid px-4">
-
-
                 <!-- Page Header -->
                 <div class="page-header row no-gutters py-4">
                     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                        <span class="text-uppercase page-subtitle">Yeek</span>
-                        <h3 class="page-title">测试页面</h3>
+                        <span class="text-uppercase page-subtitle">yeek</span>
+                        <h3 class="page-title">作业概览</h3>
                     </div>
                 </div>
                 <!-- End Page Header -->
 
-                <!-- Work Table -->
+                <!-- Show Table-->
                 <div class="row">
-                    <div class="col">
-                        <!--Control-->
-                        <div id="control" class="card card-small mb-4">
-                            <!-- Select Button -->
-                            <div class="card-header d-flex border-bottom">
-                                <div class="btn-group btn-group-toggle " data-toggle="buttons">
-                                    <label class="btn btn-white active" onclick="query()">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>查询
-                                    </label>
-                                    <label class="btn btn-white" onclick="insert()">
-                                        <input type="radio" name="options" id="option2" autocomplete="off">插入</label>
+                    <div class="col-lg-4 col-12">
+                        <div class="card card-small ">
+                            <div class="card-header border-bottom mb-2 d-flex justify-content-between ">
+                                <div class="text-muted ml-0">#122</div>
+                                <div class="">SQL Server</div>
+
+                            </div>
+                            <div class="card-body border-bottom ">
+                                <h5>按“第9章上机实验三”的要求编写实验报告</h5>
+                                <p><a href="#">sql-第9章上机实验三.doc</a></p>
+
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                    <span class="d-flex mb-2">
+                                        <i class="material-icons mr-1">flag</i>
+                                        <strong class="mr-1">状态:</strong>
+                                        <span class="text-danger">未完成</span>
+                                    </span>
+                                    </div>
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-white">
+                                            <span class="text-success">
+                                                 <i class="material-icons">check</i>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn btn-white">
+                                            <span class="text-danger">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn btn-white">
+                                            <span class="text">
+                                                <i class="material-icons text-primary">vertical_align_top</i>
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <button type="submit" class="btn btn-outline-danger ml-auto" onclick="reset()">重 置
-                                </button>
-                                <button type="submit" class="btn btn-accent ml-3" onclick="submit()">提 交</button>
                             </div>
-                            <!-- End Select Button -->
-                            <!-- From -->
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item p-3">
-                                    <!-- Query From -->
-                                    <div id="queryBox" class="col">
-                                        <form id="query">
-                                            <div class="form-row">
-                                                <div class="form-group col-lg-1 col-4">
-                                                    <label for="queryId">id</label>
-                                                    <input type="number" class="form-control" id="queryId"
-                                                           placeholder="">
+                            <div class="card-footer text-muted d-flex justify-content-between ">
+                                <div>Start: 4-18</div>
+                                <div>End: 4-22</div>
 
-                                                </div>
-                                                <div class="form-group col-lg-2 col-8">
-                                                    <label for="queryName">作业名</label>
-                                                    <input type="text" class="form-control" id="queryName"
-                                                           placeholder="">
-                                                </div>
-
-                                                <div class="form-group col-lg-1 col-6">
-                                                    <label for="querySubject">科目</label>
-                                                    <select id="querySubject" class="form-control">
-                                                        <option selected>未选择</option>
-                                                        <option v-for="value in subject">{{value.name}}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group col-lg-1 col-6">
-                                                    <label for="queryUpload">上交</label>
-                                                    <select id="queryUpload" class="form-control">
-                                                        <option selected>默认</option>
-                                                        <option>需要</option>
-                                                        <option>不需要</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="queryStart">开始日期</label>
-                                                    <input type="date" class="form-control" id="queryStart"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="queryEnd">结束日期</label>
-                                                    <input type="date" class="form-control" id="queryEnd"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-1 col-6">
-                                                    <label for="queryAnnex">课件名</label>
-                                                    <input type="text" class="form-control" id="queryAnnex"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="queryRemarks">备注</label>
-                                                    <input type="text" class="form-control" id="queryRemarks"
-                                                           placeholder="">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- End Query From -->
-
-                                    <!-- Insert From -->
-                                    <div id="insertBox" class="col" style="display: none">
-                                        <form id="insert">
-                                            <div class="form-row">
-                                                <div class="form-group col-lg-2 col-12">
-                                                    <label for="insertName">作业名</label>
-                                                    <input type="text" class="form-control is-invalid" id="insertName"
-                                                           placeholder="">
-                                                    <div class="invalid-feedback">This username is taken.</div>
-
-                                                </div>
-
-                                                <div class="form-group col-lg-1 col-6">
-                                                    <label for="insertSubject">科目</label>
-                                                    <select id="insertSubject" class="form-control">
-                                                        <option selected>未选择</option>
-                                                        <option v-for="value in subject">{{value.name}}</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group col-lg-1 col-6">
-                                                    <label for="insertUpload">上交</label>
-                                                    <select id="insertUpload" class="form-control">
-                                                        <option selected>默认</option>
-                                                        <option>需要</option>
-                                                        <option>不需要</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="insertStart">开始日期</label>
-                                                    <input type="date" class="form-control" id="insertStart"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="insertEnd">结束日期</label>
-                                                    <input type="date" class="form-control" id="insertEnd"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="insertAnnex">课件名</label>
-                                                    <input type="text" class="form-control" id="insertAnnex"
-                                                           placeholder="">
-                                                </div>
-                                                <div class="form-group col-lg-2 col-6">
-                                                    <label for="insertRemarks">备注</label>
-                                                    <input type="text" class="form-control" id="insertRemarks"
-                                                           placeholder="">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- End Insert From -->
-                                </li>
-                            </ul>
-                            <!-- End From -->
-                        </div>
-                        <!-- End Control-->
-
-                        <!-- Show Table-->
-                        <div class="card card-small mb-4">
-                            <div class="card-header border-bottom">
-                                <h6 class="m-0">作业</h6>
-                            </div>
-                            <div id="table" class="card-body p-0 pb-3 text-center table-responsive-xl ">
-                                <table class="table mb-0" style="min-width:768px">
-                                    <thead class="bg-light">
-                                    <tr>
-                                        <th scope="col" class="border-0">#</th>
-                                        <th scope="col" class="border-0">作业</th>
-                                        <th scope="col" class="border-0">科目</th>
-                                        <th scope="col" class="border-0">开始</th>
-                                        <th scope="col" class="border-0">结束</th>
-                                        <th scope="col" class="border-0">课件</th>
-                                        <th scope="col" class="border-0">备注</th>
-                                        <th scope="col" class="border-0">上交</th>
-                                        <th scope="col" class="border-0">操作</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody id="tbody">
-
-
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
-                        <!--End Show Table-->
+
                     </div>
+                    <!--End Show Table-->
                 </div>
-                <!-- End Work Table -->
+
             </div>
-
-
             <!-- Footer -->
             <?php include_once $rootDir . "part/footer.php" ?>
             <!-- End Footer -->
         </main>
-
     </div>
 </div>
 
 
 <script>
+    $("#nav_lift li a").eq(5).addClass("active");
+    /*
+
+        let uploadId;
+        let downloadId;
 
 
-    let nowShow;
+        $(document).ready(function () {
+            $("#nav_lift li a").eq(4).addClass("active");
 
-    $(document).ready(function () {
-        $("#nav_lift li a").eq(2).attr("class", "nav-link active");
-        getWork();
-        $.post("viewModel/workInfo.php",
-            {
-                flag: "subject",
-            },
-            function (data) {
-                let subject = jQuery.parseJSON(data);
-                new Vue({
-                    el: '#control',
-                    data: {
-                        subject
+            $.post("viewModel/workModel.php",
+                {
+                    flag: "subject",
+                },
+                function (data) {
+                    let subject = jQuery.parseJSON(data);
+                    new Vue({
+                        el: '#control',
+                        data: {
+                            subject
+                        }
+                    });
+                    let subjectOption = "<option value=''>未选择</option>";
+                    for (let i = 0; i < subject.length; i++) {
+                        subjectOption += "<option " +
+                            "id='subject_" + subject[i].id + "'" +
+                            " value='" + subject[i].id + "'" +
+                            ">" +
+                            subject[i].name
+                            + "</option>"
                     }
-                });
-            }
-        )
-    });
+                    $("#updateSubject").html(subjectOption)
 
-
-    function getWork() {
-        $.post("viewModel/workInfo.php",
-            {
-                flag: "query",
-            },
-            function (data) {
-                let workTable;
-                let work = jQuery.parseJSON(data);
-
-                for (let i = 0; i < work.length; i++) {
-                    let id = work[i].id;
-                    let name = work[i].name;
-                    let subject = work[i].subject;
-                    let start = work[i].start;
-                    let end = work[i].end;
-                    let annex = work[i].annex;
-                    let remarks = work[i].remarks;
-                    let need_upload = work[i].need_upload;
-                    if (need_upload === '1') {
-                        need_upload = "需要"
-                    } else {
-                        need_upload = ""
-                    }
-                    if (!start) {
-                        start = "";
-                    } else {
-                        start = start.slice(5, 10);
-                    }
-                    if (!end) {
-                        end = "";
-                    } else {
-                        end = end.slice(5, 10);
-                    }
-                    if (!annex) {
-                        end = "";
-                    }
-                    if (!remarks) {
-                        end = "";
-                    }
-                    workTable += "<tr>" +
-                        "<td>" + id + "</td>" +
-                        "<td>" + name + "</td>" +
-                        "<td>" + subject + "</td>" +
-                        "<td>" + start + "</td>" +
-                        "<td>" + end + "</td>" +
-                        "<td>" + annex + "</td>" +
-                        "<td>" + remarks + "</td>" +
-                        "<td>" + need_upload + "</td>" +
-                        "<td><a href='#' onclick='ins(" + id + ")'>修改</a>" +
-                        "/" +
-                        "<a href='#' onclick='del(" + id + ")'>删除</a></td>" +
-                        "<tr>";
                 }
-                $("#tbody").html(workTable);
-            }
-        )
-    }
+            );
+            getWork();
 
 
-    function query() {
-        $("#insertBox").hide();
-        $("#queryBox").fadeIn(150);
-        nowShow = "#query";
-    }
+            $('#file').fileinput({
+                theme: 'fas',
+                language: 'zh',
+                uploadUrl: 'file/receive.php',
+                uploadAsync: true, //默认异步上传
+                // showUpload: false, //是否显示上传按钮
+                // showRemove: false, //显示移除按钮
+                allowedFileExtensions: ['txt', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'zip', 'jpg'],
+                showPreview: false, //是否显示预览
+                showCaption: true,//是否显示标题
+                enctype: 'multipart/form-data',
+                browseClass: "btn btn-primary", //按钮样式
+            }).on("filepreajax", function () {
+                $("#uploadModalStatus").text("文件上传中。。。");
+            }).on("fileuploaded", function (event, data, previewId, index) {
+                alert(data.response.request);
+                $("#uploadModalStatus").text(data.response.request);
+            });
 
-    function insert() {
-        $("#queryBox").hide();
-        $("#insertBox").fadeIn(150);
-        nowShow = "#insert";
-    }
+        });
 
-    function submit() {
-        if(nowShow==="#insert"){
-            alert("你点了insert的提交");
-        }else{
-            alert("你点了query的提交");
+        function getWork(id, name, subject, start, end, annex, remarks) {
+            $.post("viewModel/workModel.php",
+                {
+                    flag: "query",
+                    id: id,
+                    name: name,
+                    subject: subject,
+                    upload: "true",
+                    start: start,
+                    end: end,
+                    annex: annex,
+                    remarks: remarks,
+                },
+                function (data) {
+                    let workTable = "";
+                    let work = jQuery.parseJSON(data);
+
+                    if (data === "[]") {
+                        alertManage("warning", "没有找到结果");
+                    } else {
+                        for (let i = 0; i < work.length; i++) {
+                            let id = work[i].id;
+                            let name = work[i].name;
+                            let subject = work[i].subject;
+                            let start = work[i].start;
+                            let end = work[i].end;
+                            let annex = work[i].annex;
+                            let remarks = work[i].remarks;
+                            let need_upload = work[i].need_upload;
+                            if (need_upload === '1') {
+                                need_upload = "未上传"
+                            } else {
+                                need_upload = ""
+                            }
+                            if (!start) {
+                                start = "";
+                            } else {
+                                start = start.slice(5, 10);
+                            }
+                            if (!end) {
+                                end = "";
+                            } else {
+                                end = end.slice(5, 10);
+                            }
+                            if (!annex) {
+                                end = "";
+                            }
+                            if (!remarks) {
+                                end = "";
+                            }
+                            workTable += "<tr>" +
+                                "<td>" + id + "</td>" +
+                                "<td>" + name + "</td>" +
+                                "<td>" + subject + "</td>" +
+                                "<td>" + start + "</td>" +
+                                "<td>" + end + "</td>" +
+                                "<td>" + annex + "</td>" +
+                                "<td>" + remarks + "</td>" +
+                                "<td>" + need_upload + "</td>" +
+                                "<td><a href='#' data-toggle='modal' data-target='#uploadModal' onclick='upload(" + id + ")'>上传</a>" +
+                                "/" +
+                                "<a href='#' data-toggle='modal' data-target='#delModal' onclick='download(" + id + ")'>下载</a></td><tr>";
+                        }
+
+                    }
+                    $("#tbody").html(workTable);
+                }
+            )
         }
-    }
 
-    function reset() {
-        $(nowShow)[0].reset();
-    }
+        function upload(id) {
+            uploadId = id;
+
+            $.post("viewModel/workModel.php",
+                {
+                    flag: "query",
+                    id: id,
+                },
+                function (data) {
+                    let uploadModalText = $('#uploadModalText');
+
+                    let work = jQuery.parseJSON(data);
+                    let id = work[0].id;
+                    let name = work[0].name;
+                    let subject = work[0].subject;
+                    let callname = work[0].call_name;
+                    file_dir = "file_" + callname + "_" + id;
+                    //每次选择都刷新文件上传框
+                    uploadModalText.find("span").text(subject + " - " + name);
+                    $("#uploadModalStatus").text("");
+                    $('#file').fileinput('refresh', {
+                        uploadExtraData: {
+                            'dir': file_dir,
+                            workId: uploadId
+                        }
+                    }).fileinput('clear');
+                }
+            );
+        }
+
+        function download() {
+            downloadId = id;
+            alert("施工中。。。");
+        }
+    */
 
 
-    function ins(id) {
-        alert("你点击的是=插入=按钮，id是" + id);
-    }
-
-    function del(id) {
-        alert("你点击的是=删除=按钮，id是" + id);
-    }
 </script>
 
 

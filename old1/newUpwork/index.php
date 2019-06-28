@@ -37,7 +37,6 @@ $result = $db->myQuery("SELECT a.name,a.id,b.name AS 'subject' FROM upwork_work 
 
 <nav></nav>
 <div class=" container" style="margin-bottom: 20%">
-    <div class="text-center h3 mb-5"><a href="../new">点击进入传说中的模板</a></div>
     <div class=" row">
 
         <div class="col-sm-3">

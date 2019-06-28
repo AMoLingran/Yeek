@@ -10,6 +10,9 @@ if (isset($_POST['flag'])) {
         case "subject":
             echo subject($db);
             break;
+        case "needDo":
+            echo needDo($work,@$_POST['upload']);
+            break;
         case "query":
             echo query(
                 $work,
@@ -67,9 +70,9 @@ if (isset($_POST['flag'])) {
  * @param Work $work
  * @return false|string
  */
-function update($work, $id,$name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
+function update($work, $id, $name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
 {
-    $result = $work->updateWork($id,$name, $courseId, $upload, $start, $end, $annex, $remarks);
+    $result = $work->updateWork($id, $name, $courseId, $upload, $start, $end, $annex, $remarks);
     return json_encode(array('code' => $result));
 }
 
@@ -90,7 +93,7 @@ function del($work, $id)
  * @param Work $work
  * @return false|string
  */
-function insert($work, $name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
+function insert($work, $name, $courseId, $upload, $start, $end, $annex, $remarks)
 {
     $result = $work->insertWork($name, $courseId, $upload, $start, $end, $annex, $remarks);
     return json_encode(array('code' => $result));
@@ -101,11 +104,25 @@ function insert($work, $name = "", $courseId = "", $upload = "", $start = "", $e
  * @param Work $work
  * @return false|string
  */
-function query($work, $id = "", $name = "", $courseId = "", $upload = "", $start = "", $end = "", $annex = "", $remarks = "")
+function query($work, $id, $name, $courseId, $upload, $start, $end, $annex, $remarks)
 {
     $result = $work->selectWorkInfo($id, $name, $courseId, $upload, $start, $end, $annex, $remarks);
     return json_encode($result);
 }
+
+
+/**
+ * @param Work $work
+ * @param bool $upload
+ * @return false|string
+ */
+function needDo($work, $upload)
+{
+
+    $result = $work->needDo($upload);
+    return json_encode($result);
+}
+
 
 /**
  * @param DBUtils $db
@@ -113,12 +130,7 @@ function query($work, $id = "", $name = "", $courseId = "", $upload = "", $start
  */
 function subject($db)
 {
-    $subject = array();
     $query = $db->myQuery("SELECT a.name,a.id FROM upworkl_course a");
-//    foreach ($query as $key => $item) {
-//        $subject[$key]['id'] = $item['id'];
-//        $subject[$key]['name'] = $item['name'];
-//    }
     return json_encode($query);
 }
 

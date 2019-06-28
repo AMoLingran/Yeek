@@ -63,6 +63,7 @@ if (isset($_COOKIE['username'])) {
     function logout() {
         //当点击退出按钮时刷新页面
         $("#logout").load("function/logout.php");
+        alert("退出成功");
         window.location.reload();
     }
 </script>

@@ -5,7 +5,7 @@
             <div class="d-table m-auto">
                 <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;"
                      src="images/logo.png" alt="Shards Dashboard">
-                <span class="d-none d-md-inline ml-1">Yeek作业后台</span>
+                <span class="d-none d-md-inline ml-1">Yeek作业管理</span>
             </div>
         </a>
         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">

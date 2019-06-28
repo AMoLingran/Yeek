@@ -194,7 +194,7 @@ include_once "myHead.php";
                 usernameError.html("该项不能为空");
                 //不允许注册
                 status = false;
-            }else {
+            } else {
                 //username的值不为空时post到数据库检查是否重复
                 $.post(
                     "viewModel/accountModel.php",
@@ -209,7 +209,7 @@ include_once "myHead.php";
                             username.removeClass("is-invalid").addClass('is-valid');
                             usernameError.html("");
                             status = true;
-                        }else{
+                        } else {
                             //否则就提示已存在
                             username.removeClass("is-valid").addClass("is-invalid");
                             usernameError.html("账号已存在");
@@ -235,14 +235,9 @@ include_once "myHead.php";
                 repassword.removeClass("is-valid").addClass("is-invalid");
                 repasswordError.html("该项不能为空");
                 status = false;
-            } else {
+            }else if ((password.val() === repassword.val())) {
                 repassword.removeClass("is-invalid").addClass('is-valid');
                 repasswordError.html("");
-                status = true;
-            }
-            if ((password.val() === repassword.val())) {
-                repassword.removeClass("is-invalid").addClass('is-valid');
-                repasswordError.html("两次输入的密码不相同");
             } else {
                 repassword.removeClass("is-valid").addClass("is-invalid");
                 repasswordError.html("两次输入的密码不相同");
@@ -250,30 +245,41 @@ include_once "myHead.php";
             }
         });
         email.blur(function () {
-            if (!email.val()) {
-                //以后再强制注册
-            } else {
-                $.post(
-                    "viewModel/accountModel.php",
-                    {
-                        check: "1",
-                        columns: "email",
-                        values: email.val(),
-                    },
-                    function (data) {
-                        if (data === "[]") {
-                            email.removeClass("is-invalid").addClass('is-valid');
-                            emailError.html("");
-                            status = true;
-                        }else{
-                            email.addClass("is-invalid");
-                            emailError.html("该邮箱已存在");
-                            status = false;
-                        }
+                if (!email.val()) {
+                    email.removeClass("is-invalid");
+                    emailError.html("");
+                    status = true;
+                } else {
+                    var reg = /^[a-z0-9](\w|\.|-)*@([a-z0-9]+-?[a-z0-9]+\.){1,3}[a-z]{2,4}$/i;
+                    if (email.val().match(reg) == null) {
+                        email.addClass("is-invalid");
+                        emailError.html("请输入正确的邮箱地址");
+                        status = false;
+                    } else {
+                        $.post(
+                            "viewModel/accountModel.php",
+                            {
+                                check: "1",
+                                columns: "email",
+                                values: email.val(),
+                            },
+                            function (data) {
+                                if (data === "[]") {
+                                    email.removeClass("is-invalid").addClass('is-valid');
+                                    emailError.html("");
+                                    status = true;
+                                } else {
+                                    email.removeClass("is-valid").addClass("is-invalid");
+                                    emailError.html("该邮箱已存在");
+                                    status = false;
+                                }
+                            }
+                        );
                     }
-                );
+
+                }
             }
-        });
+        );
 
 
     });
@@ -294,8 +300,8 @@ include_once "myHead.php";
                     //表单验证通过后，且post返回的结果是1之后进行跳转和设置cookie
                     if (result.code === 1) {
                         alert("注册成功,欢迎来到Yeek！");
-                        $.cookie('username', username.val(), { expires: 5});
-                        window.location.href="index.php"
+                        $.cookie('username', username.val(), {expires: 5});
+                        window.location.href = "index.php"
                     } else {
                         alert("注册失败：" + result.code);
                     }

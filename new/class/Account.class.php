@@ -47,7 +47,8 @@ class Account
      */
     function register($username, $password, $email=""){
         $pdo = $this->pdo;
-        $sql = "INSERT INTO yeek_user(username, password, email)  VALUES ('$username','$password','$email')";
+        $createTime = date("Y-m-d H:i:s");
+        $sql = "INSERT INTO yeek_user(username, password,create_time, email)  VALUES ('$username','$password','$createTime','$email')";
         $result = $pdo->myExecute($sql);
         return $result;
     }

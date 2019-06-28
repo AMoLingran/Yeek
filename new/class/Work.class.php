@@ -26,7 +26,7 @@ class Work
      * @param string $remarks
      * @return array|null
      */
-    function selectWorkInfo($id = "", $name = "", $courseId = "", $need_upload = true, $start = "", $end = "",$annex = "", $remarks = "")
+    function selectWorkInfo($id, $name, $courseId, $need_upload, $start,$end,$annex, $remarks)
     {
 
         $sql = "SELECT a.*,b.name as subject,b.call_name  FROM upwork_work a,upworkl_course b WHERE a.courseId=b.id";
@@ -46,7 +46,7 @@ class Work
             $sql .= " AND a.start>='$start'";
         }
         if (!empty($end)) {
-            $sql .= " AND a.end>='$end'";
+            $sql .= " AND a.end<='$end'";
         }
         if (!empty($annex)) {
             $sql .= " AND a.annex LIKE '%$annex%'";
@@ -55,11 +55,30 @@ class Work
             $sql .= " AND a.remarks LIKE '%$remarks%'";
         }
 
-        $sql .= "  ORDER BY id ASC";
+//        $sql .= "  ORDER BY id ASC";
+        $sql .= "  ORDER BY id DESC";
 //        var_dump("当前查询语句：".$sql);
         $result = $this->db->myQuery($sql);
         return $result;
     }
+
+
+    /**
+     * @param bool $upload
+     * @return array|null
+     */
+    function needDo($upload){
+        $date = date("Y-m-d");
+        $sql = "SELECT a.*,b.name as subject,b.call_name  FROM upwork_work a,upworkl_course b 
+            WHERE a.courseId=b.id AND end>='$date' ";
+        if($upload){
+            $sql .=" AND need_upload='1'";
+        }
+        $sql .= " ORDER BY id DESC";
+        $result = $this->db->myQuery($sql);
+        return $result;
+    }
+
 
     /**
      * @param string $name
@@ -138,13 +157,6 @@ VALUES (:name, :courseId, :start, :end, :annex, :remarks, :need_upload);';
     {
         $sql = "DELETE FROM yeek.upwork_work WHERE id=?";
         $result = $this->db->myExecute($sql, array($id));
-        return $result;
-    }
-
-    function getCourse()
-    {
-        $sql = "SELECT id,name FROM upworkl_course";
-        $result = $this->db->myQuery($sql);
         return $result;
     }
 }

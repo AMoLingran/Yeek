@@ -1,28 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MoLingran
- * Date: 3/17 0017
- * Time: 16:19
- */
-
-$rootUrl = include_once('RootURl.php');
-$rootUrl = $rootUrl . 'part/';
 ?>
-<footer>
-    <br><br><br><br>
-    <hr>
-    <br>
-    <br>
-    <p>Moreant | 552191481@qq.top</p><br>
-    <p>Copyright © 2018-<?php echo date('Y') ?> Yeek All Rights Reserved.</p>
-    <div style="width:300px;margin:0 auto; padding:20px 0;">
-        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011102002523"
-           style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-            <img src="<?php echo $rootUrl; ?>beian.png" style="float:left;"/>
-            <p style="float:left;height:20px;line-height:20px;
-            margin: 0 0 0 5px; color:#939393;">
-                粤公网安备 44011102002523号</p></a>
+<footer class="border-top container text-center" style="margin-top: 150px;margin-bottom: 20px">
+    <div class="mt-3">Moreant | 552191481@qq.com</div>
+    <div class="ml-auto">Copyright © 2018-<?php echo date('Y') ?> Yeek.</div>
+    <div><a class="text-secondary"  target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44011102002523">
+            粤公网安备 44011102002523号
+        </a>
     </div>
-    <br><br>
 </footer>

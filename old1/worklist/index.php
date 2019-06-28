@@ -38,7 +38,7 @@ $list = add($list,"start");
     <meta charset="UTF-8">
     <title>作业清单</title>
     <link rel="icon" href="/logo.png" sizes="32x32">
-    <link href="/navAndFooter.css" type="text/css" rel="stylesheet"/>
+    <link href="../navAndFooter.css" type="text/css" rel="stylesheet"/>
     <link href="default.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>

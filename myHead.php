@@ -11,7 +11,4 @@ spl_autoload_register('my_autoloader');
 if(!isset($_SESSION)){
     session_start();
 }
-
-
-
 ?>

@@ -6,7 +6,7 @@
  * Time: 16:06
  */
 
-include_once ("../../part/nav.php");
+include_once("../../part/nav.php");
 $counter = 0;
 $list = array();
 $path = __DIR__;
@@ -58,7 +58,7 @@ if (!isset($set)) {
             background-color: #efefef;
         }
     </style>
-    <link href="../../navAndFooter.css" type="text/css" rel="stylesheet"/>
+    <link href="../../../navAndFooter.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <fieldset>
@@ -74,6 +74,6 @@ if (!isset($set)) {
     </table>
     <br>
 </fieldset>
-<?php include_once ("../../part/sqlfooter.php"); ?>
+<?php include_once("../../part/sqlfooter.php"); ?>
 </body>
 </html>

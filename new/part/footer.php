@@ -16,8 +16,7 @@
             <a class="nav-link" href="#">关于</a>
         </li>
     </ul>
-    <span class="copyright ml-auto my-auto mr-2">Copyright © 2019 <a
-            href="http://www.yeek.top/" target="_blank">Moreant</a> - Collect from <a
-            href="http://www.yeek.com/" target="_blank">Yeek</a></span>
+    <span class="copyright ml-auto my-auto mr-2">Copyright © <?php echo date('Y') ?> <a
+            href="http://www.yeek.top/" target="_blank">Moreant</a>
 </footer>
 
