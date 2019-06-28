@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('../../font/MyriadPro.ttf');
+}
+
+@font-face {
+    font-family: 'mini_思源黑体L';
+    src: url('../../font/mini_SourceHanSansCN-Light.ttf');
+}
+
+@font-face {
+    font-family: '思源黑体L';
+    src: url('../../font/SourceHanSansCN-Light.ttf');
+}
+
+header {
+    width: 100%;
+    height: 350px;
+    color: white;
+    font-family: 'Myriad', 'mini_思源黑体L', '思源黑体L';
+    font-size: 225%;
+}
+
+header div {
+    top: 90px;
+    left: 20%;
+    position: absolute;
+    white-space: nowrap;
+}
+
+header span {
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 300%;
+}
+
+header p:last-child {
+    font-size: 75%;
+}
+
+
+span {
+    color: #ff4236;
+}
+
+.blue {
+    color: #0088ff;
+}
+
+main {
+    clear: left;
+    margin: 0 20%;
+}
+
+#file_box {
+    margin: 3% 0;
+}
+
+
+
+
+#file_box #file_input {
+    float: left;
+    display: block;
+    width: 300px;
+    height: 75px;
+    outline: none;
+    background-color: #00a9ff;
+    filter: alpha(opacity=0);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#file_box form input{
+    text-align: center;
+    color: white;
+    font-size: 110%;
+}
+
+#file_box #file_input #file {
+    padding: 25px 10%;
+}
+
+#file_box #upload {
+    float: left;
+    background: #ff807d;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    width: 75px;
+    height: 75px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+

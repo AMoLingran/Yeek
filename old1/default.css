@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('font/MyriadPro.ttf');
+}
+
+@font-face {
+    font-family: 'mini_思源黑体L';
+    src: url('font/mini_SourceHanSansCN-Light.ttf');
+}
+
+@font-face {
+    font-family: '思源黑体L';
+    src: url('font/SourceHanSansCN-Light.ttf');
+}
+
+header {
+    width: 100%;
+    height: 400px;
+    background: #0088ff;
+    color: white;
+    font-family: 'Myriad','mini_思源黑体L','思源黑体L';
+    font-size: 225%;
+}
+
+header div {
+    top: 90px;
+    left: 50%;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(-50%)
+}
+
+header span {
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 375%;
+}
+
+main {
+    font-size: 110%;
+    margin: 5% 20% 20%;
+}
+
+main ul {
+    font-size: 150%;
+    margin-top: 10%;
+    clear: left;
+    list-style-type: none;
+}
+
+main li {
+    font-size: 20px;
+    display: block;
+}
+
+main a {
+    display: block;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 5%;
+    text-align: center;
+    float: left;
+    background: #ff5a88;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 20% ;
+    color: white;
+    border-radius: 5px;
+}
+
+main a:hover {
+    text-decoration: none;
+    animation: two 0.35s ease-in-out forwards;
+    animation-timing-function: ease;
+}
+
+@keyframes two {
+    0% {
+
+    }
+    100% {
+        box-shadow: 2px 3px 8px #6b6b6b;
+    }
+}

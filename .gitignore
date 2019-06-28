@@ -8,8 +8,11 @@ Download/
 .htaccess
 /WebStudy
 /study
-/sqlwork/file
-/sqlwork/oldfile
 /worklist/annex
 /worklist/oldAnnex
 /upwork/file_*/*.*
+/upwork/backup
+/upwork/delete
+/log
+/database/file/*.xlsx
+test.php
