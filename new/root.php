@@ -20,7 +20,7 @@ $rootDir = dirname(__FILE__) . "/";
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
 
     <!--    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/icon.css" rel="stylesheet">
 
     <script async defer src="scripts/buttons.js"></script>
     <script src="scripts/jquery.min.js"></script>

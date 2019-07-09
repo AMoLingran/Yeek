@@ -111,159 +111,225 @@ $workInfo = $work->needDo(false);
                 <!-- End Small Stats Blocks -->
 
                 <div class="row">
-                    <?php if (isset($workInfo)): ;?>
-                        <div class="col-lg-4 col-12">
-                            <?php for($key0=0;$key0<count($workInfo);$key0+=3):?>
-                                <div class="card card-small mb-4">
-                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
-                                        <div class="ml-0">#<?php echo $workInfo[$key0]['id'];?></div>
-                                        <div class="text-primary"><?php echo $workInfo[$key0]['subject'];?></div>
+                    <?php if ($ua == "电脑版") : ?>
+                        <?php if (isset($workInfo)): ; ?>
+                            <div class="col-lg-4 col-12">
+                                <?php for ($key0 = 0; $key0 < count($workInfo); $key0 += 3): ?>
+                                    <div class="card card-small mb-4">
+                                        <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                            <div class="ml-0">#<?php echo $workInfo[$key0]['id']; ?></div>
+                                            <div class="text-primary"><?php echo $workInfo[$key0]['subject']; ?></div>
 
-                                    </div>
-                                    <div class="card-body border-bottom ">
-                                        <h5 class="text-dark"><?php echo $workInfo[$key0]['name'];?></h5>
-                                        <?php echo $workInfo[$key0]['remarks'];?>
-                                        <p><a href="#"><?php echo $workInfo[$key0]['annex'];?></a></p>
-                                        <div class="d-flex justify-content-between">
-                                            <div>
+                                        </div>
+                                        <div class="card-body border-bottom ">
+                                            <h5 class="text-dark"><?php echo $workInfo[$key0]['name']; ?></h5>
+                                            <?php echo $workInfo[$key0]['remarks']; ?>
+                                            <p><a href="#"><?php echo $workInfo[$key0]['annex']; ?></a></p>
+                                            <div class="d-flex justify-content-between">
+                                                <div>
                                     <span class="d-flex mb-2">
                                         <i class="material-icons mr-1">flag</i>
                                         <strong class="mr-1">状态:</strong>
                                         <span class="text-danger">未完成</span>
                                     </span>
-                                            </div>
-                                            <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn btn-white">
+                                                </div>
+                                                <div class="btn-group btn-group-sm">
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-success">
                                                  <i class="material-icons">check</i>
                                             </span>
-                                                </button>
-                                                <button type="button" class="btn btn-white">
+                                                    </button>
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-danger">
                                                 <i class="material-icons">clear</i>
                                             </span>
-                                                </button>
-                                                <?php if($workInfo[$key0]['need_upload']=='1'): ?>
-                                                <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key0]['id']?>)">
+                                                    </button>
+                                                    <?php if ($workInfo[$key0]['need_upload'] == '1'): ?>
+                                                        <button type="button" class="btn btn-white"
+                                                                onclick="upload( <?php echo $workInfo[$key0]['id'] ?>)">
                                             <span class="text">
                                                 <i class="material-icons text-primary">vertical_align_top</i>
                                             </span>上交
-                                                </button>
-                                                <?php endif; ?>
+                                                        </button>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="card-footer text-muted d-flex justify-content-between ">
+                                            <div>Start: <?php echo substr($workInfo[$key0]['start'], 5); ?></div>
+                                            <div>End: <span
+                                                        class="text-success"><?php echo substr($workInfo[$key0]['end'], 5); ?></span>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <div class="card-footer text-muted d-flex justify-content-between ">
-                                        <div>Start: <?php echo substr($workInfo[$key0]['start'],5);?></div>
-                                        <div>End:  <span class="text-success"><?php echo substr($workInfo[$key0]['end'],5);?></span></div>
+                                <?php endfor; ?>
+                            </div>
 
-                                    </div>
-                                </div>
-                            <?php endfor;?>
-                        </div>
+                            <div class="col-lg-4 col-12">
+                                <?php for ($key1 = 1; $key1 < count($workInfo); $key1 += 3): ?>
+                                    <div class="card card-small mb-4">
+                                        <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                            <div class="ml-0">#<?php echo $workInfo[$key1]['id']; ?></div>
+                                            <div class="text-primary"><?php echo $workInfo[$key1]['subject']; ?></div>
 
-                        <div class="col-lg-4 col-12">
-                            <?php for($key1=1;$key1<count($workInfo);$key1+=3):?>
-                                <div class="card card-small mb-4">
-                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
-                                        <div class="ml-0">#<?php echo $workInfo[$key1]['id'];?></div>
-                                        <div class="text-primary"><?php echo $workInfo[$key1]['subject'];?></div>
+                                        </div>
+                                        <div class="card-body border-bottom ">
+                                            <h5 class="text-dark"><?php echo $workInfo[$key1]['name']; ?></h5>
+                                            <?php echo $workInfo[$key1]['remarks']; ?>
+                                            <p><a href="#"><?php echo $workInfo[$key1]['annex']; ?></a></p>
 
-                                    </div>
-                                    <div class="card-body border-bottom ">
-                                        <h5 class="text-dark"><?php echo $workInfo[$key1]['name'];?></h5>
-                                        <?php echo $workInfo[$key1]['remarks'];?>
-                                        <p><a href="#"><?php echo $workInfo[$key1]['annex'];?></a></p>
-
-                                        <div class="d-flex justify-content-between">
-                                            <div>
+                                            <div class="d-flex justify-content-between">
+                                                <div>
                                     <span class="d-flex mb-2">
                                         <i class="material-icons mr-1">flag</i>
                                         <strong class="mr-1">状态:</strong>
                                         <span class="text-danger">未完成</span>
                                     </span>
-                                            </div>
-                                            <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn btn-white">
+                                                </div>
+                                                <div class="btn-group btn-group-sm">
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-success">
                                                  <i class="material-icons">check</i>
                                             </span>
-                                                </button>
-                                                <button type="button" class="btn btn-white">
+                                                    </button>
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-danger">
                                                 <i class="material-icons">clear</i>
                                             </span>
-                                                    <?php if($workInfo[$key1]['need_upload']=='1'): ?>
-                                                </button>
-                                                <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key1]['id']?>)">
+                                                        <?php if ($workInfo[$key1]['need_upload'] == '1'): ?>
+                                                    </button>
+                                                    <button type="button" class="btn btn-white"
+                                                            onclick="upload( <?php echo $workInfo[$key1]['id'] ?>)">
                                             <span class="text">
                                                 <i class="material-icons text-primary">vertical_align_top</i>
                                             </span>上交
-                                                </button>
-                                                <?php endif; ?>
+                                                    </button>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="card-footer text-muted d-flex justify-content-between ">
+                                            <div>Start: <?php echo substr($workInfo[$key1]['start'], 5); ?></div>
+                                            <div>End: <span
+                                                        class="text-success"><?php echo substr($workInfo[$key1]['start'], 5); ?></span>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <div class="card-footer text-muted d-flex justify-content-between ">
-                                        <div>Start: <?php echo substr($workInfo[$key1]['start'],5);?></div>
-                                        <div>End:  <span class="text-success"><?php echo substr($workInfo[$key1]['start'],5);?></span></div>
-
-                                    </div>
-                                </div>
-                            <?php endfor;?>
-                        </div>
+                                <?php endfor; ?>
+                            </div>
 
 
-                        <div class="col-lg-4 col-12">
-                            <?php for($key2=2;$key2<count($workInfo);$key2+=3):?>
-                                <div class="card card-small mb-4">
-                                    <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
-                                        <div class="ml-0">#<?php echo $workInfo[$key2]['id'];?></div>
-                                        <div class="text-primary"><?php echo $workInfo[$key2]['subject'];?></div>
+                            <div class="col-lg-4 col-12">
+                                <?php for ($key2 = 2; $key2 < count($workInfo); $key2 += 3): ?>
+                                    <div class="card card-small mb-4">
+                                        <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                            <div class="ml-0">#<?php echo $workInfo[$key2]['id']; ?></div>
+                                            <div class="text-primary"><?php echo $workInfo[$key2]['subject']; ?></div>
 
-                                    </div>
-                                    <div class="card-body border-bottom ">
-                                        <h5 class="text-dark"><?php echo $workInfo[$key2]['name'];?></h5>
-                                        <?php echo $workInfo[$key2]['remarks'];?>
-                                        <p><a href="#"><?php echo $workInfo[$key2]['annex'];?></a></p>
+                                        </div>
+                                        <div class="card-body border-bottom ">
+                                            <h5 class="text-dark"><?php echo $workInfo[$key2]['name']; ?></h5>
+                                            <?php echo $workInfo[$key2]['remarks']; ?>
+                                            <p><a href="#"><?php echo $workInfo[$key2]['annex']; ?></a></p>
 
-                                        <div class="d-flex justify-content-between">
-                                            <div>
+                                            <div class="d-flex justify-content-between">
+                                                <div>
                                     <span class="d-flex mb-2">
                                         <i class="material-icons mr-1">flag</i>
                                         <strong class="mr-1">状态:</strong>
                                         <span class="text-danger">未完成</span>
                                     </span>
-                                            </div>
-                                            <div class="btn-group btn-group-sm">
-                                                <button type="button" class="btn btn-white">
+                                                </div>
+                                                <div class="btn-group btn-group-sm">
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-success">
                                                  <i class="material-icons">check</i>
                                             </span>
-                                                </button>
-                                                <button type="button" class="btn btn-white">
+                                                    </button>
+                                                    <button type="button" class="btn btn-white">
                                             <span class="text-danger">
                                                 <i class="material-icons">clear</i>
                                             </span>
-                                                </button>
-                                                <?php if($workInfo[$key2]['need_upload']=='1'): ?>
-                                                    <button type="button" class="btn btn-white" onclick="upload( <?php echo $workInfo[$key2]['id']?>)">
+                                                    </button>
+                                                    <?php if ($workInfo[$key2]['need_upload'] == '1'): ?>
+                                                        <button type="button" class="btn btn-white"
+                                                                onclick="upload( <?php echo $workInfo[$key2]['id'] ?>)">
                                             <span class="text">
                                                 <i class="material-icons text-primary">vertical_align_top</i>
                                             </span>上交
-                                                </button>
-                                                <?php endif; ?>
+                                                        </button>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-footer text-muted d-flex justify-content-between ">
-                                        <div>Start: <?php echo substr($workInfo[$key2]['start'],5);?></div>
-                                        <div>End: <span class="text-success"><?php echo substr($workInfo[$key2]['start'],5);?></span></div>
+                                        <div class="card-footer text-muted d-flex justify-content-between ">
+                                            <div>Start: <?php echo substr($workInfo[$key2]['start'], 5); ?></div>
+                                            <div>End: <span
+                                                        class="text-success"><?php echo substr($workInfo[$key2]['start'], 5); ?></span>
+                                            </div>
 
+                                        </div>
                                     </div>
-                                </div>
-                            <?php endfor;?>
-                        </div>
+                                <?php endfor; ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php elseif ($ua == "移动版"): ?>
+                        <?php if (isset($workInfo)): ; ?>
+                            <div class="col-12">
+                                <?php for ($key0 = 0; $key0 < count($workInfo); $key0 += 1): ?>
+                                    <div class="card card-small mb-4">
+                                        <div class="card-header text-muted  border-bottom d-flex justify-content-between ">
+                                            <div class="ml-0">#<?php echo $workInfo[$key0]['id']; ?></div>
+                                            <div class="text-primary"><?php echo $workInfo[$key0]['subject']; ?></div>
+
+                                        </div>
+                                        <div class="card-body border-bottom ">
+                                            <h5 class="text-dark"><?php echo $workInfo[$key0]['name']; ?></h5>
+                                            <?php echo $workInfo[$key0]['remarks']; ?>
+                                            <p><a href="#"><?php echo $workInfo[$key0]['annex']; ?></a></p>
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                    <span class="d-flex mb-2">
+                                        <i class="material-icons mr-1">flag</i>
+                                        <strong class="mr-1">状态:</strong>
+                                        <span class="text-danger">未完成</span>
+                                    </span>
+                                                </div>
+                                                <div class="btn-group btn-group-sm">
+                                                    <button type="button" class="btn btn-white">
+                                            <span class="text-success">
+                                                 <i class="material-icons">check</i>
+                                            </span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-white">
+                                            <span class="text-danger">
+                                                <i class="material-icons">clear</i>
+                                            </span>
+                                                    </button>
+                                                    <?php if ($workInfo[$key0]['need_upload'] == '1'): ?>
+                                                        <button type="button" class="btn btn-white"
+                                                                onclick="upload( <?php echo $workInfo[$key0]['id'] ?>)">
+                                            <span class="text">
+                                                <i class="material-icons text-primary">vertical_align_top</i>
+                                            </span>上交
+                                                        </button>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-muted d-flex justify-content-between ">
+                                            <div>Start: <?php echo substr($workInfo[$key0]['start'], 5); ?></div>
+                                            <div>End: <span
+                                                        class="text-success"><?php echo substr($workInfo[$key0]['end'], 5); ?></span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
 
@@ -281,6 +347,7 @@ $workInfo = $work->needDo(false);
     $(document).ready(function () {
         $("#nav_lift li a").eq(0).attr("class", "nav-link active");
     });
+
     function upload(id) {
         alert(id)
     }

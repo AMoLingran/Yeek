@@ -6,12 +6,16 @@ function my_autoloader($class)
     include 'class/' . $class . '.class.php';
 }
 
+if (preg_match("#Android|iP#", $_SERVER['HTTP_USER_AGENT'])) {
+    $ua = "移动版";
+} else {
+    $ua = "电脑版";
+}
 spl_autoload_register('my_autoloader');
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
-
 
 
 ?>
