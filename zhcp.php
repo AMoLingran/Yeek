@@ -110,6 +110,12 @@ $rootDir = dirname(__FILE__) . "/";
             <li>数据保存到云端，与一客账号（学号）绑定</li>
         </ul>
         <p>不过本人7月应该都是没空的（咕咕咕咕）</p>
+
+        <p>如果你喜欢这个计算器或者想鼓励我继续开发的话，请到我的
+            <a href="https://gitee.com/Moreant/Yeek/tree/dev/">码云</a>
+            /
+            <a href="https://github.com/Moreant/Yeek/tree/dev/">github</a>
+            里给我的网站点个star支持一下。 （里含源码）</p>
     </div>
 </main>
 
