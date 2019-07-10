@@ -4,7 +4,7 @@
 <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link"><?php echo @$ua ?></a>
+            <a class="nav-link"><?php echo @$ua;?></a>
         </li>
         <?php if ($ua=="电脑版"): ?>
             <li>
@@ -12,7 +12,7 @@
             </li>
         <?php endif; ?>
         <li class="nav-item">
-            <a class="nav-link" href="http://yeek.top">Yeek首页</a>
+            <a class="nav-link" href="http://<?php echo $_SERVER['HTTP_HOST']?>">Yeek首页</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="https://gitee.com/Moreant/Yeek">开源</a>

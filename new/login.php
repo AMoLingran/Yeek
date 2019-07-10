@@ -1,6 +1,7 @@
 <?php
 //导入头部
-include_once "myHead.php";
+$rootDir = dirname(__FILE__) . "/";
+include_once $rootDir."myHead.php";
 
 //构造对象
 $db = new DBUtils();
@@ -12,8 +13,9 @@ if (isset($_POST['username'])) {
     $password = sha1($_POST['password']);
     $result = $account->login($username, $password);
     if ($result) {
-        //如果查询有结果就将用户名设置成cookie
-        setcookie('username', $result[0]['username'], time() + 5 * 24 * 3600);
+        setcookie('username', $result[0]['username'],time()+5*24*3600,"/");
+        setcookie('password', $result[0]['password'],time()+5*24*3600,"/");
+        $_SESSION['username']=$result[0]['username'];
         //输出js语句，目的是点击弹窗后跳转到首页
         echo "<script>alert('登录成功');window.location.href='index.php';</script>";
     } else {

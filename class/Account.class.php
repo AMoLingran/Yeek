@@ -35,7 +35,6 @@ class Account
         return $result;
     }
 
-
     /**
      * 注册的方法
      * email可省略

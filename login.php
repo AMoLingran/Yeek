@@ -28,7 +28,7 @@ $rootDir = dirname(__FILE__) . "/";
 <?php include_once $rootDir . "part/nav.php" ?>
 
 <main class="container" style="margin-top: 3%">
-    <form class="col-md-4 ">
+    <form  class="col-md-4 ">
         <p class="display-3 ">登录</p>
 
         <label for="username"></label>

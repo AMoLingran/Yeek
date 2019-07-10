@@ -48,46 +48,46 @@ $rootDir = dirname(__FILE__) . "/";
             <tr key="0" class="row m-0">
                 <td class="col-1">思想素质综合测评（A）</td>
                 <td data-name="base" class="col-1" contenteditable='true'></td>
-                <td data-name="add_item" class="col-3"></td>
+                <td data-name="add_item" class="col-3" contenteditable='true'></td>
                 <td data-name="add_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="weighted" class="col-1"></td>
-                <td data-name="del_item" class="col-2"></td>
+                <td data-name="weighted" class="col-1" contenteditable='true'></td>
+                <td data-name="del_item" class="col-2" contenteditable='true'></td>
                 <td data-name="del_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="sum" class="col-1"></td>
-                <td data-name="remarks" class="col-1"></td>
+                <td data-name="sum" class="col-1" ></td>
+                <td data-name="remarks" class="col-1" contenteditable='true'></td>
             </tr>
             <tr key="1" class="row m-0">
                 <td class="col-1">专业知识技能测评（B）</td>
                 <td data-name="base" class="col-1" contenteditable='true'></td>
-                <td data-name="add_item" class="col-3"></td>
+                <td data-name="add_item" class="col-3" contenteditable='true'></td>
                 <td data-name="add_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="weighted" class="col-1"></td>
-                <td data-name="del_item" class="col-2"></td>
+                <td data-name="weighted" class="col-1" contenteditable='true'></td>
+                <td data-name="del_item" class="col-2" contenteditable='true'></td>
                 <td data-name="del_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="sum" class="col-1"></td>
-                <td data-name="remarks" class="col-1"></td>
+                <td data-name="sum" class="col-1" ></td>
+                <td data-name="remarks" class="col-1" contenteditable='true'></td>
             </tr>
             <tr key="2" class="row m-0">
                 <td class="col-1">文体素质测评（C）</td>
                 <td data-name="base" class="col-1" contenteditable='true'></td>
-                <td data-name="add_item" class="col-3"></td>
+                <td data-name="add_item" class="col-3" contenteditable='true'></td>
                 <td data-name="add_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="weighted" class="col-1"></td>
-                <td data-name="del_item" class="col-2"></td>
+                <td data-name="weighted" class="col-1" contenteditable='true'></td>
+                <td data-name="del_item" class="col-2" contenteditable='true'></td>
                 <td data-name="del_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="sum" class="col-1"></td>
-                <td data-name="remarks" class="col-1"></td>
+                <td data-name="sum" class="col-1" ></td>
+                <td data-name="remarks" class="col-1" contenteditable='true'></td>
             </tr>
             <tr key="3" class="row m-0">
-                <td class="col-1">社会实践素质测评（D）</td>
+                <td class="col-1">社会实践素质·测评（D）</td>
                 <td data-name="base" class="col-1" contenteditable='true'></td>
-                <td data-name="add_item" class="col-3"></td>
+                <td data-name="add_item" class="col-3" contenteditable='true'></td>
                 <td data-name="add_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="weighted" class="col-1"></td>
-                <td data-name="del_item" class="col-2"></td>
+                <td data-name="weighted" class="col-1" contenteditable='true'></td>
+                <td data-name="del_item" class="col-2" contenteditable='true'></td>
                 <td data-name="del_sum" class="col-1" contenteditable='true'></td>
-                <td data-name="sum" class="col-1"></td>
-                <td data-name="remarks" class="col-1"></td>
+                <td data-name="sum" class="col-1" ></td>
+                <td data-name="remarks" class="col-1" contenteditable='true'></td>
             </tr>
             </tbody>
         </table>
