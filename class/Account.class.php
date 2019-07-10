@@ -32,6 +32,11 @@ class Account
         $pdo = $this->pdo;
         $sql = "SELECT * FROM yeek_user WHERE username='$username' AND password='$password'";
         $result = $pdo->myQuery($sql);
+        if($result){
+            setcookie('username', $result[0]['username'],time()+5*24*3600,"/");
+            setcookie('password', $result[0]['password'],time()+5*24*3600,"/");
+            $_SESSION['username']=$result[0]['username'];
+        }
         return $result;
     }
 

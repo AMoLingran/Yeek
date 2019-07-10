@@ -1,4 +1,7 @@
 <?php
+
+include_once "myHead.php";
+
 ?>
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <div class="container">
@@ -22,17 +25,31 @@
                     <a class="nav-link " href="zhcp.php">综合测评计算器 <span class="badge badge-danger">Alpha test</span></a>
                 </li>
             </ul>
-
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">未登录</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="login.php"><i class="material-icons text-success">person</i>登录</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="register.php"><i class="material-icons text-danger">person_add</i>注册</a>
-                    </div>
-                </li>
+                <?php if (isset($_SESSION['username'])): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['username'];?></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href=""><i class="material-icons text-success">person</i>我的</a>
+                            <div class="dropdown-divider"></div>
+                            <a id="logout" class="dropdown-item" onclick="logout()" href="""><i class="material-icons text-danger">person_add</i>退出</a>
+                        </div>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link " href="login.php">登录</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
 </nav>
+
+
+<script>
+    function logout() {
+        $("#logout").load("../function/logout.php");
+        alert("退出成功");
+        window.location.reload();
+    }
+</script>

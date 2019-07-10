@@ -50,12 +50,6 @@ function login($username, $password)
 {
     global $account;
     $result = $account->login($username, $password);
-    if($result){
-        setcookie('username', $result[0]['username'],time()+5*24*3600,"/");
-        setcookie('password', $result[0]['password'],time()+5*24*3600,"/");
-        $_SESSION['username']=$result[0]['username'];
-
-    }
     return json_encode($result);
 }
 
