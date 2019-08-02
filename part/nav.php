@@ -3,7 +3,7 @@
 include_once "myHead.php";
 
 ?>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+<nav class="navbar navbar-expand-sm navbar-light">
     <div class="container">
         <a class="navbar-brand" href="index.php">
             <img src="Yeek.png" alt="logo" style="width:75px;">

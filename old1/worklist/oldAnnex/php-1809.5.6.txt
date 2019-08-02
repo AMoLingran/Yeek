@@ -1,0 +1,46 @@
+<?php
+//包含配置文件
+include_once 'dbcofig.php';
+//准备查询
+$pdoStatment = $pdo->prepare("select * from student where className=:className");
+//执行时，直接传参
+$result = $pdoStatment->execute(array(':className'=>'软件1606'));
+//查询成功
+if($result){
+	//从语句对象中取出所有的查询结果
+	$records = $pdoStatment->fetchAll();
+	//遍历结果集
+	foreach ($records as $row){
+		var_dump($row);
+	}
+}else{
+	echo "查询失败";
+}
+
+//准备语句
+$sth =  $pdo->prepare("INSERT INTO student(id, studentId, name, className, birthday, sex, nation) VALUES (:id, :studentId,:name,:className,:birthday,:sex,:nation)");
+//准备参数
+$data = array(
+		"id"=> null, "studentId"=>'07170802',
+		"name"=>'张四', "className"=>'软件1708',
+		"birthday"=>'1997-1-1', "sex"=>'男',
+		"nation"=>'白族');
+//执行
+$insertResult = $sth->execute($data);
+if($insertResult){
+	//演示如何获取刚刚插入的记录号
+	echo "插入记录的Id".$pdo->lastInsertId();
+}else{
+	echo "插入失败";
+}
+
+try{
+	$sth =  $pdo->prepare("delete from student where studentid=:studentid");
+	$data = array("studentid"=>'07160801');
+	$rowCount = $sth->execute($data);
+	var_dump($rowCount);
+}catch(PDOException $e){
+	echo "错误：".$e->getMessage();
+}
+
+?>

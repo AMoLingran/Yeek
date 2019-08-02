@@ -1,0 +1,39 @@
+<VirtualHost *:443>
+ServerName www.yeek.top
+ServerAlias www.yeek.top yeek.top
+DocumentRoot "/var/www/html"
+SSLEngine on
+SSLProtocol all -SSLv2 -SSLv3
+SSLCipherSuite HIGH:3DES:!aNULL:!MD5:!SEED:!IDEA
+SSLCertificateFile /etc/httpd/cert/www.yeek.top_public.crt
+SSLCertificateKeyFile /etc/httpd/cert/www.yeek.top.key
+SSLCertificateChainFile /etc/httpd/cert/www.yeek.top_chain.crt
+<Directory "/var/www/html">
+Options FollowSymLinks ExecCGI
+AllowOverride All
+Order allow,deny
+Allow from all
+Require all granted
+</Directory>
+</VirtualHost>      
+
+
+
+<VirtualHost *:443>
+ServerName m.yeek.top
+ServerAlias m.yeek.top
+DocumentRoot "/var/www/html"
+SSLEngine on
+SSLProtocol all -SSLv2 -SSLv3
+SSLCipherSuite HIGH:3DES:!aNULL:!MD5:!SEED:!IDEA
+SSLCertificateKeyFile /etc/httpd/cert/m.yeek.top.key
+SSLCertificateChainFile /etc/httpd/cert/m.yeek.top_chain.crt
+SSLCertificateFile /etc/httpd/cert/m.yeek.top_public.crt
+<Directory "/var/www/html">
+Options FollowSymLinks ExecCGI
+AllowOverride All
+Order allow,deny
+Allow from all
+Require all granted
+</Directory>
+</VirtualHost>
