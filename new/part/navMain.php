@@ -1,7 +1,7 @@
 <?php
 include_once "myHead.php";
-if (isset($_COOKIE['username'])) {
-    $navUsername = $_COOKIE['username'];
+if (isset($_SESSION['username'])) {
+    $navUsername = $_SESSION['username'];
 } else {
     $navUsername = "未登录";
 }
@@ -24,7 +24,7 @@ if (isset($_COOKIE['username'])) {
                     <span class="d-none d-md-inline-block"><?php echo $navUsername ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-small">
-                    <?php if (isset($_COOKIE['username'])): ?>
+                    <?php if (isset($_SESSION['username'])): ?>
                         <a class="dropdown-item" href="user-profile-lite.html">
                             <i class="material-icons">&#xE7FD;</i> 个人中心 </a>
                         <a class="dropdown-item" href="components-blog-posts.html">
@@ -62,7 +62,7 @@ if (isset($_COOKIE['username'])) {
 <script>
     function logout() {
         //当点击退出按钮时刷新页面
-        $("#logout").load("function/logout.php");
+        $("#logout").load("../function/logout.php");
         alert("退出成功");
         window.location.reload();
     }

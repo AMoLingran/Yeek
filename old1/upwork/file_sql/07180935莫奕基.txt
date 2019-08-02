@@ -1,0 +1,5 @@
+SELECT work.name,log_upwork_upload.subject,log_upwork_upload.uploader,log_upwork_upload.fileName,log_upwork_upload.date,log_upwork_upload.fileSize FROM work,log_upwork_upload WHERE log_upwork_upload.workId=work.id
+
+
+
+SELECT name,work.subject,uploader,fileName,date,fileSize FROM work,log_upwork_upload WHERE log_upwork_upload.workId=work.id WHERE name LIKE LIKE '%%'
