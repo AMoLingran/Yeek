@@ -86,7 +86,7 @@ if (isset($_POST['update_submit'])) {
 
 <main style="margin: 3% 10% 0">
 
-    <div class="container">
+    <!-- <div class="container">
         <?php if (isset($_GET['msg'])) : ?>
             <?php switch (($_GET['msg'])) : ?>
 <?php case 'delete': ?>
@@ -101,7 +101,7 @@ if (isset($_POST['update_submit'])) {
                     <?php break; ?>
                 <?php endswitch; ?>
         <?php endif; ?>
-    </div>
+    </div> -->
 
 
     <div class="container" id="manage">
