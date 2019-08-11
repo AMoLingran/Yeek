@@ -39,8 +39,6 @@ class DBUtils
      */
     function myQuery($sql, $array = null, $all = true)
     {
-        var_dump($sql);
-
         $pdo = $this->pdo;
         $pdoS = $pdo->prepare($sql);
         $execute = $pdoS->execute($array);

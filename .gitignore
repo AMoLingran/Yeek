@@ -1,5 +1,7 @@
 /zend
+/tp5
 /.idea
+.vscode
 /Download
 /qujixue
 /officeS
@@ -16,3 +18,5 @@ Download/
 /log
 /database/file/*.xlsx
 test.php
+*.xlsx
+*.zip
