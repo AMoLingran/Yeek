@@ -1,0 +1,4 @@
+# robots.txt generated at http://tool.chinaz.com/robots/ 
+Disallow: /file/
+Sitemap: http://yeek.top/index.xml
+Sitemap: http://yeek.top/index.html

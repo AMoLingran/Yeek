@@ -14,6 +14,7 @@ $rootDir = dirname(__FILE__) . "/";
 
 <!DOCTYPE html>
 <html lang="zh">
+<!-- 本页的壁纸基本来自 https://www.vactualpapers.com/  -->
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,6 @@ $rootDir = dirname(__FILE__) . "/";
 
     <link rel="icon" href="/logo.png" sizes="32x32">
     <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="Responsive layout/css/css.css" />
     <link href="styles/icon.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
@@ -31,11 +31,11 @@ $rootDir = dirname(__FILE__) . "/";
 <body style="background-color: #40565c">
     <a href=""></a>
 
-    <div style="background: url('background.jpg') 50% no-repeat; background-size:cover">
+    <div id="background" style="">
         <!--<video  muted autoplay="autoplay" loop="loop" class="container-fluid " src="mn.mp4" style="position: absolute;z-index: -98;padding: 0">-->
         <!--</video>-->
         <div class="navbar-dark">
-            <?php include_once $rootDir . "part/nav.php" ?>
+            <?php include_once  "part/nav.php" ?>
         </div>
         <main>
             <div class="container text-center">
@@ -64,20 +64,26 @@ $rootDir = dirname(__FILE__) . "/";
         <div class="text-secondary">
             <?php include_once $rootDir . "part/footer.php" ?>
         </div>
-        <script>
-            function toZhcp() {
-                window.location.href = "zhcp.php";
-            }
-
-            function toNew() {
-                window.location.href = "new";
-            }
-
-            function toOld() {
-                window.location.href = "old1";
-            }
-        </script>
     </div>
+
+    <script>
+        function random(lower, upper) {
+            return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+        }
+        $("#background").attr("style", "background: url('background/background (" + random(1, 8) + ").jpg') 50% no-repeat; background-size:cover")
+
+        function toZhcp() {
+            window.location.href = "zhcp.php";
+        }
+
+        function toNew() {
+            window.location.href = "new";
+        }
+
+        function toOld() {
+            window.location.href = "old1";
+        }
+    </script>
 </body>
 
 </html>

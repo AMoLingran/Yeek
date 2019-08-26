@@ -57,11 +57,25 @@ $rootDir = dirname(__FILE__) . "/";
             </tbody>
         </table>
     </div>
+    请在下面填写本班ABCD项的最高分，A>20 | B>15 | C>40 | D>50 才会计算奖励分
+    <div id="addMax" class="d-flex justify-content-around">
+        <input item="0" type="number" class="col-2 form-control" placeholder="A项最高分">
+        <input item="1" type="number" class="col-2 form-control" placeholder="B项最高分">
+        <input item="2" type="number" class="col-2 form-control" placeholder="C项最高分">
+        <input item="3" type="number" class="col-2 form-control" placeholder="D项最高分">
+    </div>
+    <br>
     <p>总分（已省略）：<span id="zf"></span></p>
-    <button class="btn btn-primary ml-auto" onclick="resetDate()">重置</button>
+    <div class="d-flex justify-content-around">
+        <button class="btn btn-danger col-md-2 col-12" onclick="resetDate()">重置</button>
+        <button class="btn btn-primary col-md-2 col-12" onclick="output()">输出</button>
+        <button class="btn btn-info col-md-2 col-12" onclick="outputJson()">备份json</button>
+    </div>
 
-    <p>启用奖励分</p>
-
+    <div id="outputJson">
+        <p style="display: none;margin-top: 40px"></p>
+        <button class="btn btn-primary col-md-4 col-12 offset-md-4" onclick="hideJson()" style="display: none">隐藏</button>
+    </div>
     <div>
         <h1 class="mt-5">须知
             <small>Readme</small>
@@ -81,7 +95,7 @@ $rootDir = dirname(__FILE__) . "/";
         <p>不过本人7月应该都是没空的（咕咕咕咕）</p>
 
         <p>如果你喜欢这个计算器或者想鼓励我继续开发的话，请到我的
-            <a href="https://gitee.com/Moreant/Yeek/tree/dev/">码云</a>
+            <a target="_blank" href="https://gitee.com/Moreant/Yeek/tree/dev/">码云</a>
             /
             <a href="https://github.com/Moreant/Yeek/tree/dev/">github</a>
             里给我的网站点个star支持一下。 （里含源码）</p>
@@ -106,14 +120,14 @@ $rootDir = dirname(__FILE__) . "/";
     function getData() {
         if (localStorage.mylist == undefined) {
             $.ajax({
-                type : "post",
-                url :  "viewModel/zhcpModel.php",
-                data :  {
+                type: "post",
+                url: "viewModel/zhcpModel.php",
+                data: {
                     getArr: "",
                     class: "软件1809",
                 },
-                async : false,
-                success : function (data) {
+                async: false,
+                success: function (data) {
                     if (data === "[]") {
                         arr = [
                             {
@@ -126,6 +140,8 @@ $rootDir = dirname(__FILE__) . "/";
                                     },
                                 ],
                                 "addSum": "",
+                                "classAddMax": "",
+                                "itemAddMax": "20",
                                 "weighted": "",
                                 "delItem": [
                                     {
@@ -147,6 +163,8 @@ $rootDir = dirname(__FILE__) . "/";
                                     }
                                 ],
                                 "addSum": "",
+                                "classAddMax": "",
+                                "itemAddMax": "15",
                                 "weighted": "",
                                 "delItem": [
                                     {
@@ -168,6 +186,8 @@ $rootDir = dirname(__FILE__) . "/";
                                     }
                                 ],
                                 "addSum": "",
+                                "classAddMax": "",
+                                "itemAddMax": "40",
                                 "weighted": "",
                                 "delItem": [
                                     {
@@ -193,6 +213,8 @@ $rootDir = dirname(__FILE__) . "/";
                                     }
                                 ],
                                 "addSum": "",
+                                "classAddMax": "",
+                                "itemAddMax": "50",
                                 "weighted": "",
                                 "delItem": [
                                     {
@@ -205,8 +227,8 @@ $rootDir = dirname(__FILE__) . "/";
                                 "remarks": ""
                             },
                             {
-                                "sum": ""
-
+                                "sum": "",
+                                "file": ""
                             },
                         ];
                     } else {
@@ -214,7 +236,6 @@ $rootDir = dirname(__FILE__) . "/";
                     }
                 }
             });
-
         } else {
             arr = JSON.parse(localStorage.mylist);
         }
@@ -270,14 +291,18 @@ $rootDir = dirname(__FILE__) . "/";
                     // '                <td data-name="remarks" class="col-1" contenteditable="true">' + v.remarks + '</td>\n' +
                     '            </tr>'
                 ).insertBefore("tr:last");
+                $("#addMax").children("[item='" + i + "']").val(Number(v.classAddMax));
             }
             showItem(i, "addItem");
             showItem(i, "delItem");
             // sum += Number(v.sum);
+
         });
         $("#zf").text(data[4]['sum']);
         // var sum = (data[0]['sum'] * 0.2) + (data[1]["sum"] * 0.6) + (data[2]["sum"] * 0.1) + (data[3]["sum"] * 0.1);
         // $("#zf").text(Math.round(sum * 10000) / 10000);
+
+
     }
 
     //添加加分项
@@ -319,6 +344,13 @@ $rootDir = dirname(__FILE__) . "/";
 
     });
 
+    //获取加分最高分
+    $("#addMax").on('change', 'input', function () {
+        var item = $(this).attr("item");
+        var num = $(this).val();
+        countWeighted(item, num);
+    });
+
     $('table').on('blur', '[contenteditable="true"]', function () {
         var val = $(this).html();
         var name = $(this).attr('data-name');
@@ -345,13 +377,33 @@ $rootDir = dirname(__FILE__) . "/";
         countSum(item);
     }
 
+    function countWeighted(item, num) {
+        data[item]["classAddMax"] = num;
+        saveData(data);
+        countSum(item);
+    }
 
     function countSum(item) {
-        var itemSum = Number(data[item]["base"]) + Number(data[item]["addSum"]) - Number(data[item]["delSum"]);
+        var addSum = Number(data[item]["addSum"]);
+        var classAddMax = Number(data[item]["classAddMax"]);
+        var itemAddMax = Number(data[item]["itemAddMax"]);
+        //如果班级有超过项目最高加分的，用项目最高加分*本人分数/班级最高分
+        if (classAddMax > itemAddMax) {
+            addSum = itemAddMax * addSum / classAddMax;
+            addSum = Math.round(addSum * 100) / 100;
+            data[item]["weighted"] = addSum;
+            $("[item=" + item + "]").children("[data-name=weighted]").text(addSum);
+        } else {
+            data[item]["weighted"] = 0;
+            $("[item=" + item + "]").children("[data-name=weighted]").text(0);
+        }
+
+        var itemSum = Number(data[item]["base"]) + addSum - Number(data[item]["delSum"]);
         data[item]["itemSum"] = itemSum;
+        itemSum = Math.round(itemSum * 1000) / 1000;
         $("[item=" + item + "]").children("[data-name=itemSum]").text(itemSum);
         var sum = (data[0]['itemSum'] * 0.2) + (data[1]["itemSum"] * 0.6) + (data[2]["itemSum"] * 0.1) + (data[3]["itemSum"] * 0.1);
-        sum = Math.round(sum * 10000) / 10000;
+        sum = Math.round(sum * 1000) / 1000;
         data[4]['sum'] = sum;
         $("#zf").text(sum);
         saveData(data);
@@ -362,6 +414,41 @@ $rootDir = dirname(__FILE__) . "/";
             localStorage.removeItem("mylist");
             window.location.reload();
         }
+    }
+
+
+    function output() {
+        if (data[4]['file'] === "") {
+            $.post("zhcp/output.php",
+                {
+                    json: (localStorage.mylist)
+                },
+                function (datas) {
+                    file = jQuery.parseJSON(datas);
+                    var filename = file.name;
+                    var a = $("<a></a>").attr("href", "zhcp/" + filename).attr("target", "_blank");
+                    data[4]['file'] = filename;
+                    a[0].click();
+                    // alert("数据: \n" +filename);
+                });
+        } else {
+            var filename = data[4]['file'];
+            var a = $("<a></a>").attr("href", "zhcp/" + filename).attr("target", "_blank");
+            a[0].click();
+        }
+
+        // alert("233");
+    }
+
+    function outputJson() {
+        $("#outputJson p").text(JSON.stringify(data));
+        $("#outputJson button").toggle(500);
+        $("#outputJson p").toggle(500);
+    }
+
+    function hideJson() {
+        $("#outputJson button").toggle(500);
+        $("#outputJson p").toggle(500);
     }
 </script>
 </body>
