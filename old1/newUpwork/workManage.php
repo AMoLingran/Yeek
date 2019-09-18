@@ -9,8 +9,8 @@ function my_autoloader($class)
 
 spl_autoload_register('my_autoloader');
 
-$db = new DBUtilsOld();
-$work = new WorkOld($db);
+$db = new DBUtils();
+$work = new Work($db);
 $courseArray = $work->getCourse();
 
 function getWorkInfo($id = "", $name = "", $subject = "", $start = "", $end = "", $need_upload = "")
@@ -86,7 +86,7 @@ if (isset($_POST['update_submit'])) {
 
 <main style="margin: 3% 10% 0">
 
-    <!-- <div class="container">
+    <div class="container">
         <?php if (isset($_GET['msg'])) : ?>
             <?php switch (($_GET['msg'])) : ?>
 <?php case 'delete': ?>
@@ -101,7 +101,7 @@ if (isset($_POST['update_submit'])) {
                     <?php break; ?>
                 <?php endswitch; ?>
         <?php endif; ?>
-    </div> -->
+    </div>
 
 
     <div class="container" id="manage">
@@ -335,9 +335,7 @@ if (isset($_POST['update_submit'])) {
 <script>
 
     function host(msg) {
-        window.location.reload();
         window.location.href = "workManage.php?msg=" + msg;
-
     }
 
     function deleteWork(id) {

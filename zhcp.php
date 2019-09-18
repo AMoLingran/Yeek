@@ -28,7 +28,6 @@ $rootDir = dirname(__FILE__) . "/";
 <?php include_once $rootDir . "part/nav.php" ?>
 <main class="container" style="margin-top:2%">
     <h3 class="">个人综合测评计算器</h3>
-    <p id="status"></p>
     <div class="table-responsive">
         <table class="table table-bordered table-hover text-center " style="min-width: 992px">
             <tbody>
@@ -74,7 +73,8 @@ $rootDir = dirname(__FILE__) . "/";
 
     <div id="outputJson">
         <p style="display: none;margin-top: 40px"></p>
-        <button class="btn btn-primary col-md-4 col-12 offset-md-4" onclick="hideJson()" style="display: none">隐藏</button>
+        <button class="btn btn-primary col-md-4 col-12 offset-md-4" onclick="hideJson()" style="display: none">隐藏
+        </button>
     </div>
     <div>
         <h1 class="mt-5">须知
@@ -93,7 +93,7 @@ $rootDir = dirname(__FILE__) . "/";
             <li>数据保存到云端，与一客账号（学号）绑定</li>
         </ul>
         <p>不过本人7月应该都是没空的（咕咕咕咕）</p>
-
+        <p id="status"></p>可以来看看我新开的<a href="https://moreant.github.io">博客</a>
         <p>如果你喜欢这个计算器或者想鼓励我继续开发的话，请到我的
             <a target="_blank" href="https://gitee.com/Moreant/Yeek/tree/dev/">码云</a>
             /
@@ -418,7 +418,6 @@ $rootDir = dirname(__FILE__) . "/";
 
 
     function output() {
-        if (data[4]['file'] === "") {
             $.post("zhcp/output.php",
                 {
                     json: (localStorage.mylist)
@@ -431,12 +430,6 @@ $rootDir = dirname(__FILE__) . "/";
                     a[0].click();
                     // alert("数据: \n" +filename);
                 });
-        } else {
-            var filename = data[4]['file'];
-            var a = $("<a></a>").attr("href", "zhcp/" + filename).attr("target", "_blank");
-            a[0].click();
-        }
-
         // alert("233");
     }
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="icon" href="../logo.png" sizes="32x32">
+	<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="css/fileinput.min.css" type="text/css" rel="stylesheet">
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/fileinput.min.js"></script>
+	<script src="js/zh.js"></script>
+	<title>上传作业</title>
+</head>
+
+<body>
+	<nav></nav>
+	<div class="container">
+		<br>
+		<br>
+		<div>
+			<p class="h2">科目：<span class="text-info">Swift</span></p>
+			<p class="h4">备注：按布置作业的时间交，正常的playground文件目录如下图。都交压缩包。</p>
+			<img src="example.jpg">
+			<p class="h4">截止时间：<span class="text-danger">9月19日（星期四）</p>
+		</div>
+		<p class="h5">请选择作业布置的时间：</p>
+		<div id="choose" class="">
+			<button index="0" type="button" class="col-lg-3 m-3 col-12 btn btn-secondary">第一次作业（9月6日）</button>
+			<button index="1" type="button" class="col-lg-3 m-3 col-12 btn btn-secondary">第二次作业（9月12日）</button>
+		</div>
+		<br>
+		<input id="file" name="file" type="file" data-theme="fas">
+		<p id="result" class="h3"></p>
+		<br>
+		<div>
+			<p class="h5">当前已上传文件(建议使用 <kbd>Ctrl + F</kbd> 搜索)：</p>
+			<div id="uploaded" >
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<footer></footer>
+
+
+	<script src="js/upload.js"></script>
+</body>
+
+</html>

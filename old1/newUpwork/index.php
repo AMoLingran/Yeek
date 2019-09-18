@@ -24,10 +24,10 @@ $result = $db->myQuery("SELECT a.name,a.id,b.name AS 'subject' FROM upwork_work 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="logo.png" sizes="32x32">
 
-    <link href="bootstrap/css/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
     <link href="bootstrap/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="bootstrap/js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/fileinput.js" type="text/javascript"></script>
     <script src="bootstrap/js/zh.js" type="text/javascript"></script>
 </head>
@@ -37,6 +37,7 @@ $result = $db->myQuery("SELECT a.name,a.id,b.name AS 'subject' FROM upwork_work 
 
 <nav></nav>
 <div class=" container" style="margin-bottom: 20%">
+    <div class="text-center h3 mb-5"><a href="../new">点击进入传说中的模板</a></div>
     <div class=" row">
 
         <div class="col-sm-3">
