@@ -14,7 +14,7 @@ $rootDir = dirname(__FILE__) . "/";
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>个人中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="logo.png" sizes="32x32">
+    <link rel="shortcut icon" href="/favicon.ico" />
 
     <link href="styles/icon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -57,51 +57,7 @@ $rootDir = dirname(__FILE__) . "/";
                     </div>
                 </div>
                 <!-- End Page Header -->
-
-                <!-- Small Stats Blocks -->
-                <div class="row">
-                    <div class="col-lg col-md-6 col-sm-6 mb-4">
-                        <div class="stats-small stats-small--1 card card-small">
-                            <div class="card-body p-0 d-flex">
-                                <div class="d-flex flex-column m-auto">
-                                    <div class="stats-small__data text-center">
-                                        <span class="stats-small__label text-uppercase">访 问</span>
-                                        <h6 class="stats-small__value count my-3">2,390</h6>
-                                    </div>
-                                </div>
-                                <canvas height="120" class="blog-overview-stats-small-1"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-md-6 col-sm-6 mb-4">
-                        <div class="stats-small stats-small--1 card card-small">
-                            <div class="card-body p-0 d-flex">
-                                <div class="d-flex flex-column m-auto">
-                                    <div class="stats-small__data text-center">
-                                        <span class="stats-small__label text-uppercase">作 业</span>
-                                        <h6 class="stats-small__value count my-3">182</h6>
-                                    </div>
-
-                                </div>
-                                <canvas height="120" class="blog-overview-stats-small-2"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-md-4 col-sm-6 mb-4">
-                        <div class="stats-small stats-small--1 card card-small">
-                            <div class="card-body p-0 d-flex">
-                                <div class="d-flex flex-column m-auto">
-                                    <div class="stats-small__data text-center">
-                                        <span class="stats-small__label text-uppercase">文 件</span>
-                                        <h6 class="stats-small__value count my-3">8,147</h6>
-                                    </div>
-                                </div>
-                                <canvas height="120" class="blog-overview-stats-small-3"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Small Stats Blocks -->
+                <p>暂未开放</p>
             </div>
             <!-- Footer -->
             <?php include_once $rootDir . "part/footer.php" ?>

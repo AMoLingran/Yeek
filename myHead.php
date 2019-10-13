@@ -6,9 +6,14 @@ function my_autoloader($class)
     include 'class/' . $class . '.class.php';
 }
 
+function test()
+{
+    $pdo = new PDO('', '', '');
+    $pdo->query("");
+}
+
 spl_autoload_register('my_autoloader');
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
-?>

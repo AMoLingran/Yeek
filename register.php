@@ -18,7 +18,7 @@ $rootDir = dirname(__FILE__) . "/";
     <title>注册</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" href="/logo.png" sizes="32x32">
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="styles/icon.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery.min.js"></script>

@@ -36,7 +36,7 @@
         <li class="nav-item">
             <a class="nav-link " href="fileManage.php">
                 <i class="material-icons">view_module</i>
-                <span>文件管理</span>
+                <span>文件查询</span>
             </a>
         </li>
         <li class="nav-item">

@@ -16,11 +16,10 @@ $rootDir = dirname(__FILE__) . "/";
 <head>
     <meta charset="UTF-8">
     <title>综合测评计算器</title>
-    <link rel="icon" href="/logo.png" sizes="32x32">
+    <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="styles/icon.css" type="text/css" rel="stylesheet">
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
 </head>

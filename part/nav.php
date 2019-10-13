@@ -18,16 +18,6 @@ include_once "myHead.php";
                 <li class="nav-item">
                     <a class="nav-link " href="new">作业管理</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="error.php">错误日志</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="zhcp.php">综合测评计算器</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="work/">临时作业上传 <span class="badge badge-danger">Alpha
-                            test</span></a>
-                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php if (isset($_SESSION['username'])): ?>
@@ -41,7 +31,7 @@ include_once "myHead.php";
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link " href="login.php">登录</a>
+                        <a class="nav-link " href="https://moreant.github.io">博客</a>
                     </li>
                 <?php endif; ?>
             </ul>

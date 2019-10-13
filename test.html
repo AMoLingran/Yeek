@@ -1,12 +1,129 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Test</title>
+    <link rel="stylesheet" href="Yeek.png">
+    <style>
+        .cs{
+            color: #000;
+        }
+    </style>
 </head>
+
 <body>
-    随时刷新
+    <table>
+        <form onsubmit="return mySubmit()" name="form1" action="js10-9do.html">
+            <tr>
+                <td>用户名</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>输入密码</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>再次输入密码</td>
+                <td><input type="password" name="repassword"></td>
+            </tr>
+            <tr>
+                <td>电子邮箱地址</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td><input type="date" name="birthday"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="提交"></td>
+            </tr>
+        </form>
+    </table>
+
+    <script>
+        function mySubmit() {
+            if (checkname() && checkpwd() && checkrepwd() && checkemail() && checkbirthday()) {
+                alert("提交成功");
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkname() {
+            var str = form1.username.value;
+            if (str.length == 0) {
+                alert("用户名不能为空");
+            } else if (str.length > 12 || str.length < 4) {
+                alert("用户名长度需为4-12个字符");
+            } else {
+                return true;
+            }
+            return false;
+        }
+
+        function checkpwd() {
+            var str = form1.password.value;
+            if (str.length == 0) {
+                alert("密码不能为空");
+            } else if (str.length > 12 || str.length < 6) {
+                alert("密码长度需为6-12个字符");
+            } else {
+                return true;
+            }
+            return false;
+
+        }
+
+        function checkrepwd() {
+            var str1 = form1.password.value;
+            var str2 = form1.repassword.value;
+            if (str2.length == 0) {
+                alert("请再次输入密码");
+            } else if (str2 != str1) {
+                alert("两次输入的密码不一致");
+            } else {
+                return true;
+            }
+            return false;
+        }
+
+        function checkemail() {
+            var str = form1.email.value;
+            if (str.length == 0) {
+                alert("电子邮箱不能为空！");
+            } else if (str.indexOf("@", 0) == -1) {
+                alert("电子邮箱必须包括“@”");
+            } else if (str.indexOf(".", 0) == -1) {
+                alert("电子邮箱必须包括“.”");
+            } else {
+                return true;
+            }
+            return false;
+        }
+
+        function checkbirthday() {
+            var d = form1.birthday.value;
+            var date = new Date();
+            var arr = d.split("-");
+            if (str.length == 0) {
+                alert("请输入生日!");
+            } else if (arr.length != 3) {
+                alert("非法，请输入正确生日格式！");
+            } else if (arr[0] < 1900 || arr[0] > date.getFullYear()) {
+                alert("非法，年份需要在1900-今年之间");
+            } else if (arr[1] < 1 || arr[1] > 12) {
+                alert("非法，月份需要在1-12之间");
+            } else if (arr[2] < 1 || arr[2] > 31) {
+                alert("非法，日需要在1-31之间");
+            } else {
+                return true;
+            }
+            return false;
+        }
+    </script>
 </body>
+
 </html>
